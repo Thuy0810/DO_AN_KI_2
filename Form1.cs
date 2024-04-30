@@ -82,69 +82,45 @@ namespace DO_AN_KI_2
         }
 
         bool Menu2Ex = false;
-        private void Menu2_Transitioon_Tick(object sender, EventArgs e)
-        {
-            if (Menu2Ex == false)
-            {
-                Menu2_ConTainer.Height += 10;
-                if (Menu2_ConTainer.Height >= 147)
-                {
-                    Menu2_Transitioon.Stop();
-                    Menu2Ex = true;
-                }
+     
 
-            }
-            else
-            {
-                Menu2_ConTainer.Height -= 10;
-                if (Menu2_ConTainer.Height <= 40)
-                {
-                    Menu2_Transitioon.Stop();
-                    Menu2Ex = false;
-                    Menu2_ConTainer.Height += 10;
-                    
-                }
-            }
-        }
+      
 
-        private void BtnMenu2_Click(object sender, EventArgs e)
-        {
-            Menu2_Transitioon.Start();
-        }
         bool siderBarEx = true;
         private void SiderBar_Transition_Tick(object sender, EventArgs e)
         {
             if(siderBarEx)
             {
                siderBar.Width -= 10;
-                if(siderBar.Width <= 50)
+                if(siderBar.Width <= 65)
                 {
                     siderBarEx=false;
                     SiderBar_Transition.Stop();
 
-                    PnHome.Width = siderBar.Width;
-                    btnBill.Width = siderBar.Width;
-                    PNCategpry.Width = siderBar.Width;
-                    pnCustomer.Width = siderBar.Width;
-                    Menu2_ConTainer.Width = siderBar.Width;
-                    MenuContainer.Width = siderBar.Width;
+                    PnHome.Width = 41;
+                    btnBill.Width =41;
+                    PNCategpry.Width = 41;
+                    pnCustomer.Width = 41;
+                    btnRevenue.Width = 41;
+                    MenuContainer.Width = 42;
+                    Menu1.Width = 38;
                 }
 
             }
             else
             {
                 siderBar.Width += 10;
-                if (siderBar.Width >= 185)
+                if (siderBar.Width >= 190)
                 {
                     siderBarEx = true;
                     SiderBar_Transition.Stop();
-
-                    PnHome.Width = siderBar.Width;
-                    btnBill.Width = siderBar.Width;
-                    PNCategpry.Width = siderBar.Width;
-                    pnCustomer.Width = siderBar.Width;
-                    Menu2_ConTainer.Width = siderBar.Width;
-                    MenuContainer.Width = siderBar.Width;
+                    Menu1.Width = 168;
+                    PnHome.Width = 170;
+                    btnBill.Width = 170;
+                    PNCategpry.Width = 170;
+                    pnCustomer.Width = 170;
+                    btnRevenue.Width = 170;
+                    MenuContainer.Width = 171;
                 }
             }
         }
@@ -152,9 +128,9 @@ namespace DO_AN_KI_2
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             SiderBar_Transition.Start();
-            MenuContainer.Height = 40;
-            Menu2_ConTainer.Height = 40;
-           
+            MenuContainer.Height = 43;
+
+
         }
 
         private void PnHome_Click(object sender, EventArgs e)
@@ -321,7 +297,7 @@ namespace DO_AN_KI_2
         }
         private void Revenue_FormClosed(Object sender, EventArgs e)
         {
-            category = null;
+            revenue = null;
         }
 
         private void btnBill_Click(object sender, EventArgs e)
@@ -346,7 +322,8 @@ namespace DO_AN_KI_2
 
         private void Form1_Load(object sender, EventArgs e)
         {
-          
+                    MenuContainer.Height = 43;
+
             home = new Home();
             home.FormClosed += Home_FormClosed;
             home.MdiParent = this;

@@ -45,6 +45,7 @@
       <HintPath>packages\System.Data.SqlClient.4.8.6\lib\net461\System.Data.SqlClient.dll</HintPath>
     </Reference>
     <Reference Include="System.Design" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Management" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
@@ -83,6 +84,7 @@
     <Compile Include="Customer.Designer.cs">
       <DependentUpon>Customer.cs</DependentUpon>
     </Compile>
+    <Compile Include="defineEnum.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,8 +104,19 @@
       <DependentUpon>Import.cs</DependentUpon>
     </Compile>
     <Compile Include="MdiProperties.cs" />
+    <Compile Include="ProductDetils.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductDetils.Designer.cs">
+      <DependentUpon>ProductDetils.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Revenue.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,6 +134,12 @@
     </Compile>
     <Compile Include="WareHouse.Designer.cs">
       <DependentUpon>WareHouse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="watchProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="watchProduct.Designer.cs">
+      <DependentUpon>watchProduct.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="AllProduct.resx">
       <DependentUpon>AllProduct.cs</DependentUpon>
@@ -143,16 +162,14 @@
     <EmbeddedResource Include="Import.resx">
       <DependentUpon>Import.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ProductDetils.resx">
+      <DependentUpon>ProductDetils.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="Revenue.resx">
       <DependentUpon>Revenue.cs</DependentUpon>
     </EmbeddedResource>
@@ -161,6 +178,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="WareHouse.resx">
       <DependentUpon>WareHouse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="watchProduct.resx">
+      <DependentUpon>watchProduct.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -268,6 +288,75 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Product222.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Home2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pV.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\supp1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ip1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\w2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cu1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cus2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\b5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\b3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\re1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Search1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SearchT.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Details.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Details2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Details21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Details22.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Details11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Details221.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Eye.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Eye1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
