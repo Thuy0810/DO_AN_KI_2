@@ -35,6 +35,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.GnDtP = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,10 +46,7 @@
             this.categoryPP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.active = new System.Windows.Forms.DataGridViewImageColumn();
-            this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.GnDtP)).BeginInit();
             this.guna2Panel1.SuspendLayout();
             this.SuspendLayout();
@@ -64,13 +64,14 @@
             // 
             // GnDtP
             // 
+            this.GnDtP.AllowUserToAddRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.GnDtP.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.GnDtP.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.GnDtP.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Bahnschrift SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Leelawadee UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.InactiveCaption;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -98,6 +99,7 @@
             this.GnDtP.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.GnDtP.Location = new System.Drawing.Point(0, 45);
             this.GnDtP.Name = "GnDtP";
+            this.GnDtP.ReadOnly = true;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -125,7 +127,7 @@
             this.GnDtP.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
             this.GnDtP.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.GnDtP.ThemeStyle.HeaderStyle.Height = 35;
-            this.GnDtP.ThemeStyle.ReadOnly = false;
+            this.GnDtP.ThemeStyle.ReadOnly = true;
             this.GnDtP.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
             this.GnDtP.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.GnDtP.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -133,48 +135,8 @@
             this.GnDtP.ThemeStyle.RowsStyle.Height = 22;
             this.GnDtP.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.GnDtP.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            // 
-            // id
-            // 
-            this.id.HeaderText = "Id";
-            this.id.Name = "id";
-            // 
-            // name
-            // 
-            this.name.HeaderText = "Tên";
-            this.name.Name = "name";
-            // 
-            // quantity
-            // 
-            this.quantity.HeaderText = "Số lượng";
-            this.quantity.Name = "quantity";
-            // 
-            // OPrice
-            // 
-            this.OPrice.HeaderText = "Giá gốc";
-            this.OPrice.Name = "OPrice";
-            // 
-            // price
-            // 
-            this.price.HeaderText = "Giá bán";
-            this.price.Name = "price";
-            // 
-            // categoryPP
-            // 
-            this.categoryPP.HeaderText = "Phân loại";
-            this.categoryPP.Name = "categoryPP";
-            // 
-            // status
-            // 
-            this.status.HeaderText = "Trạng thái";
-            this.status.Name = "status";
-            // 
-            // active
-            // 
-            this.active.HeaderText = "Hành động";
-            this.active.Name = "active";
-            this.active.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.active.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.GnDtP.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GnDtP_CellClick);
+            this.GnDtP.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GnDtP_CellDoubleClick);
             // 
             // guna2Panel1
             // 
@@ -190,23 +152,6 @@
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(896, 632);
             this.guna2Panel1.TabIndex = 3;
-            // 
-            // guna2Button2
-            // 
-            this.guna2Button2.BorderRadius = 5;
-            this.guna2Button2.CustomizableEdges.BottomLeft = false;
-            this.guna2Button2.CustomizableEdges.TopLeft = false;
-            this.guna2Button2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button2.ForeColor = System.Drawing.Color.White;
-            this.guna2Button2.Image = global::DO_AN_KI_2.Properties.Resources.SearchT;
-            this.guna2Button2.Location = new System.Drawing.Point(370, 9);
-            this.guna2Button2.Name = "guna2Button2";
-            this.guna2Button2.Size = new System.Drawing.Size(34, 30);
-            this.guna2Button2.TabIndex = 11;
             // 
             // guna2TextBox1
             // 
@@ -247,6 +192,73 @@
             this.guna2Button1.TabIndex = 9;
             this.guna2Button1.Text = " Thêm";
             this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
+            // 
+            // id
+            // 
+            this.id.HeaderText = "ID";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            // 
+            // name
+            // 
+            this.name.HeaderText = "TÊN";
+            this.name.Name = "name";
+            this.name.ReadOnly = true;
+            // 
+            // quantity
+            // 
+            this.quantity.HeaderText = "SỐ LƯỢNG";
+            this.quantity.Name = "quantity";
+            this.quantity.ReadOnly = true;
+            // 
+            // OPrice
+            // 
+            this.OPrice.HeaderText = "GIÁ GỐC";
+            this.OPrice.Name = "OPrice";
+            this.OPrice.ReadOnly = true;
+            // 
+            // price
+            // 
+            this.price.HeaderText = "GIÁ BÁN";
+            this.price.Name = "price";
+            this.price.ReadOnly = true;
+            // 
+            // categoryPP
+            // 
+            this.categoryPP.HeaderText = "PHÂN LOẠI";
+            this.categoryPP.Name = "categoryPP";
+            this.categoryPP.ReadOnly = true;
+            // 
+            // status
+            // 
+            this.status.HeaderText = "TRẠNG THÁI";
+            this.status.Name = "status";
+            this.status.ReadOnly = true;
+            // 
+            // active
+            // 
+            this.active.HeaderText = "HÀNH ĐỘNG";
+            this.active.Name = "active";
+            this.active.ReadOnly = true;
+            this.active.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.active.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // guna2Button2
+            // 
+            this.guna2Button2.BorderRadius = 5;
+            this.guna2Button2.CustomizableEdges.BottomLeft = false;
+            this.guna2Button2.CustomizableEdges.TopLeft = false;
+            this.guna2Button2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2Button2.ForeColor = System.Drawing.Color.White;
+            this.guna2Button2.Image = global::DO_AN_KI_2.Properties.Resources.SearchT;
+            this.guna2Button2.Location = new System.Drawing.Point(370, 9);
+            this.guna2Button2.Name = "guna2Button2";
+            this.guna2Button2.Size = new System.Drawing.Size(34, 30);
+            this.guna2Button2.TabIndex = 11;
             // 
             // AllProduct
             // 

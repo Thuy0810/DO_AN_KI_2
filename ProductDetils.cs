@@ -1,16 +1,8 @@
-﻿using Guna.UI2.WinForms;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace DO_AN_KI_2
 {
@@ -19,10 +11,9 @@ namespace DO_AN_KI_2
         private string conStr = @"Data Source=.;Initial Catalog=DO_AN_KI2;Integrated Security=True";
         private SqlConnection mySqlConnection;
         private int id;
+        private SqlCommand mySqlCommand;
 
-        public ProductDetils()
-        {
-        }
+
 
         public ProductDetils(int id)
         {
@@ -30,27 +21,81 @@ namespace DO_AN_KI_2
             mySqlConnection = new SqlConnection(conStr);
             mySqlConnection.Open();
             this.id = id;
-
-           
+            addDataCategory();
+            addDatTrademark();
+            addDataSupplier();
         }
 
-       
+        void addDataCategory()
+        {
+            string query = "select * from tblCATEGORY;";
+            using (SqlCommand command = new SqlCommand(query, mySqlConnection))
+            {
+                using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                {
+                    DataSet dataSet = new DataSet();
+                    adapter.Fill(dataSet);
+
+                    // Đặt DataSource của ComboBox bằng DataTable thay vì toàn bộ DataSet
+                    category.DataSource = dataSet.Tables[0]; // Sử dụng chỉ số 0 vì chỉ có một DataTable được trả về từ truy vấn
+
+                    // Đặt ValueMember và DisplayMember cho ComboBox
+                    category.ValueMember = "categoryID"; // Đặt tên của cột chứa giá trị
+                    category.DisplayMember = "name"; // Đặt tên của cột bạn muốn hiển thị
+                }
+            }
+        }
+        void addDataSupplier()
+        {
+            string query = @"select * from tblSUPPLIER ";
+            using (SqlCommand command = new SqlCommand(query, mySqlConnection))
+            {
+                using(SqlDataAdapter adapter = new SqlDataAdapter(command))
+                {
+                    DataSet dataSet = new DataSet();
+                    adapter.Fill(dataSet);
+
+                    supplier.DataSource = dataSet.Tables[0];
+                    supplier.ValueMember = "supplierID";
+                    supplier.DisplayMember = "supplierName";
+                }
+            }
+        }
+
+        void addDatTrademark()
+        {
+            string query = @"select * from tblTRADEMARK ";
+            using(SqlCommand command = new SqlCommand(query, mySqlConnection))
+            {
+                using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                {
+                    DataSet datSet = new DataSet();
+                    adapter.Fill(datSet);
+                    trademark.DataSource = datSet.Tables[0];
+                    trademark.ValueMember = "trademarkID";
+                    trademark.DisplayMember = "nameT";
+                }
+            }
+        }
+
 
         private void ProductDetils_Load(object sender, EventArgs e)
         {
+            setControl(true);
+
 
             //string query = "SELECT p.ProductID, p.nameProduct, p.quantity, p.originPrice, p.price, p.noLimit, c.name, p.status, p.weight, p.description, p.isPhysic, p.img " +
             //      "FROM tblPRODUCT p " +
             //      "INNER JOIN tblCATEGORY c ON p.categoryID = c.categoryID " +
             //      "INNER JOIN tblTRADEMARK t ON p.trademarkID = t.trademarkID " +
-            //      "INNER JOIN tblSUPPLIER s ON p.supplierID = s.supplierID" + 
-            //      "WHERE ProductID = @id";   
-            string query = "SELECT p.ProductID, p.nameProduct, p.quantity, p.originPrice, p.price, p.noLimit, c.name, s.supplierName, t.nameT, p.status, p.weight, p.description, p.isPhysic, p.img " +
+            //      "INNER JOIN tblSUPPLIER s ON p.supplierID = s.supplierID" +
+            //      "WHERE ProductID = @id";
+            string query = "SELECT p.ProductID, p.nameProduct, p.quantity, p.originPrice, p.price, p.noLimit, c.categoryID, s.supplierName, t.trademarkID, s.supplierID, p.status, p.weight, p.description, p.isPhysic, p.img " +
                   "FROM tblPRODUCT p " +
                   "INNER JOIN tblCATEGORY c ON p.categoryID = c.categoryID " +
                   "INNER JOIN tblTRADEMARK t ON p.trademarkID = t.trademarkID " +
-                  "INNER JOIN tblSUPPLIER s ON p.supplierID = s.supplierID " + // Thêm khoảng trắng ở đây
-                  "WHERE ProductID = @id"; // Thêm khoảng trắng ở đây
+                  "INNER JOIN tblSUPPLIER s ON p.supplierID = s.supplierID " +
+                  "WHERE ProductID = @id";
 
 
             using (SqlCommand command = new SqlCommand(query, mySqlConnection))
@@ -71,9 +116,9 @@ namespace DO_AN_KI_2
                         int quantityPro =Convert.ToInt32( reader["quantity"].ToString());
                         int originPricePro = Convert.ToInt32(reader["originPrice"].ToString());
                         int picePro= Convert.ToInt32(reader["price"].ToString());
-                        string categoryName = reader["name"].ToString();
-                        string supplierPro= reader["supplierName"].ToString();
-                        string trademarkPro= reader["nameT"].ToString() ;
+                        string categoryID = reader["categoryID"].ToString();
+                        string supplierID = reader["supplierID"].ToString();
+                        string trademarkID= reader["trademarkID"].ToString() ;
                         decimal weightPro = Convert.ToDecimal(reader["weight"].ToString());
                         string descriptionPro= reader["description"].ToString();
                         // Gán thông tin vào các TextBox trên Form B
@@ -85,14 +130,14 @@ namespace DO_AN_KI_2
                         txtWeight.Text = weightPro.ToString();
                        
                        
-                        category.Items.Add(categoryName);
-                        category.SelectedItem = categoryName;
+                        //category.Items.Add(categoryName);
+                        category.SelectedValue = categoryID;
 
-                        supplier.Items.Add(supplierPro);
-                        supplier.SelectedItem = supplierPro;
+                       
+                        supplier.SelectedValue = supplierID;
 
-                        trademark.Items.Add(trademarkPro);
-                        trademark.SelectedItem = trademarkPro;
+                       
+                        trademark.SelectedValue = trademarkID;
 
                         int active = Convert.ToInt32(reader["status"]);
                         swActive.Checked = (active == 1); // Nếu status là 1 thì bật nút switch, ngược lại tắt
@@ -105,7 +150,52 @@ namespace DO_AN_KI_2
                         // ...
                     }
                 }
+            }
+        }
+        private void setControl(bool status)
+        {
+            txtNameP.ReadOnly= status;
+            txtQuantityP.ReadOnly = status;
+            txtOriginPrice.ReadOnly = status;
+            txtPrice.ReadOnly = status;
+            txtDescription.ReadOnly = status;
+            txtWeight.ReadOnly = status;
+            
+        }
 
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+
+            setControl(false);
+           
+            using (SqlConnection connection = new SqlConnection(conStr))
+            {
+                connection.Open();
+                // Lấy giá trị từ các điều khiển trên giao diện
+
+                string nameProduct = txtNameP.Text;
+                string description = txtDescription.Text;
+
+                // Sử dụng parameterized query để tránh lỗ hổng SQL injection
+                string query = $"UPDATE tblPRODUCT SET nameProduct = @nameProduct, Description = @description , categoryID = @categoryID ,status = @status where ProductID={id}"; // Thay đổi tblCATEGORY thành tên bảng của bạn
+
+                SqlCommand command = new SqlCommand(query, connection);
+
+                var idCategory = category.SelectedValue.ToString();
+                int status = swActive.Checked ? 1 : 0;
+
+
+                // Thêm các tham số và giá trị tương ứng vào câu lệnh SQL
+
+                command.Parameters.AddWithValue("@nameProduct", nameProduct);
+                command.Parameters.AddWithValue("@description", description);
+                command.Parameters.AddWithValue("@categoryID",idCategory); // Đây là giả sử bạn muốn cập nhật dữ liệu của loại sản phẩm nào đó được chọn
+                command.Parameters.AddWithValue("@status", status);
+
+                // Thực thi câu lệnh SQL
+                command.ExecuteNonQuery();
+
+                
             }
         }
 
@@ -122,6 +212,6 @@ namespace DO_AN_KI_2
         //        command.Parameters.AddWithValue("@status", status);
         //        command.ExecuteNonQuery();
         //    }
-       // }
+        // }
     }
 }

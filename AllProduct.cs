@@ -17,12 +17,13 @@ namespace DO_AN_KI_2
     {
         private string conStr = @"Data Source=.;Initial Catalog=DO_AN_KI2;Integrated Security=True";
         private SqlConnection mySqlConnection;
-        
+        private SqlCommand mySqlCommand;
+
 
         public AllProduct()
         {
             InitializeComponent();
-            GnDtP.CellDoubleClick += GnDtP_CellClick;
+
         }
 
         private void AllProduct_Load(object sender, EventArgs e)
@@ -55,7 +56,7 @@ namespace DO_AN_KI_2
                     DataTable dataTable = dataSet.Tables["Products"];
                     foreach (DataRow row in dataTable.Rows)
                     {
-                        int id = Convert.ToInt32(row["ProductID"]);    
+                        int id = Convert.ToInt32(row["ProductID"]);
                         string productName = row["nameProduct"].ToString();
                         int quantity = Convert.ToInt32(row["quantity"]);
                         int originPrice = Convert.ToInt32(row["originPrice"]);
@@ -77,13 +78,25 @@ namespace DO_AN_KI_2
 
             for (int row = 0; row <= GnDtP.Rows.Count - 1; row++)
             {
-                ((DataGridViewImageCell)GnDtP.Rows[row].Cells[7]).Value = Properties.Resources.Eye1;
+                ((DataGridViewImageCell)GnDtP.Rows[row].Cells[7]).Value = Properties.Resources.Delete2;
             }
+
         }
 
-       
 
-        private void GnDtP_CellClick(object sender, DataGridViewCellEventArgs e)
+
+
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+
+
+            ProductDetils Add = new ProductDetils(0);
+            // Display the new form
+            Add.Show();
+        }
+
+        private void GnDtP_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0) // Check if a valid row is clicked
             {
@@ -93,16 +106,29 @@ namespace DO_AN_KI_2
 
                 // Display the new form
                 details.ShowDialog();
+                GnDtP.Rows.Clear();
+                Display();
             }
         }
 
-        private void guna2Button1_Click(object sender, EventArgs e)
+        private void GnDtP_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
-            
-            ProductDetils Add = new ProductDetils(0);
-            // Display the new form
-            Add.Show();
+            if (e.ColumnIndex == 7 && e.RowIndex >= 0)
+            {
+                DialogResult dr;
+                dr = MessageBox.Show("Chắc chắn xóa dòng đang chọn không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dr == DialogResult.No) return;
+                {
+                    int r = GnDtP.CurrentRow.Index;
+                    string productID = GnDtP.Rows[r].Cells[0].Value.ToString();
+                    string query = "Delete from tblPRODUCT where ProductID = " + productID;
+                    mySqlCommand = new SqlCommand(query, mySqlConnection);
+                    mySqlCommand.ExecuteNonQuery();
+                    GnDtP.Rows.Clear();
+                    Display();
+                 
+                }
+            }
         }
     }
 }

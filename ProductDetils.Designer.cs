@@ -30,6 +30,7 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnEdit = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel6 = new Guna.UI2.WinForms.Guna2Panel();
             this.supplier = new Guna.UI2.WinForms.Guna2ComboBox();
@@ -88,6 +89,7 @@
             this.guna2Panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2Panel1.BackColor = System.Drawing.Color.White;
+            this.guna2Panel1.Controls.Add(this.btnEdit);
             this.guna2Panel1.Controls.Add(this.label1);
             this.guna2Panel1.CustomBorderColor = System.Drawing.Color.Silver;
             this.guna2Panel1.CustomBorderThickness = new System.Windows.Forms.Padding(0, 1, 0, 2);
@@ -95,6 +97,25 @@
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(801, 34);
             this.guna2Panel1.TabIndex = 4;
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEdit.BorderRadius = 5;
+            this.btnEdit.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnEdit.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnEdit.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnEdit.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnEdit.FillColor = System.Drawing.Color.Gold;
+            this.btnEdit.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEdit.ForeColor = System.Drawing.Color.Black;
+            this.btnEdit.Location = new System.Drawing.Point(731, 3);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(70, 28);
+            this.btnEdit.TabIndex = 10;
+            this.btnEdit.TabStop = false;
+            this.btnEdit.Text = "Sửa";
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // guna2Panel2
             // 
@@ -140,7 +161,7 @@
             this.supplier.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.supplier.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.supplier.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.supplier.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.supplier.ForeColor = System.Drawing.Color.Black;
             this.supplier.ItemHeight = 20;
             this.supplier.Location = new System.Drawing.Point(102, 145);
             this.supplier.Name = "supplier";
@@ -171,7 +192,7 @@
             this.trademark.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.trademark.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.trademark.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.trademark.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.trademark.ForeColor = System.Drawing.Color.Black;
             this.trademark.ItemHeight = 20;
             this.trademark.Location = new System.Drawing.Point(102, 82);
             this.trademark.Name = "trademark";
@@ -202,7 +223,7 @@
             this.category.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.category.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.category.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.category.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.category.ForeColor = System.Drawing.Color.Black;
             this.category.ItemHeight = 20;
             this.category.Location = new System.Drawing.Point(100, 25);
             this.category.Name = "category";
@@ -277,6 +298,7 @@
             this.txtWeight.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtWeight.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtWeight.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtWeight.ForeColor = System.Drawing.Color.Black;
             this.txtWeight.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtWeight.Location = new System.Drawing.Point(110, 156);
             this.txtWeight.Name = "txtWeight";
@@ -322,6 +344,7 @@
             this.txtDescription.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtDescription.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtDescription.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtDescription.ForeColor = System.Drawing.Color.Black;
             this.txtDescription.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtDescription.Location = new System.Drawing.Point(110, 14);
             this.txtDescription.Multiline = true;
@@ -461,6 +484,7 @@
             this.txtPrice.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtPrice.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtPrice.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtPrice.ForeColor = System.Drawing.Color.Black;
             this.txtPrice.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtPrice.Location = new System.Drawing.Point(110, 155);
             this.txtPrice.Name = "txtPrice";
@@ -484,6 +508,7 @@
             this.txtNameP.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtNameP.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtNameP.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtNameP.ForeColor = System.Drawing.Color.Black;
             this.txtNameP.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtNameP.Location = new System.Drawing.Point(110, 15);
             this.txtNameP.Name = "txtNameP";
@@ -507,6 +532,7 @@
             this.txtOriginPrice.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtOriginPrice.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtOriginPrice.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtOriginPrice.ForeColor = System.Drawing.Color.Black;
             this.txtOriginPrice.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtOriginPrice.Location = new System.Drawing.Point(110, 108);
             this.txtOriginPrice.Name = "txtOriginPrice";
@@ -540,6 +566,7 @@
             this.txtQuantityP.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtQuantityP.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtQuantityP.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtQuantityP.ForeColor = System.Drawing.Color.Black;
             this.txtQuantityP.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtQuantityP.Location = new System.Drawing.Point(110, 61);
             this.txtQuantityP.Name = "txtQuantityP";
@@ -639,5 +666,6 @@
         private Guna.UI2.WinForms.Guna2ToggleSwitch swLimit;
         private Guna.UI2.WinForms.Guna2ToggleSwitch swActive;
         private Guna.UI2.WinForms.Guna2ToggleSwitch swPhysic;
+        private Guna.UI2.WinForms.Guna2Button btnEdit;
     }
 }
