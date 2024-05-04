@@ -12,14 +12,12 @@ namespace DO_AN_KI_2
 {
     public partial class Category : Form
     {
+       
         public Category()
         {
             InitializeComponent();
         }
 
-        private void Category_Load(object sender, EventArgs e)
-        {
-            this.ControlBox = false;
-        }
+       
     }
 }
