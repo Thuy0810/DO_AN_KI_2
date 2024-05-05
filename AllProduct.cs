@@ -88,8 +88,9 @@ namespace DO_AN_KI_2
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-
+            
             ProductDetils Add = new ProductDetils(0,false);
+            
             // Display the new form
             Add.Show();
         }

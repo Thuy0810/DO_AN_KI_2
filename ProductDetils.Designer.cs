@@ -374,7 +374,7 @@
             this.txtDescription.PlaceholderText = "";
             this.txtDescription.SelectedText = "";
             this.txtDescription.Size = new System.Drawing.Size(339, 122);
-            this.txtDescription.TabIndex = 4;
+            this.txtDescription.TabIndex = 5;
             // 
             // guna2Panel4
             // 
@@ -513,7 +513,7 @@
             this.txtPrice.PlaceholderText = "";
             this.txtPrice.SelectedText = "";
             this.txtPrice.Size = new System.Drawing.Size(116, 29);
-            this.txtPrice.TabIndex = 3;
+            this.txtPrice.TabIndex = 4;
             // 
             // txtNameP
             // 

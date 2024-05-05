@@ -14,8 +14,6 @@ namespace DO_AN_KI_2
         private SqlCommand mySqlCommand;
         private bool ModeNew;
 
-
-
         public ProductDetils(int id, bool Modeview)
         {
             InitializeComponent();
@@ -26,8 +24,9 @@ namespace DO_AN_KI_2
             addDatTrademark();
             addDataSupplier();
             btnEdit.Visible = Modeview;
-            btnSave.Visible = !Modeview; 
-        }
+            btnSave.Visible = !Modeview;
+            setControl(Modeview);
+         }
 
         void addDataCategory()
         {
@@ -84,7 +83,7 @@ namespace DO_AN_KI_2
         
         private void ProductDetils_Load(object sender, EventArgs e)
         {
-            setControl(true);
+     
 
 
             //string query = "SELECT p.ProductID, p.nameProduct, p.quantity, p.originPrice, p.price, p.noLimit, c.name, p.status, p.weight, p.description, p.isPhysic, p.img " +
@@ -155,16 +154,14 @@ namespace DO_AN_KI_2
                 }
             }
         }
-        private void setControl(bool status)
+        public  void setControl(bool status)
         {
             txtNameP.ReadOnly = status;
             txtQuantityP.ReadOnly = status;
             txtOriginPrice.ReadOnly = status;
             txtPrice.ReadOnly = status;
             txtDescription.ReadOnly = status;
-            txtWeight.ReadOnly = status;
-           
-
+            txtWeight.ReadOnly = status;  
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
