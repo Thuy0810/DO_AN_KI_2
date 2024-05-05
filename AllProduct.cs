@@ -19,7 +19,6 @@ namespace DO_AN_KI_2
         private SqlConnection mySqlConnection;
         private SqlCommand mySqlCommand;
 
-
         public AllProduct()
         {
             InitializeComponent();
@@ -90,19 +89,19 @@ namespace DO_AN_KI_2
         private void guna2Button1_Click(object sender, EventArgs e)
         {
 
-
-            ProductDetils Add = new ProductDetils(0);
+            ProductDetils Add = new ProductDetils(0,false);
             // Display the new form
             Add.Show();
         }
 
         private void GnDtP_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            GnDtP.ReadOnly = true;
             if (e.RowIndex >= 0) // Check if a valid row is clicked
             {
                 string id = GnDtP.Rows[e.RowIndex].Cells[0].Value.ToString();
 
-                ProductDetils details = new ProductDetils(Convert.ToInt32(id));
+                ProductDetils details = new ProductDetils(Convert.ToInt32(id),true);
 
                 // Display the new form
                 details.ShowDialog();
@@ -115,6 +114,7 @@ namespace DO_AN_KI_2
         {
             if (e.ColumnIndex == 7 && e.RowIndex >= 0)
             {
+                
                 DialogResult dr;
                 dr = MessageBox.Show("Chắc chắn xóa dòng đang chọn không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dr == DialogResult.No) return;
@@ -129,6 +129,19 @@ namespace DO_AN_KI_2
                  
                 }
             }
+        }
+
+        private void GnDtP_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex ==7 && e.RowIndex >= 0) // Đảm bảo chỉ xử lý khi di chuột vào ô dữ liệu, không phải tiêu đề cột hoặc hàng
+            {
+                GnDtP.Cursor = Cursors.Hand; // Thiết lập con trỏ chuột thành hình bàn tay
+            }
+        }
+
+        private void GnDtP_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
+        {
+            GnDtP.Cursor = Cursors.Default;
         }
     }
 }
