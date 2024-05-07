@@ -2,6 +2,8 @@
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
+using System.Security.Cryptography;
 using System.Windows.Forms;
 
 namespace DO_AN_KI_2
@@ -12,23 +14,26 @@ namespace DO_AN_KI_2
         private SqlConnection mySqlConnection;
         private int id;
         private SqlCommand mySqlCommand;
-        private bool ModeNew;
-
+        private bool Modeview;
+        private bool EditMode;
+        private string linkImage { get; set; }
         public ProductDetils(int id, bool Modeview)
         {
             InitializeComponent();
             mySqlConnection = new SqlConnection(conStr);
             mySqlConnection.Open();
             this.id = id;
-            addDataCategory();
-            addDatTrademark();
-            addDataSupplier();
+            showDataCategory();
+            showDatTrademark();
+            showDataSupplier();
             btnEdit.Visible = Modeview;
             btnSave.Visible = !Modeview;
             setControl(Modeview);
+            this.Modeview = Modeview;
+            this.EditMode = !Modeview;
          }
 
-        void addDataCategory()
+        void showDataCategory()
         {
             string query = "select * from tblCATEGORY;";
             using (SqlCommand command = new SqlCommand(query, mySqlConnection))
@@ -47,7 +52,7 @@ namespace DO_AN_KI_2
                 }
             }
         }
-        void addDataSupplier()
+        void showDataSupplier()
         {
             string query = @"select * from tblSUPPLIER ";
             using (SqlCommand command = new SqlCommand(query, mySqlConnection))
@@ -64,7 +69,7 @@ namespace DO_AN_KI_2
             }
         }
 
-        void addDatTrademark()
+        void showDatTrademark()
         {
             string query = @"select * from tblTRADEMARK ";
             using (SqlCommand command = new SqlCommand(query, mySqlConnection))
@@ -83,8 +88,10 @@ namespace DO_AN_KI_2
         
         private void ProductDetils_Load(object sender, EventArgs e)
         {
-     
 
+            if (Modeview)
+            {
+                
 
             //string query = "SELECT p.ProductID, p.nameProduct, p.quantity, p.originPrice, p.price, p.noLimit, c.name, p.status, p.weight, p.description, p.isPhysic, p.img " +
             //      "FROM tblPRODUCT p " +
@@ -123,8 +130,21 @@ namespace DO_AN_KI_2
                         string trademarkID = reader["trademarkID"].ToString();
                         decimal weightPro = Convert.ToDecimal(reader["weight"].ToString());
                         string descriptionPro = reader["description"].ToString();
-                        // Gán thông tin vào các TextBox trên Form B
-                        txtNameP.Text = namePro;
+                        string pathDbimage = reader["img"].ToString();
+                            // Gán thông tin vào các TextBox trên Form B
+                            try
+                            {
+                                if (pathDbimage != null && pathDbimage != string.Empty)
+                                {
+                                    boxPicture.Image = new Bitmap($@"{Directory.GetCurrentDirectory()}\{pathDbimage}");
+                                }
+                            }
+                            catch
+                            {
+
+                            }
+                           
+                            txtNameP.Text = namePro;
                         txtQuantityP.Text = quantityPro.ToString();
                         txtOriginPrice.Text = originPricePro.ToString();
                         txtPrice.Text = picePro.ToString();
@@ -142,16 +162,18 @@ namespace DO_AN_KI_2
                         trademark.SelectedValue = trademarkID;
 
                         int active = Convert.ToInt32(reader["status"]);
-                        swActive.Checked = (active == 1); // Nếu status là 1 thì bật nút switch, ngược lại tắt
+                         swActive.Checked = (active == 1); // Nếu status là 1 thì bật nút switch, ngược lại tắt
 
                         int physic = Convert.ToInt32(reader["isPhysic"]);
                         swPhysic.Checked = (physic == 1);
 
                         int limit = Convert.ToInt32(reader["noLimit"]);
                         swLimit.Checked = (limit == 1);
-                        // ...
+
+                            // ...
+                        }
                     }
-                }
+            }
             }
         }
         public  void setControl(bool status)
@@ -161,20 +183,18 @@ namespace DO_AN_KI_2
             txtOriginPrice.ReadOnly = status;
             txtPrice.ReadOnly = status;
             txtDescription.ReadOnly = status;
-            txtWeight.ReadOnly = status;  
+            txtWeight.ReadOnly = status;
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
             btnSave.Visible = true;
             setControl(false);
-
-
+            EditMode = true;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-           
             if (txtNameP.Text.Trim().Length == 0)
             {
                 MessageBox.Show("Tên sản phẩm không được để trống", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -186,6 +206,7 @@ namespace DO_AN_KI_2
             {
                 MessageBox.Show("Tên sản phẩm nhập quá dài (<=50 kí tự)", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtNameP.Focus();
+                return;
             }
 
              if (txtDescription.Text.Trim().Length > 200)
@@ -194,8 +215,32 @@ namespace DO_AN_KI_2
                     txtDescription.Focus();
                     return;
                 }
-          
-            try
+          if(txtQuantityP.Text.Trim().Length ==0)
+            {
+                MessageBox.Show("Số lượng không được để trống", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtQuantityP.Focus();
+                return;
+            }
+          if(txtOriginPrice.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Giá gốc không được để trống", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }    
+          if(txtPrice.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Giá bán không được để trống", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }    
+          if(boxPicture==null)
+            {
+                MessageBox.Show("Hình ảnh không được để trống","Thông báo",MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            
+            if (Modeview)
+            {
+                
+                try
                 {
                     using (SqlConnection connection = new SqlConnection(conStr))
                     {
@@ -219,7 +264,7 @@ namespace DO_AN_KI_2
                         int price;
                         int.TryParse(txtPrice.Text, out price);
                         // Sử dụng parameterized query để tránh lỗ hổng SQL injection
-                            string query = $"UPDATE tblPRODUCT SET nameProduct = @nameProduct, isPhysic={isPhysic1}, originPrice={originPrice}, price={price}, noLimit={noLimit}, description=@description, categoryID=@categoryID, trademarkID=@trademarkID, status=@status, supplierID= @supplierID, weight=@weight where ProductID={id}"; // Thay đổi tblCATEGORY thành tên bảng của bạn
+                        string query = $"UPDATE tblPRODUCT SET nameProduct = @nameProduct, isPhysic=@isPhysic, originPrice=@originPrice, price=@price, noLimit=@noLimit, description=@description, categoryID=@categoryID, trademarkID=@trademarkID, status=@status, supplierID= @supplierID, weight=@weight where ProductID={id}"; // Thay đổi tblCATEGORY thành tên bảng của bạn
 
                         SqlCommand command = new SqlCommand(query, connection);
 
@@ -238,7 +283,7 @@ namespace DO_AN_KI_2
                         command.Parameters.AddWithValue("@originPrice", originPrice);
                         command.Parameters.AddWithValue("@price", price);
 
-                        
+
 
                         // Thực thi câu lệnh SQL
                         command.ExecuteNonQuery();
@@ -251,20 +296,95 @@ namespace DO_AN_KI_2
                     MessageBox.Show($"Không thể lưu thay đổi: {ex}", "Error ", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+            else
+            {
+                //them moi san pham
+                try
+                {
+                    using (SqlConnection connection = new SqlConnection(conStr))
+                    {
+                        connection.Open();
 
+                        string linkImageSaveToDb = $@"upload\{Path.GetFileName(linkImage)}";
 
-            //private void swActive_CheckedChanged(object sender, EventArgs e)
-            //{
-            //        int status= swActive.Checked ? 1 : 0;
-            //    // Cập nhật giá trị status vào cơ sở dữ liệu
-            //    using (SqlConnection connection = new SqlConnection(conStr))
-            //    {
-            //        connection.Open();
-            //        string query = "UPDATE tblPRODUCT SET status = @status"; // Thay đổi tblCATEGORY thành tên bảng của bạn
-            //        SqlCommand command = new SqlCommand(query, connection);
-            //        command.Parameters.AddWithValue("@status", status);
-            //        command.ExecuteNonQuery();
-            //    }
-            // }
+                        string queryInsert = "  INSERT INTO tblPRODUCT(nameProduct, img, quantity, originPrice, price, description, noLimit, categoryID, trademarkID, isPhysic, weight, status, supplierID) VALUES (@nameProduct, @img, @quantity, @originPrice, @price, @description, @noLimit, @categoryID, @trademarkID, @isPhysic, @weight, @status, @supplierID)";
+                        SqlCommand command = new SqlCommand(queryInsert, connection);
+
+                        command.Parameters.AddWithValue("@nameProduct", txtNameP.Text);
+                        command.Parameters.AddWithValue("@img", linkImageSaveToDb);
+                        command.Parameters.AddWithValue("@quantity", txtQuantityP.Text);
+                        command.Parameters.AddWithValue("@originPrice", txtOriginPrice.Text);
+                        command.Parameters.AddWithValue("@price", txtPrice.Text);
+                        command.Parameters.AddWithValue("@description", txtDescription.Text);
+                        command.Parameters.AddWithValue("@noLimit", swLimit.Checked);
+                        command.Parameters.AddWithValue("@categoryID", category.SelectedValue);
+                        command.Parameters.AddWithValue("@trademarkID", trademark.SelectedValue);
+                        command.Parameters.AddWithValue("@isPhysic", swPhysic.Checked);
+                        command.Parameters.AddWithValue("@weight",txtWeight.Text);
+                        command.Parameters.AddWithValue("@status", swActive.Checked);
+                        command.Parameters.AddWithValue("@supplierID", supplier.SelectedValue);
+
+                        string currentPath = Directory.GetCurrentDirectory() + "\\upload";
+                        if (!File.Exists(currentPath))
+                        {
+                            Directory.CreateDirectory(currentPath);
+                        }
+                        string newPathImage = $@"{currentPath}\{Path.GetFileName(linkImage)}";
+                        if (File.Exists(newPathImage))
+                        {
+                            File.Delete(newPathImage);
+                        }
+                        File.Copy(linkImage, newPathImage);
+                        command.ExecuteNonQuery();
+                        this.Close();
+                    }
+                }
+                catch(SqlException ex)
+                {
+                    MessageBox.Show($"Có lỗi khi lưu sản phẩm:+{ex} ","Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Information);
+
+                }
+               
+            }
+            
         }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+            if (EditMode)
+            {
+                OpenFileDialog ofd = new OpenFileDialog();
+                ofd.Filter = "image|*.png;*jpg;*.jpeg";
+                ofd.Multiselect = false;
+                ofd.Title = "Chon hinh anh";
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    linkImage = ofd.FileName;
+                    boxPicture.Image = new Bitmap(linkImage);
+                }
+            }
+            
+        }
+      
+
+
+
+
+
+
+        //private void swActive_CheckedChanged(object sender, EventArgs e)
+        //{
+        //    int status = swActive.Checked ? 1 : 0;
+        //     Cập nhật giá trị status vào cơ sở dữ liệu
+        //    using (SqlConnection connection = new SqlConnection(conStr))
+        //    {
+        //        connection.Open();
+        //        string query = "UPDATE tblPRODUCT SET status = @status"; // Thay đổi tblCATEGORY thành tên bảng của bạn
+        //        SqlCommand command = new SqlCommand(query, connection);
+        //        command.Parameters.AddWithValue("@status", status);
+        //        command.ExecuteNonQuery();
+        //    }
+        //}
+
+    }
 }

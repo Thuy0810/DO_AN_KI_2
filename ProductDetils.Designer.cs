@@ -110,7 +110,7 @@
             this.btnEdit.FillColor = System.Drawing.Color.Gold;
             this.btnEdit.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEdit.ForeColor = System.Drawing.Color.Black;
-            this.btnEdit.Location = new System.Drawing.Point(731, 3);
+            this.btnEdit.Location = new System.Drawing.Point(712, 6);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(70, 28);
             this.btnEdit.TabIndex = 10;
@@ -147,8 +147,8 @@
             this.btnSave.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnSave.FillColor = System.Drawing.Color.RoyalBlue;
             this.btnSave.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.ForeColor = System.Drawing.Color.Black;
-            this.btnSave.Location = new System.Drawing.Point(671, 465);
+            this.btnSave.ForeColor = System.Drawing.Color.White;
+            this.btnSave.Location = new System.Drawing.Point(712, 465);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(70, 28);
             this.btnSave.TabIndex = 11;
@@ -400,6 +400,7 @@
             this.label4.Size = new System.Drawing.Size(55, 12);
             this.label4.TabIndex = 4;
             this.label4.Text = "THAY ĐỔI";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // boxPicture
             // 
@@ -412,6 +413,7 @@
             this.boxPicture.Location = new System.Drawing.Point(17, 14);
             this.boxPicture.Name = "boxPicture";
             this.boxPicture.Size = new System.Drawing.Size(208, 164);
+            this.boxPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.boxPicture.TabIndex = 6;
             this.boxPicture.TabStop = false;
             // 
@@ -635,6 +637,7 @@
             this.Controls.Add(this.guna2Panel2);
             this.Controls.Add(this.guna2Panel1);
             this.Name = "ProductDetils";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ProductDetils";
             this.Load += new System.EventHandler(this.ProductDetils_Load);
             this.guna2Panel1.ResumeLayout(false);

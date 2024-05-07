@@ -18,6 +18,7 @@ namespace DO_AN_KI_2
         private string conStr = @"Data Source=.;Initial Catalog=DO_AN_KI2;Integrated Security=True";
         private SqlConnection mySqlConnection;
         private SqlCommand mySqlCommand;
+        SqlDataAdapter adapter;
 
         public AllProduct()
         {
@@ -37,6 +38,7 @@ namespace DO_AN_KI_2
 
         private void Display()
         {
+
             string query = "SELECT p.ProductID, p.nameProduct, p.quantity, p.originPrice, p.price, p.noLimit, c.name, c.categoryID, t.trademarkID, p.status, p.supplierID, p.weight, p.description, p.isPhysic, p.img " +
               "FROM tblPRODUCT p " +
               "INNER JOIN tblCATEGORY c ON p.categoryID = c.categoryID " +
@@ -53,6 +55,8 @@ namespace DO_AN_KI_2
                     DataSet dataSet = new DataSet();
                     adapter.Fill(dataSet, "Products");
                     DataTable dataTable = dataSet.Tables["Products"];
+                    GnDtP.Rows.Clear();
+
                     foreach (DataRow row in dataTable.Rows)
                     {
                         int id = Convert.ToInt32(row["ProductID"]);
@@ -92,7 +96,8 @@ namespace DO_AN_KI_2
             ProductDetils Add = new ProductDetils(0,false);
             
             // Display the new form
-            Add.Show();
+            Add.ShowDialog();
+            Display();
         }
 
         private void GnDtP_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -106,7 +111,6 @@ namespace DO_AN_KI_2
 
                 // Display the new form
                 details.ShowDialog();
-                GnDtP.Rows.Clear();
                 Display();
             }
         }
@@ -143,6 +147,56 @@ namespace DO_AN_KI_2
         private void GnDtP_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
         {
             GnDtP.Cursor = Cursors.Default;
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            if (txtSearch.Text !=string.Empty)
+            {
+                
+            using (SqlConnection connection=new SqlConnection(conStr))
+            {
+                connection.Open();
+                    string query = "SELECT p.ProductID, p.nameProduct, p.quantity, p.originPrice, p.price, p.noLimit, c.name, c.categoryID, t.trademarkID, p.status, p.supplierID, p.weight, p.description, p.isPhysic, p.img " +
+                  "FROM tblPRODUCT p " +
+                  "INNER JOIN tblCATEGORY c ON p.categoryID = c.categoryID " +
+                  "INNER JOIN tblTRADEMARK t ON p.trademarkID = t.trademarkID " +
+                  "INNER JOIN tblSUPPLIER s ON p.supplierID = s.supplierID where nameProduct like N'%" + txtSearch.Text.Trim('\'') + "%'";
+
+                    using (SqlCommand command = new SqlCommand(query, mySqlConnection))
+                {
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                    {
+                        DataSet dataSet = new DataSet();
+                        adapter.Fill(dataSet, "Products");
+                        DataTable dataTable = dataSet.Tables["Products"];
+                        GnDtP.Rows.Clear();
+
+                        foreach (DataRow row in dataTable.Rows)
+                        {
+                            int id = Convert.ToInt32(row["ProductID"]);
+                            string productName = row["nameProduct"].ToString();
+                            int quantity = Convert.ToInt32(row["quantity"]);
+                            int originPrice = Convert.ToInt32(row["originPrice"]);
+                            int price = Convert.ToInt32(row["price"]);
+                            int noLimit = Convert.ToInt32(row["noLimit"]);
+                            string display = (noLimit == 1) ? "Không giới hạn " : quantity.ToString();
+                            string nameCategory = row["name"].ToString();
+                            int status = Convert.ToInt32(row["status"]);
+                            string dispStatus = (status == 1) ? "Hoạt động" : "Không hoạt động ";
+                            foreach (DataGridViewColumn column in GnDtP.Columns)
+                            {
+                                column.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                            }
+                            Console.WriteLine($"Name: {productName}, Price: {price}");
+                            GnDtP.Rows.Add(id, productName, display, originPrice, price, nameCategory, dispStatus);
+                        }
+                    }
+                }
+
+            }
+            }
+
         }
     }
 }
