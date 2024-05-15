@@ -44,6 +44,7 @@
             this.btnBill = new Guna.UI2.WinForms.Guna2Button();
             this.PNCategpry = new Guna.UI2.WinForms.Guna2Button();
             this.pnCustomer = new Guna.UI2.WinForms.Guna2Button();
+            this.btnUser = new Guna.UI2.WinForms.Guna2Button();
             this.btnRevenue = new Guna.UI2.WinForms.Guna2Button();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
@@ -82,9 +83,9 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(103, 9);
+            this.label1.Location = new System.Drawing.Point(103, 4);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(699, 47);
+            this.label1.Size = new System.Drawing.Size(762, 47);
             this.label1.TabIndex = 0;
             this.label1.Text = "    HỆ THỐNG QUẢN LÝ KHO VÀ BÁN  HÀNG";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -98,6 +99,7 @@
             this.siderBar.Controls.Add(this.btnBill);
             this.siderBar.Controls.Add(this.PNCategpry);
             this.siderBar.Controls.Add(this.pnCustomer);
+            this.siderBar.Controls.Add(this.btnUser);
             this.siderBar.Controls.Add(this.btnRevenue);
             this.siderBar.CustomBorderColor = System.Drawing.Color.Gray;
             this.siderBar.CustomBorderThickness = new System.Windows.Forms.Padding(3, 0, 3, 3);
@@ -205,7 +207,7 @@
             this.guna2Button3.ImageOffset = new System.Drawing.Point(15, 0);
             this.guna2Button3.Location = new System.Drawing.Point(3, 48);
             this.guna2Button3.Name = "guna2Button3";
-            this.guna2Button3.Size = new System.Drawing.Size(172, 39);
+            this.guna2Button3.Size = new System.Drawing.Size(166, 39);
             this.guna2Button3.TabIndex = 4;
             this.guna2Button3.Text = "   Tất cả SP";
             this.guna2Button3.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -229,7 +231,7 @@
             this.guna2Button4.ImageOffset = new System.Drawing.Point(15, 0);
             this.guna2Button4.Location = new System.Drawing.Point(3, 93);
             this.guna2Button4.Name = "guna2Button4";
-            this.guna2Button4.Size = new System.Drawing.Size(172, 38);
+            this.guna2Button4.Size = new System.Drawing.Size(166, 38);
             this.guna2Button4.TabIndex = 4;
             this.guna2Button4.Text = "   Nhà Cung Cấp";
             this.guna2Button4.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -253,7 +255,7 @@
             this.guna2Button2.ImageOffset = new System.Drawing.Point(15, 0);
             this.guna2Button2.Location = new System.Drawing.Point(3, 137);
             this.guna2Button2.Name = "guna2Button2";
-            this.guna2Button2.Size = new System.Drawing.Size(172, 39);
+            this.guna2Button2.Size = new System.Drawing.Size(166, 39);
             this.guna2Button2.TabIndex = 4;
             this.guna2Button2.Text = "   Nhập Hàng";
             this.guna2Button2.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -277,7 +279,7 @@
             this.guna2Button5.ImageOffset = new System.Drawing.Point(15, 0);
             this.guna2Button5.Location = new System.Drawing.Point(3, 182);
             this.guna2Button5.Name = "guna2Button5";
-            this.guna2Button5.Size = new System.Drawing.Size(172, 39);
+            this.guna2Button5.Size = new System.Drawing.Size(166, 39);
             this.guna2Button5.TabIndex = 4;
             this.guna2Button5.Text = "   Kho Hàng";
             this.guna2Button5.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -356,6 +358,30 @@
             this.pnCustomer.Text = "Khách Hàng";
             this.pnCustomer.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.pnCustomer.Click += new System.EventHandler(this.pnCustomer_Click);
+            // 
+            // btnUser
+            // 
+            this.btnUser.BackColor = System.Drawing.Color.White;
+            this.btnUser.BorderRadius = 5;
+            this.btnUser.CustomBorderColor = System.Drawing.Color.Gainsboro;
+            this.btnUser.CustomBorderThickness = new System.Windows.Forms.Padding(1);
+            this.btnUser.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnUser.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnUser.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnUser.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnUser.FillColor = System.Drawing.Color.White;
+            this.btnUser.Font = new System.Drawing.Font("HoloLens MDL2 Assets", 12F, System.Drawing.FontStyle.Bold);
+            this.btnUser.ForeColor = System.Drawing.SystemColors.MenuText;
+            this.btnUser.Image = global::DO_AN_KI_2.Properties.Resources.Male_User;
+            this.btnUser.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnUser.Location = new System.Drawing.Point(10, 306);
+            this.btnUser.Name = "btnUser";
+            this.btnUser.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnUser.Size = new System.Drawing.Size(168, 42);
+            this.btnUser.TabIndex = 4;
+            this.btnUser.Text = "Người Dùng";
+            this.btnUser.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnUser.Click += new System.EventHandler(this.btnUser_Click);
             // 
             // btnRevenue
             // 
@@ -479,6 +505,7 @@
         private Guna.UI2.WinForms.Guna2Button btnBill;
         private Guna.UI2.WinForms.Guna2Button guna2Button5;
         private Guna.UI2.WinForms.Guna2Button btnRevenue;
+        private Guna.UI2.WinForms.Guna2Button btnUser;
     }
 }
 

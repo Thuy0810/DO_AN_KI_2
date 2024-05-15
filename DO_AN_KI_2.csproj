@@ -87,7 +87,6 @@
       <DependentUpon>Customer.cs</DependentUpon>
     </Compile>
     <Compile Include="DataServices.cs" />
-    <Compile Include="DataSevices.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,6 +131,18 @@
     </Compile>
     <Compile Include="Supplier.Designer.cs">
       <DependentUpon>Supplier.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TblUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TblUsers.Designer.cs">
+      <DependentUpon>TblUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User.Designer.cs">
+      <DependentUpon>User.cs</DependentUpon>
     </Compile>
     <Compile Include="WareHouse.cs">
       <SubType>Form</SubType>
@@ -179,6 +190,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Supplier.resx">
       <DependentUpon>Supplier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TblUsers.resx">
+      <DependentUpon>TblUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User.resx">
+      <DependentUpon>User.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WareHouse.resx">
       <DependentUpon>WareHouse.cs</DependentUpon>
@@ -367,6 +384,27 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="service\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Male User.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\A USER.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\USER.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AName.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\USER1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Details23.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\allProduct.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

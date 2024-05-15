@@ -10,18 +10,16 @@ namespace DO_AN_KI_2
 {
     public partial class ProductDetils : Form
     {
-        private string conStr = @"Data Source=.;Initial Catalog=DO_AN_KI2;Integrated Security=True";
-        private SqlConnection mySqlConnection;
+        
         private int id;
-        private SqlCommand mySqlCommand;
+       DataServices dataServices= new DataServices();
         private bool Modeview;
         private bool EditMode;
         private string linkImage { get; set; }
         public ProductDetils(int id, bool Modeview)
         {
             InitializeComponent();
-            mySqlConnection = new SqlConnection(conStr);
-            mySqlConnection.Open();
+            dataServices.OpenDB();
             this.id = id;
             showDataCategory();
             showDatTrademark();
@@ -36,7 +34,7 @@ namespace DO_AN_KI_2
         void showDataCategory()
         {
             string query = "select * from tblCATEGORY;";
-            using (SqlCommand command = new SqlCommand(query, mySqlConnection))
+            using (SqlCommand command = new SqlCommand(query, dataServices.connection))
             {
                 using (SqlDataAdapter adapter = new SqlDataAdapter(command))
                 {
@@ -55,7 +53,7 @@ namespace DO_AN_KI_2
         void showDataSupplier()
         {
             string query = @"select * from tblSUPPLIER ";
-            using (SqlCommand command = new SqlCommand(query, mySqlConnection))
+            using (SqlCommand command = new SqlCommand(query, dataServices.connection))
             {
                 using (SqlDataAdapter adapter = new SqlDataAdapter(command))
                 {
@@ -72,7 +70,7 @@ namespace DO_AN_KI_2
         void showDatTrademark()
         {
             string query = @"select * from tblTRADEMARK ";
-            using (SqlCommand command = new SqlCommand(query, mySqlConnection))
+            using (SqlCommand command = new SqlCommand(query, dataServices.connection))
             {
                 using (SqlDataAdapter adapter = new SqlDataAdapter(command))
                 {
@@ -88,7 +86,7 @@ namespace DO_AN_KI_2
         
         private void ProductDetils_Load(object sender, EventArgs e)
         {
-
+            this.ControlBox=false;
             if (Modeview)
             {
                 
@@ -107,7 +105,7 @@ namespace DO_AN_KI_2
                   "WHERE ProductID = @id";
 
 
-            using (SqlCommand command = new SqlCommand(query, mySqlConnection))
+            using (SqlCommand command = new SqlCommand(query, dataServices.connection))
             {
                 // Thêm tham số cho câu truy vấn
                 command.Parameters.AddWithValue("@id", id);
@@ -173,7 +171,8 @@ namespace DO_AN_KI_2
                             // ...
                         }
                     }
-            }
+                }
+            
             }
         }
         public  void setControl(bool status)
@@ -242,9 +241,12 @@ namespace DO_AN_KI_2
                 
                 try
                 {
-                    using (SqlConnection connection = new SqlConnection(conStr))
-                    {
-                        connection.Open();
+                    dataServices.OpenDB();
+                    //1. hỏi xác nhận sửa  dữ liệu không?
+                    DialogResult dr;
+                    dr = MessageBox.Show("Lưu thay đổi?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (dr == DialogResult.No) return;
+
                         // Lấy giá trị từ các điều khiển trên giao diện
 
                         string nameProduct = txtNameP.Text;
@@ -266,7 +268,7 @@ namespace DO_AN_KI_2
                         // Sử dụng parameterized query để tránh lỗ hổng SQL injection
                         string query = $"UPDATE tblPRODUCT SET nameProduct = @nameProduct, isPhysic=@isPhysic, originPrice=@originPrice, price=@price, noLimit=@noLimit, description=@description, categoryID=@categoryID, trademarkID=@trademarkID, status=@status, supplierID= @supplierID, weight=@weight where ProductID={id}"; // Thay đổi tblCATEGORY thành tên bảng của bạn
 
-                        SqlCommand command = new SqlCommand(query, connection);
+                        SqlCommand command = new SqlCommand(query, dataServices.connection);
 
 
                         // Thêm các tham số và giá trị tương ứng vào câu lệnh SQL
@@ -285,11 +287,10 @@ namespace DO_AN_KI_2
 
 
 
-                        // Thực thi câu lệnh SQL
-                        command.ExecuteNonQuery();
-                        this.Close();
+                    // Thực thi câu lệnh SQL
+                    dataServices.ExcutteNonqueries();
 
-                    }
+                    
                 }
                 catch (Exception ex)
                 {
@@ -301,14 +302,15 @@ namespace DO_AN_KI_2
                 //them moi san pham
                 try
                 {
-                    using (SqlConnection connection = new SqlConnection(conStr))
-                    {
-                        connection.Open();
+                    dataServices.OpenDB();
+                    DialogResult dialogResult= new DialogResult();
+                    dialogResult= MessageBox.Show("Chắc chắn thêm mới sản phẩm","Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (dialogResult == DialogResult.No) return;
+
 
                         string linkImageSaveToDb = $@"upload\{Path.GetFileName(linkImage)}";
-
                         string queryInsert = "  INSERT INTO tblPRODUCT(nameProduct, img, quantity, originPrice, price, description, noLimit, categoryID, trademarkID, isPhysic, weight, status, supplierID) VALUES (@nameProduct, @img, @quantity, @originPrice, @price, @description, @noLimit, @categoryID, @trademarkID, @isPhysic, @weight, @status, @supplierID)";
-                        SqlCommand command = new SqlCommand(queryInsert, connection);
+                        SqlCommand command = new SqlCommand(queryInsert, dataServices.connection);
 
                         command.Parameters.AddWithValue("@nameProduct", txtNameP.Text);
                         command.Parameters.AddWithValue("@img", linkImageSaveToDb);
@@ -337,7 +339,7 @@ namespace DO_AN_KI_2
                         File.Copy(linkImage, newPathImage);
                         command.ExecuteNonQuery();
                         this.Close();
-                    }
+                    
                 }
                 catch(SqlException ex)
                 {
@@ -365,7 +367,12 @@ namespace DO_AN_KI_2
             }
             
         }
-      
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
 
 
 

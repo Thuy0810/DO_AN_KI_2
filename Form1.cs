@@ -24,12 +24,10 @@ namespace DO_AN_KI_2
         Customer customer;
         Revenue revenue;
         Bill bill;
+        TblUsers tbluser;
 
-        private string conStr = "Data Source=.;Initial Catalog=DO_AN_KI2;Integrated Security=True;Trust Server Certificate=True";
-        //khai báo đối tượng kết nối với CSDL
-        private SqlConnection mySqlConnection;
-        //khai báo đối tượng lớp SqlCommand để truy vấn dữ liệu
-        private SqlCommand mySqlCommand;
+       DataServices services= new DataServices();
+
         public Form1()
         {
             InitializeComponent();
@@ -102,6 +100,7 @@ namespace DO_AN_KI_2
                     PNCategpry.Width = 41;
                     pnCustomer.Width = 41;
                     btnRevenue.Width = 41;
+                    btnUser.Width = 41;
                     MenuContainer.Width = 42;
                     Menu1.Width = 38;
                 }
@@ -121,6 +120,7 @@ namespace DO_AN_KI_2
                     pnCustomer.Width = 170;
                     btnRevenue.Width = 170;
                     MenuContainer.Width = 171;
+                    btnUser.Width = 170;
                 }
             }
         }
@@ -315,11 +315,31 @@ namespace DO_AN_KI_2
                 bill.Activate();
             }
         }
+
         private void Bill_FormClosed(Object sender, EventArgs e)
         {
             bill = null;
         }
 
+        private void btnUser_Click(object sender, EventArgs e)
+        {
+            if (tbluser == null)
+            {
+                tbluser = new TblUsers();
+                tbluser.FormClosed -= Bill_FormClosed;
+                tbluser.MdiParent = this;
+                tbluser.Dock = DockStyle.Fill;
+                tbluser.Show();
+            }
+            else
+            {
+                tbluser.Activate();
+            }
+        }
+        private void User_FormClosed(object sender, EventArgs e)
+        {
+            tbluser = null;
+        }
         private void Form1_Load(object sender, EventArgs e)
         {
                     MenuContainer.Height = 43;
