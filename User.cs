@@ -107,7 +107,7 @@ namespace DO_AN_KI_2
             txtuserName.ReadOnly = status;
             
         }
-
+      
         private void btnEdit_Click(object sender, EventArgs e)
         {
             setControl(false);
@@ -117,7 +117,58 @@ namespace DO_AN_KI_2
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            
+            //kiem tra thong tin nhap vao
+            if(txtNameU.Text.Trim().Length ==0)
+            {
+                services.ShowErrorMessageBox("Họ tên không được để trống ");
+               txtNameU.Focus();
+                return;
+            }
+            if(txtAddress.Text.Trim().Length ==0)
+            {
+                services.ShowErrorMessageBox("Địa chỉ không được để trống");
+                txtAddress.Focus();
+                return ;
+            }
+            if(txtBirthday.Text.Trim().Length ==0)
+            {
+                services.ShowErrorMessageBox("Ngày sinh không được để trống");
+                txtBirthday.Focus();
+                return ;    
+            }
+            if(txtPass.Text.Trim().Length ==0)
+            {
+                services.ShowErrorMessageBox("Mật khẩu không được để trống");
+                txtPass.Focus(); 
+                return ;
+            }
+            if(txtStartday.Text.Trim().Length ==0)
+            {
+                services.ShowErrorMessageBox("Ngày vào làm không được để trống");
+                txtStartday.Focus();
+                return ;
+            }
+            if(txtuserName.Text.Trim().Length == 0)
+            {
+                services.ShowErrorMessageBox("UserName không được để trống");
+                txtuserName.Focus();
+                return;
+            }
+            if(txtPhone.Text.Trim().Length == 0)
+            {
+                services.ShowErrorMessageBox("Số điện thoại không được để trống");
+                txtPhone.Focus();
+                return ; 
+            }
+
+            if(Modeview)
+            {
+                //Sua du lieu
+            }
+            else
+            {
+                //Them moi
+            }
         }
     }
 }

@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace DO_AN_KI_2
 {
@@ -15,6 +16,7 @@ namespace DO_AN_KI_2
         {
 
         }
+
         public void OpenDB()
         {
             connection = new SqlConnection(Sql);
@@ -30,5 +32,12 @@ namespace DO_AN_KI_2
             SqlCommand command = new SqlCommand();
             command.ExecuteNonQuery();
         }
+        public  void ShowErrorMessageBox(string errorMessage, string errorTitle = "Thông báo")
+        {
+            MessageBox.Show(errorMessage, errorTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        // Method for logging errors in a file or a logging system.
+       
     }
 }
