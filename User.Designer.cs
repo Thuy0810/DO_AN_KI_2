@@ -32,8 +32,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnEditU = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
-            this.txtStartday = new Guna.UI2.WinForms.Guna2TextBox();
-            this.txtBirthday = new Guna.UI2.WinForms.Guna2TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.cboSex = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -57,6 +55,8 @@
             this.label10 = new System.Windows.Forms.Label();
             this.txtPass = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnSave = new Guna.UI2.WinForms.Guna2Button();
+            this.DBirthday = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.DstartDay = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel3.SuspendLayout();
             this.guna2Panel6.SuspendLayout();
@@ -115,8 +115,8 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2Panel3.BackColor = System.Drawing.Color.White;
             this.guna2Panel3.BorderRadius = 5;
-            this.guna2Panel3.Controls.Add(this.txtStartday);
-            this.guna2Panel3.Controls.Add(this.txtBirthday);
+            this.guna2Panel3.Controls.Add(this.DstartDay);
+            this.guna2Panel3.Controls.Add(this.DBirthday);
             this.guna2Panel3.Controls.Add(this.label9);
             this.guna2Panel3.Controls.Add(this.cboSex);
             this.guna2Panel3.Controls.Add(this.label4);
@@ -129,56 +129,6 @@
             this.guna2Panel3.Name = "guna2Panel3";
             this.guna2Panel3.Size = new System.Drawing.Size(407, 325);
             this.guna2Panel3.TabIndex = 11;
-            // 
-            // txtStartday
-            // 
-            this.txtStartday.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtStartday.AutoSize = true;
-            this.txtStartday.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.txtStartday.BorderRadius = 5;
-            this.txtStartday.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtStartday.DefaultText = "";
-            this.txtStartday.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtStartday.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtStartday.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtStartday.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtStartday.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtStartday.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtStartday.ForeColor = System.Drawing.Color.Black;
-            this.txtStartday.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtStartday.Location = new System.Drawing.Point(110, 260);
-            this.txtStartday.Name = "txtStartday";
-            this.txtStartday.PasswordChar = '\0';
-            this.txtStartday.PlaceholderText = "";
-            this.txtStartday.SelectedText = "";
-            this.txtStartday.Size = new System.Drawing.Size(159, 29);
-            this.txtStartday.TabIndex = 21;
-            // 
-            // txtBirthday
-            // 
-            this.txtBirthday.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBirthday.AutoSize = true;
-            this.txtBirthday.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.txtBirthday.BorderRadius = 5;
-            this.txtBirthday.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtBirthday.DefaultText = "";
-            this.txtBirthday.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtBirthday.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtBirthday.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtBirthday.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtBirthday.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtBirthday.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtBirthday.ForeColor = System.Drawing.Color.Black;
-            this.txtBirthday.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtBirthday.Location = new System.Drawing.Point(110, 105);
-            this.txtBirthday.Name = "txtBirthday";
-            this.txtBirthday.PasswordChar = '\0';
-            this.txtBirthday.PlaceholderText = "";
-            this.txtBirthday.SelectedText = "";
-            this.txtBirthday.Size = new System.Drawing.Size(159, 29);
-            this.txtBirthday.TabIndex = 20;
             // 
             // label9
             // 
@@ -538,6 +488,42 @@
             this.btnSave.Text = "Lưu";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // DBirthday
+            // 
+            this.DBirthday.BackColor = System.Drawing.Color.White;
+            this.DBirthday.BorderRadius = 5;
+            this.DBirthday.Checked = true;
+            this.DBirthday.FillColor = System.Drawing.Color.White;
+            this.DBirthday.FocusedColor = System.Drawing.Color.White;
+            this.DBirthday.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.DBirthday.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.DBirthday.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DBirthday.Location = new System.Drawing.Point(110, 105);
+            this.DBirthday.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.DBirthday.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.DBirthday.Name = "DBirthday";
+            this.DBirthday.Size = new System.Drawing.Size(124, 33);
+            this.DBirthday.TabIndex = 22;
+            this.DBirthday.Value = new System.DateTime(2024, 5, 17, 19, 3, 23, 652);
+            // 
+            // DstartDay
+            // 
+            this.DstartDay.BackColor = System.Drawing.Color.White;
+            this.DstartDay.BorderRadius = 5;
+            this.DstartDay.Checked = true;
+            this.DstartDay.FillColor = System.Drawing.Color.White;
+            this.DstartDay.FocusedColor = System.Drawing.Color.White;
+            this.DstartDay.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.DstartDay.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.DstartDay.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DstartDay.Location = new System.Drawing.Point(110, 260);
+            this.DstartDay.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.DstartDay.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.DstartDay.Name = "DstartDay";
+            this.DstartDay.Size = new System.Drawing.Size(124, 33);
+            this.DstartDay.TabIndex = 23;
+            this.DstartDay.Value = new System.DateTime(2024, 5, 17, 19, 3, 23, 652);
+            // 
             // User
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -575,8 +561,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private Guna.UI2.WinForms.Guna2TextBox txtStartday;
-        private Guna.UI2.WinForms.Guna2TextBox txtBirthday;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label4;
         private Guna.UI2.WinForms.Guna2TextBox txtEmail;
@@ -593,5 +577,7 @@
         private Guna.UI2.WinForms.Guna2ToggleSwitch swStatus;
         private System.Windows.Forms.Label label13;
         private Guna.UI2.WinForms.Guna2Button btnSave;
+        private Guna.UI2.WinForms.Guna2DateTimePicker DBirthday;
+        private Guna.UI2.WinForms.Guna2DateTimePicker DstartDay;
     }
 }

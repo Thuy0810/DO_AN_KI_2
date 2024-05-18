@@ -123,6 +123,26 @@ namespace DO_AN_KI_2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap APeugeot {
+            get {
+                object obj = ResourceManager.GetObject("APeugeot", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap aSupplier {
+            get {
+                object obj = ResourceManager.GetObject("aSupplier", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap b3 {
             get {
                 object obj = ResourceManager.GetObject("b3", resourceCulture);
@@ -216,6 +236,16 @@ namespace DO_AN_KI_2.Properties {
         internal static System.Drawing.Bitmap Customer1 {
             get {
                 object obj = ResourceManager.GetObject("Customer1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Customer11 {
+            get {
+                object obj = ResourceManager.GetObject("Customer11", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

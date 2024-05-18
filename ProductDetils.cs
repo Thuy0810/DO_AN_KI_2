@@ -67,6 +67,7 @@ namespace DO_AN_KI_2
             }
         }
 
+
         void showDatTrademark()
         {
             string query = @"select * from tblTRADEMARK ";
@@ -86,7 +87,7 @@ namespace DO_AN_KI_2
         
         private void ProductDetils_Load(object sender, EventArgs e)
         {
-            this.ControlBox=false;
+           // this.ControlBox=false;
             if (Modeview)
             {
                 
@@ -266,9 +267,9 @@ namespace DO_AN_KI_2
                         int price;
                         int.TryParse(txtPrice.Text, out price);
                         // Sử dụng parameterized query để tránh lỗ hổng SQL injection
-                        string query = $"UPDATE tblPRODUCT SET nameProduct = @nameProduct, isPhysic=@isPhysic, originPrice=@originPrice, price=@price, noLimit=@noLimit, description=@description, categoryID=@categoryID, trademarkID=@trademarkID, status=@status, supplierID= @supplierID, weight=@weight where ProductID={id}"; // Thay đổi tblCATEGORY thành tên bảng của bạn
-
-                        SqlCommand command = new SqlCommand(query, dataServices.connection);
+                        string query = $"UPDATE tblPRODUCT SET nameProduct = @nameProduct, isPhysic=@isPhysic, originPrice=@originPrice, price=@price, noLimit=@noLimit,img=@img, description=@description, categoryID=@categoryID, trademarkID=@trademarkID, status=@status, supplierID= @supplierID, weight=@weight where ProductID={id}"; // Thay đổi tblCATEGORY thành tên bảng của bạn
+                        string linkImageSaveToDb = $@"upload\{Path.GetFileName(linkImage)}";
+                    SqlCommand command = new SqlCommand(query, dataServices.connection);
 
 
                         // Thêm các tham số và giá trị tương ứng vào câu lệnh SQL
@@ -284,11 +285,26 @@ namespace DO_AN_KI_2
                         command.Parameters.AddWithValue("@noLimit", noLimit);
                         command.Parameters.AddWithValue("@originPrice", originPrice);
                         command.Parameters.AddWithValue("@price", price);
+                        command.Parameters.AddWithValue("@img", linkImageSaveToDb);
 
+                    string currentPath = Directory.GetCurrentDirectory() + "\\upload";
+                    if (!Directory.Exists(currentPath))
+                    {
+                        Directory.CreateDirectory(currentPath);
+                    }
+
+                    string newPathImage = $@"{currentPath}\{Path.GetFileName(linkImage)}";
+                    if (File.Exists(newPathImage))
+                    {
+                        File.Delete(newPathImage);
+                    }
+                    File.Copy(linkImage, newPathImage, true);
 
 
                     // Thực thi câu lệnh SQL
-                    dataServices.ExcutteNonqueries();
+                    SqlCommand command1= new SqlCommand(query,dataServices.connection);   
+                    command.ExecuteNonQuery();
+                    this.Close();
 
                     
                 }
@@ -303,15 +319,14 @@ namespace DO_AN_KI_2
                 try
                 {
                     dataServices.OpenDB();
-                    DialogResult dialogResult= new DialogResult();
-                    dialogResult= MessageBox.Show("Chắc chắn thêm mới sản phẩm","Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    DialogResult dialogResult = MessageBox.Show("Chắc chắn thêm mới sản phẩm", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (dialogResult == DialogResult.No) return;
 
+                    string linkImageSaveToDb = $@"upload\{Path.GetFileName(linkImage)}";
+                    string queryInsert = "INSERT INTO tblPRODUCT(nameProduct, img, quantity, originPrice, price, description, noLimit, categoryID, trademarkID, isPhysic, weight, status, supplierID) VALUES (@nameProduct, @img, @quantity, @originPrice, @price, @description, @noLimit, @categoryID, @trademarkID, @isPhysic, @weight, @status, @supplierID)";
 
-                        string linkImageSaveToDb = $@"upload\{Path.GetFileName(linkImage)}";
-                        string queryInsert = "  INSERT INTO tblPRODUCT(nameProduct, img, quantity, originPrice, price, description, noLimit, categoryID, trademarkID, isPhysic, weight, status, supplierID) VALUES (@nameProduct, @img, @quantity, @originPrice, @price, @description, @noLimit, @categoryID, @trademarkID, @isPhysic, @weight, @status, @supplierID)";
-                        SqlCommand command = new SqlCommand(queryInsert, dataServices.connection);
-
+                    using (SqlCommand command = new SqlCommand(queryInsert, dataServices.connection))
+                    {
                         command.Parameters.AddWithValue("@nameProduct", txtNameP.Text);
                         command.Parameters.AddWithValue("@img", linkImageSaveToDb);
                         command.Parameters.AddWithValue("@quantity", txtQuantityP.Text);
@@ -322,33 +337,40 @@ namespace DO_AN_KI_2
                         command.Parameters.AddWithValue("@categoryID", category.SelectedValue);
                         command.Parameters.AddWithValue("@trademarkID", trademark.SelectedValue);
                         command.Parameters.AddWithValue("@isPhysic", swPhysic.Checked);
-                        command.Parameters.AddWithValue("@weight",txtWeight.Text);
+                        command.Parameters.AddWithValue("@weight", txtWeight.Text);
                         command.Parameters.AddWithValue("@status", swActive.Checked);
                         command.Parameters.AddWithValue("@supplierID", supplier.SelectedValue);
 
                         string currentPath = Directory.GetCurrentDirectory() + "\\upload";
-                        if (!File.Exists(currentPath))
+                        if (!Directory.Exists(currentPath))
                         {
                             Directory.CreateDirectory(currentPath);
                         }
+
                         string newPathImage = $@"{currentPath}\{Path.GetFileName(linkImage)}";
                         if (File.Exists(newPathImage))
                         {
                             File.Delete(newPathImage);
                         }
-                        File.Copy(linkImage, newPathImage);
-                        command.ExecuteNonQuery();
-                        this.Close();
-                    
-                }
-                catch(SqlException ex)
-                {
-                    MessageBox.Show($"Có lỗi khi lưu sản phẩm:+{ex} ","Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                        File.Copy(linkImage, newPathImage, true); // Thêm true để ghi đè nếu file đã tồn tại
 
+                        command.ExecuteNonQuery();
+                    }
+
+                    this.Close();
                 }
-               
+                catch (SqlException ex)
+                {
+                    MessageBox.Show($"Có lỗi khi lưu sản phẩm: {ex.Message}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Có lỗi khi thực hiện các thao tác với file: {ex.Message}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+
             }
-            
+
         }
 
         private void label4_Click(object sender, EventArgs e)
@@ -367,31 +389,9 @@ namespace DO_AN_KI_2
             }
             
         }
-
         private void label1_Click(object sender, EventArgs e)
         {
 
         }
-
-
-
-
-
-
-
-        //private void swActive_CheckedChanged(object sender, EventArgs e)
-        //{
-        //    int status = swActive.Checked ? 1 : 0;
-        //     Cập nhật giá trị status vào cơ sở dữ liệu
-        //    using (SqlConnection connection = new SqlConnection(conStr))
-        //    {
-        //        connection.Open();
-        //        string query = "UPDATE tblPRODUCT SET status = @status"; // Thay đổi tblCATEGORY thành tên bảng của bạn
-        //        SqlCommand command = new SqlCommand(query, connection);
-        //        command.Parameters.AddWithValue("@status", status);
-        //        command.ExecuteNonQuery();
-        //    }
-        //}
-
     }
 }

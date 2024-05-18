@@ -46,7 +46,7 @@
             this.categoryPP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.active = new System.Windows.Forms.DataGridViewImageColumn();
-            this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtSearchUser = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.btnSearch = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
@@ -139,7 +139,10 @@
             this.GnDtUser.ThemeStyle.RowsStyle.Height = 35;
             this.GnDtUser.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.GnDtUser.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.GnDtUser.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GnDtUser_CellClick);
             this.GnDtUser.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GnDtUser_CellDoubleClick);
+            this.GnDtUser.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.GnDtUser_CellMouseEnter);
+            this.GnDtUser.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.GnDtUser_CellMouseLeave);
             // 
             // id
             // 
@@ -185,34 +188,35 @@
             this.active.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.active.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
-            // txtSearch
+            // txtSearchUser
             // 
-            this.txtSearch.BorderRadius = 5;
-            this.txtSearch.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtSearch.CustomizableEdges.BottomRight = false;
-            this.txtSearch.CustomizableEdges.TopRight = false;
-            this.txtSearch.DefaultText = "";
-            this.txtSearch.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtSearch.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtSearch.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtSearch.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtSearch.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtSearch.Location = new System.Drawing.Point(192, 6);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.PasswordChar = '\0';
-            this.txtSearch.PlaceholderText = "";
-            this.txtSearch.SelectedText = "";
-            this.txtSearch.Size = new System.Drawing.Size(189, 30);
-            this.txtSearch.TabIndex = 10;
+            this.txtSearchUser.BorderRadius = 5;
+            this.txtSearchUser.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtSearchUser.CustomizableEdges.BottomRight = false;
+            this.txtSearchUser.CustomizableEdges.TopRight = false;
+            this.txtSearchUser.DefaultText = "";
+            this.txtSearchUser.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtSearchUser.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtSearchUser.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtSearchUser.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtSearchUser.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtSearchUser.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtSearchUser.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtSearchUser.Location = new System.Drawing.Point(192, 6);
+            this.txtSearchUser.Name = "txtSearchUser";
+            this.txtSearchUser.PasswordChar = '\0';
+            this.txtSearchUser.PlaceholderText = "";
+            this.txtSearchUser.SelectedText = "";
+            this.txtSearchUser.Size = new System.Drawing.Size(189, 30);
+            this.txtSearchUser.TabIndex = 10;
+            this.txtSearchUser.TextChanged += new System.EventHandler(this.txtSearchUser_TextChanged);
             // 
             // guna2Panel1
             // 
             this.guna2Panel1.BackColor = System.Drawing.Color.Gainsboro;
             this.guna2Panel1.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dash;
             this.guna2Panel1.Controls.Add(this.btnSearch);
-            this.guna2Panel1.Controls.Add(this.txtSearch);
+            this.guna2Panel1.Controls.Add(this.txtSearchUser);
             this.guna2Panel1.Controls.Add(this.guna2Button1);
             this.guna2Panel1.Controls.Add(this.datagrUser);
             this.guna2Panel1.Controls.Add(this.label1);
@@ -255,6 +259,7 @@
             this.guna2Button1.Size = new System.Drawing.Size(68, 33);
             this.guna2Button1.TabIndex = 9;
             this.guna2Button1.Text = " Thêm";
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
             // datagrUser
             // 
@@ -409,7 +414,7 @@
 
         private Guna.UI2.WinForms.Guna2DataGridView GnDtUser;
         private Guna.UI2.WinForms.Guna2Button btnSearch;
-        private Guna.UI2.WinForms.Guna2TextBox txtSearch;
+        private Guna.UI2.WinForms.Guna2TextBox txtSearchUser;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private Guna.UI2.WinForms.Guna2DataGridView datagrUser;

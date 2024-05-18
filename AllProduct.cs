@@ -28,7 +28,7 @@ namespace DO_AN_KI_2
 
         private void AllProduct_Load(object sender, EventArgs e)
         {
-           // this.ControlBox=false;
+            this.ControlBox=false;
             services.OpenDB();
             Display();
 
@@ -72,7 +72,7 @@ namespace DO_AN_KI_2
                         {
                             column.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
                         }
-                        Console.WriteLine($"Name: {productName}, Price: {price}");
+                        
                         GnDtP.Rows.Add(id, productName, display, originPrice, price, nameCategory, dispStatus);
                     }
                 }
@@ -126,7 +126,8 @@ namespace DO_AN_KI_2
                     int r = GnDtP.CurrentRow.Index;
                     string productID = GnDtP.Rows[r].Cells[0].Value.ToString();
                     string query = "Delete from tblPRODUCT where ProductID = " + productID;
-                    services.ExcutteNonqueries();
+                    SqlCommand command1 = new SqlCommand(query,services.connection);
+                    command1.ExecuteNonQuery();
                     GnDtP.Rows.Clear(); 
                     Display();
 
@@ -151,6 +152,12 @@ namespace DO_AN_KI_2
         {
             try
             {
+                if (string.IsNullOrWhiteSpace(txtSearch.Text))
+                {
+                    // Hiển thị bảng ban đầu khi txtSearch trống
+                    Display();
+                    return;
+                }
                 if (txtSearch.Text != string.Empty)
                 {
 
@@ -199,10 +206,8 @@ namespace DO_AN_KI_2
                         {
                             ((DataGridViewImageCell)GnDtP.Rows[row].Cells[7]).Value = Properties.Resources.Delete2;
                         }
-                    }
-
-
-                }
+                    }                   
+                }              
             }
             catch(Exception ex)
             {

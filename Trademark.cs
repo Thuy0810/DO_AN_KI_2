@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace DO_AN_KI_2
 {
-    public partial class Customer : Form
+    public partial class Trademark : Form
     {
-        public Customer()
+        public Trademark()
         {
             InitializeComponent();
-        }
-
-        private void Customer_Load(object sender, EventArgs e)
-        {
-            //this.ControlBox = false;
         }
     }
 }

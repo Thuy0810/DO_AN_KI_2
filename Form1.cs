@@ -25,7 +25,7 @@ namespace DO_AN_KI_2
         Revenue revenue;
         Bill bill;
         TblUsers tbluser;
-
+        Trademark trademark;
        DataServices services= new DataServices();
 
         public Form1()
@@ -103,6 +103,7 @@ namespace DO_AN_KI_2
                     btnUser.Width = 41;
                     MenuContainer.Width = 42;
                     Menu1.Width = 38;
+                    btnTrademark.Width = 41;
                 }
 
             }
@@ -121,6 +122,7 @@ namespace DO_AN_KI_2
                     btnRevenue.Width = 170;
                     MenuContainer.Width = 171;
                     btnUser.Width = 170;
+                    btnTrademark.Width = 170;
                 }
             }
         }
@@ -326,7 +328,7 @@ namespace DO_AN_KI_2
             if (tbluser == null)
             {
                 tbluser = new TblUsers();
-                tbluser.FormClosed -= Bill_FormClosed;
+                tbluser.FormClosed -= User_FormClosed;
                 tbluser.MdiParent = this;
                 tbluser.Dock = DockStyle.Fill;
                 tbluser.Show();
@@ -340,6 +342,25 @@ namespace DO_AN_KI_2
         {
             tbluser = null;
         }
+        private void btnTrademark_Click(object sender, EventArgs e)
+        {
+            if(trademark == null)
+            {
+                trademark= new Trademark();
+                trademark.MdiParent = this;
+                trademark.FormClosed -= Trademark_FormClosed;
+                trademark.Dock = DockStyle.Fill;
+                trademark.Show();
+            }
+            else
+            {
+                trademark.Activate();
+            }
+        }
+        private void Trademark_FormClosed(object sender, EventArgs e)
+        {
+            trademark = null;
+        }
         private void Form1_Load(object sender, EventArgs e)
         {
                     MenuContainer.Height = 43;
@@ -350,5 +371,6 @@ namespace DO_AN_KI_2
             home.WindowState = FormWindowState.Maximized;
             home.Show();
         }
+
     }
 }

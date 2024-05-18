@@ -35,6 +35,7 @@
             this.MenuContainer = new System.Windows.Forms.FlowLayoutPanel();
             this.Menu_Transiton = new System.Windows.Forms.Timer(this.components);
             this.SiderBar_Transition = new System.Windows.Forms.Timer(this.components);
+            this.btnTrademark = new Guna.UI2.WinForms.Guna2Button();
             this.PnHome = new Guna.UI2.WinForms.Guna2Button();
             this.Menu1 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
@@ -73,6 +74,7 @@
             this.guna2Panel2.CustomBorderColor = System.Drawing.Color.Gray;
             this.guna2Panel2.CustomBorderThickness = new System.Windows.Forms.Padding(2);
             this.guna2Panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.guna2Panel2.FillColor = System.Drawing.Color.MintCream;
             this.guna2Panel2.Location = new System.Drawing.Point(0, 0);
             this.guna2Panel2.Name = "guna2Panel2";
             this.guna2Panel2.Size = new System.Drawing.Size(865, 62);
@@ -94,6 +96,7 @@
             // 
             this.siderBar.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.siderBar.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.siderBar.Controls.Add(this.btnTrademark);
             this.siderBar.Controls.Add(this.PnHome);
             this.siderBar.Controls.Add(this.MenuContainer);
             this.siderBar.Controls.Add(this.btnBill);
@@ -104,10 +107,14 @@
             this.siderBar.CustomBorderColor = System.Drawing.Color.Gray;
             this.siderBar.CustomBorderThickness = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.siderBar.Dock = System.Windows.Forms.DockStyle.Left;
+            this.siderBar.FillColor = System.Drawing.Color.BlanchedAlmond;
+            this.siderBar.FillColor2 = System.Drawing.Color.LavenderBlush;
+            this.siderBar.FillColor3 = System.Drawing.Color.Azure;
+            this.siderBar.FillColor4 = System.Drawing.Color.LightCyan;
             this.siderBar.ForeColor = System.Drawing.SystemColors.ControlText;
             this.siderBar.Location = new System.Drawing.Point(0, 62);
             this.siderBar.Name = "siderBar";
-            this.siderBar.Size = new System.Drawing.Size(192, 382);
+            this.siderBar.Size = new System.Drawing.Size(192, 421);
             this.siderBar.TabIndex = 2;
             // 
             // MenuContainer
@@ -134,6 +141,30 @@
             this.SiderBar_Transition.Interval = 10;
             this.SiderBar_Transition.Tick += new System.EventHandler(this.SiderBar_Transition_Tick);
             // 
+            // btnTrademark
+            // 
+            this.btnTrademark.BackColor = System.Drawing.Color.White;
+            this.btnTrademark.BorderColor = System.Drawing.Color.White;
+            this.btnTrademark.BorderRadius = 5;
+            this.btnTrademark.CustomBorderColor = System.Drawing.Color.Silver;
+            this.btnTrademark.CustomBorderThickness = new System.Windows.Forms.Padding(1);
+            this.btnTrademark.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnTrademark.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnTrademark.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnTrademark.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnTrademark.FillColor = System.Drawing.Color.White;
+            this.btnTrademark.Font = new System.Drawing.Font("HoloLens MDL2 Assets", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTrademark.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.btnTrademark.Image = global::DO_AN_KI_2.Properties.Resources.APeugeot;
+            this.btnTrademark.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnTrademark.Location = new System.Drawing.Point(8, 354);
+            this.btnTrademark.Name = "btnTrademark";
+            this.btnTrademark.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnTrademark.Size = new System.Drawing.Size(168, 42);
+            this.btnTrademark.TabIndex = 6;
+            this.btnTrademark.Text = "Thương Hiệu";
+            this.btnTrademark.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
             // PnHome
             // 
             this.PnHome.BackColor = System.Drawing.Color.White;
@@ -141,7 +172,7 @@
             this.PnHome.BorderColor = System.Drawing.Color.White;
             this.PnHome.BorderRadius = 5;
             this.PnHome.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dot;
-            this.PnHome.CustomBorderColor = System.Drawing.Color.Gainsboro;
+            this.PnHome.CustomBorderColor = System.Drawing.Color.Silver;
             this.PnHome.CustomBorderThickness = new System.Windows.Forms.Padding(1);
             this.PnHome.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.PnHome.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -168,7 +199,7 @@
             this.Menu1.BackColor = System.Drawing.Color.White;
             this.Menu1.BorderColor = System.Drawing.Color.White;
             this.Menu1.BorderRadius = 5;
-            this.Menu1.CustomBorderColor = System.Drawing.Color.Gainsboro;
+            this.Menu1.CustomBorderColor = System.Drawing.Color.Silver;
             this.Menu1.CustomBorderThickness = new System.Windows.Forms.Padding(1);
             this.Menu1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.Menu1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -290,7 +321,7 @@
             this.btnBill.BackColor = System.Drawing.Color.White;
             this.btnBill.BorderColor = System.Drawing.Color.White;
             this.btnBill.BorderRadius = 5;
-            this.btnBill.CustomBorderColor = System.Drawing.Color.Gainsboro;
+            this.btnBill.CustomBorderColor = System.Drawing.Color.Silver;
             this.btnBill.CustomBorderThickness = new System.Windows.Forms.Padding(1);
             this.btnBill.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnBill.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -301,7 +332,7 @@
             this.btnBill.ForeColor = System.Drawing.SystemColors.MenuText;
             this.btnBill.Image = global::DO_AN_KI_2.Properties.Resources.b5;
             this.btnBill.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnBill.Location = new System.Drawing.Point(10, 210);
+            this.btnBill.Location = new System.Drawing.Point(8, 162);
             this.btnBill.Name = "btnBill";
             this.btnBill.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnBill.Size = new System.Drawing.Size(168, 42);
@@ -315,7 +346,7 @@
             this.PNCategpry.BackColor = System.Drawing.Color.White;
             this.PNCategpry.BorderColor = System.Drawing.Color.White;
             this.PNCategpry.BorderRadius = 5;
-            this.PNCategpry.CustomBorderColor = System.Drawing.Color.Gainsboro;
+            this.PNCategpry.CustomBorderColor = System.Drawing.Color.Silver;
             this.PNCategpry.CustomBorderThickness = new System.Windows.Forms.Padding(1);
             this.PNCategpry.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.PNCategpry.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -326,7 +357,7 @@
             this.PNCategpry.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.PNCategpry.Image = global::DO_AN_KI_2.Properties.Resources.cm;
             this.PNCategpry.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.PNCategpry.Location = new System.Drawing.Point(10, 114);
+            this.PNCategpry.Location = new System.Drawing.Point(8, 306);
             this.PNCategpry.Name = "PNCategpry";
             this.PNCategpry.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.PNCategpry.Size = new System.Drawing.Size(168, 42);
@@ -339,7 +370,7 @@
             // 
             this.pnCustomer.BackColor = System.Drawing.Color.White;
             this.pnCustomer.BorderRadius = 5;
-            this.pnCustomer.CustomBorderColor = System.Drawing.Color.Gainsboro;
+            this.pnCustomer.CustomBorderColor = System.Drawing.Color.Silver;
             this.pnCustomer.CustomBorderThickness = new System.Windows.Forms.Padding(1);
             this.pnCustomer.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.pnCustomer.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -350,7 +381,7 @@
             this.pnCustomer.ForeColor = System.Drawing.Color.Black;
             this.pnCustomer.Image = global::DO_AN_KI_2.Properties.Resources.cus2;
             this.pnCustomer.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.pnCustomer.Location = new System.Drawing.Point(9, 162);
+            this.pnCustomer.Location = new System.Drawing.Point(8, 114);
             this.pnCustomer.Name = "pnCustomer";
             this.pnCustomer.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.pnCustomer.Size = new System.Drawing.Size(169, 42);
@@ -363,7 +394,7 @@
             // 
             this.btnUser.BackColor = System.Drawing.Color.White;
             this.btnUser.BorderRadius = 5;
-            this.btnUser.CustomBorderColor = System.Drawing.Color.Gainsboro;
+            this.btnUser.CustomBorderColor = System.Drawing.Color.Silver;
             this.btnUser.CustomBorderThickness = new System.Windows.Forms.Padding(1);
             this.btnUser.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnUser.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -374,7 +405,7 @@
             this.btnUser.ForeColor = System.Drawing.SystemColors.MenuText;
             this.btnUser.Image = global::DO_AN_KI_2.Properties.Resources.Male_User;
             this.btnUser.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnUser.Location = new System.Drawing.Point(10, 306);
+            this.btnUser.Location = new System.Drawing.Point(8, 258);
             this.btnUser.Name = "btnUser";
             this.btnUser.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnUser.Size = new System.Drawing.Size(168, 42);
@@ -387,7 +418,7 @@
             // 
             this.btnRevenue.BackColor = System.Drawing.Color.White;
             this.btnRevenue.BorderRadius = 5;
-            this.btnRevenue.CustomBorderColor = System.Drawing.Color.Gainsboro;
+            this.btnRevenue.CustomBorderColor = System.Drawing.Color.Silver;
             this.btnRevenue.CustomBorderThickness = new System.Windows.Forms.Padding(1);
             this.btnRevenue.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnRevenue.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -398,7 +429,7 @@
             this.btnRevenue.ForeColor = System.Drawing.SystemColors.MenuText;
             this.btnRevenue.Image = global::DO_AN_KI_2.Properties.Resources.re1;
             this.btnRevenue.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnRevenue.Location = new System.Drawing.Point(10, 258);
+            this.btnRevenue.Location = new System.Drawing.Point(8, 210);
             this.btnRevenue.Name = "btnRevenue";
             this.btnRevenue.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnRevenue.Size = new System.Drawing.Size(168, 42);
@@ -420,9 +451,9 @@
             // pictureBox4
             // 
             this.pictureBox4.Image = global::DO_AN_KI_2.Properties.Resources.U;
-            this.pictureBox4.Location = new System.Drawing.Point(108, 15);
+            this.pictureBox4.Location = new System.Drawing.Point(108, 12);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(24, 32);
+            this.pictureBox4.Size = new System.Drawing.Size(24, 35);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox4.TabIndex = 3;
             this.pictureBox4.TabStop = false;
@@ -463,7 +494,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(865, 444);
+            this.ClientSize = new System.Drawing.Size(865, 483);
             this.Controls.Add(this.siderBar);
             this.Controls.Add(this.guna2Panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -506,6 +537,7 @@
         private Guna.UI2.WinForms.Guna2Button guna2Button5;
         private Guna.UI2.WinForms.Guna2Button btnRevenue;
         private Guna.UI2.WinForms.Guna2Button btnUser;
+        private Guna.UI2.WinForms.Guna2Button btnTrademark;
     }
 }
 
