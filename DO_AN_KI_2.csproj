@@ -132,6 +132,7 @@
     <Compile Include="Revenue.Designer.cs">
       <DependentUpon>Revenue.cs</DependentUpon>
     </Compile>
+    <Compile Include="service\message.cs" />
     <Compile Include="Supplier.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -409,9 +410,7 @@
   <ItemGroup>
     <None Include="Resources\Delete2.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="service\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\Male User.png" />
   </ItemGroup>

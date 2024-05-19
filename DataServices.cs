@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace DO_AN_KI_2
@@ -11,7 +6,7 @@ namespace DO_AN_KI_2
     public class DataServices
     {
         private string Sql = @"Data Source=.;Initial Catalog=DO_AN_KI2;Integrated Security=True";
-         public SqlConnection connection { get; set; }
+        public SqlConnection connection { get; set; }
         public DataServices()
         {
 
@@ -32,12 +27,12 @@ namespace DO_AN_KI_2
             SqlCommand command = new SqlCommand();
             command.ExecuteNonQuery();
         }
-        public  void ShowErrorMessageBox(string errorMessage, string errorTitle = "Thông báo")
+        public void ShowErrorMessageBox(string errorMessage, string errorTitle = "Thông báo")
         {
             MessageBox.Show(errorMessage, errorTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         // Method for logging errors in a file or a logging system.
-       
+
     }
 }
