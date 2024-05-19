@@ -131,6 +131,7 @@
     <Compile Include="Revenue.Designer.cs">
       <DependentUpon>Revenue.cs</DependentUpon>
     </Compile>
+    <Compile Include="service\message.cs" />
     <Compile Include="Supplier.cs">
       <SubType>Form</SubType>
     </Compile>
