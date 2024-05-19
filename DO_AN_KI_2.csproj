@@ -112,7 +112,6 @@
       <DependentUpon>Import.cs</DependentUpon>
     </Compile>
     <Compile Include="MdiProperties.cs" />
-    <Compile Include="ProductDetails.cs" />
     <Compile Include="ProductDetils.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -409,9 +408,7 @@
   <ItemGroup>
     <None Include="Resources\Delete2.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="service\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\Male User.png" />
   </ItemGroup>

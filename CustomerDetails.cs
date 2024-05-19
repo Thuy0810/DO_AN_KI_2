@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -25,12 +26,26 @@ namespace DO_AN_KI_2
             services.OpenDB();
             btnEditCustomer.Visible = ModeView;
             btnSaveCustomer.Visible= !ModeView;
-
+            setControl(ModeView);
         }
-
+        
         private void CustomerDetails_Load(object sender, EventArgs e)
         {
-            services.OpenDB();
+           if(ModeView)
+            {
+                string queryCustomerDetail = $"select * from tblCUSTOMER where customerID={id}";
+                using(SqlCommand command= new SqlCommand(queryCustomerDetail, services.connection)) 
+                {
+                    command.Parameters.AddWithValue("customerID", id);
+                }
+            }
+        }
+        private void setControl(bool status)
+        {
+            txtNameCustomer.ReadOnly = status;
+            txtPhoneCustomer.ReadOnly = status;
+            txtEmailCustomer.ReadOnly = status;
+            txtAddressCustomer.ReadOnly = status;
         }
 
     }

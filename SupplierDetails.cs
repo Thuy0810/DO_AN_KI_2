@@ -38,7 +38,7 @@ namespace DO_AN_KI_2
                 string queryShowupplierDetails = $"select supplierID,supplierName,phone,email,adress from tblSUPPLIER where supplierID={id}";
                 using(SqlCommand command= new SqlCommand(queryShowupplierDetails,services.connection))
                 {
-                    command.Parameters.AddWithValue("@id", id);
+                   
                     using (SqlDataReader reader= command.ExecuteReader())
                     {
                         if(reader.Read())

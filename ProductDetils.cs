@@ -91,13 +91,6 @@ namespace DO_AN_KI_2
             if (Modeview)
             {
                 
-
-            //string query = "SELECT p.ProductID, p.nameProduct, p.quantity, p.originPrice, p.price, p.noLimit, c.name, p.status, p.weight, p.description, p.isPhysic, p.img " +
-            //      "FROM tblPRODUCT p " +
-            //      "INNER JOIN tblCATEGORY c ON p.categoryID = c.categoryID " +
-            //      "INNER JOIN tblTRADEMARK t ON p.trademarkID = t.trademarkID " +
-            //      "INNER JOIN tblSUPPLIER s ON p.supplierID = s.supplierID" +
-            //      "WHERE ProductID = @id";
             string query = "SELECT p.ProductID, p.nameProduct, p.quantity, p.originPrice, p.price, p.noLimit, c.categoryID, s.supplierName, t.trademarkID, s.supplierID, p.status, p.weight, p.description, p.isPhysic, p.img " +
                   "FROM tblPRODUCT p " +
                   "INNER JOIN tblCATEGORY c ON p.categoryID = c.categoryID " +
