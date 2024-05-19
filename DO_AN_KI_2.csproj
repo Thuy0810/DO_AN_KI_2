@@ -92,6 +92,18 @@
     <Compile Include="CustomerDetails.Designer.cs">
       <DependentUpon>CustomerDetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormSelectProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSelectProduct.Designer.cs">
+      <DependentUpon>FormSelectProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ImportDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImportDetail.Designer.cs">
+      <DependentUpon>ImportDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="service\DataServices.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -193,11 +205,17 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormSelectProduct.resx">
+      <DependentUpon>FormSelectProduct.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Import.resx">
       <DependentUpon>Import.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImportDetail.resx">
+      <DependentUpon>ImportDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProductDetils.resx">
       <DependentUpon>ProductDetils.cs</DependentUpon>
