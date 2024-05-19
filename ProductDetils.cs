@@ -88,6 +88,7 @@ namespace DO_AN_KI_2
         private void ProductDetils_Load(object sender, EventArgs e)
         {
            // this.ControlBox=false;
+          
             if (Modeview)
             {
                 
@@ -96,77 +97,70 @@ namespace DO_AN_KI_2
                   "INNER JOIN tblCATEGORY c ON p.categoryID = c.categoryID " +
                   "INNER JOIN tblTRADEMARK t ON p.trademarkID = t.trademarkID " +
                   "INNER JOIN tblSUPPLIER s ON p.supplierID = s.supplierID " +
-                  "WHERE ProductID = @id";
+                  $"WHERE ProductID = {id}";
 
+                dataServices.OpenDB();
 
-            using (SqlCommand command = new SqlCommand(query, dataServices.connection))
-            {
-                // Thêm tham số cho câu truy vấn
-                command.Parameters.AddWithValue("@id", id);
+                SqlDataReader reader= dataServices.DataReader(query);
 
-                // Thực hiện truy vấn và nhận dữ liệu vào DataReader
-                using (SqlDataReader reader = command.ExecuteReader())
+                // Đọc dữ liệu từ DataReader
+                if (reader.Read())
                 {
-
-
-                    // Đọc dữ liệu từ DataReader
-                    if (reader.Read())
+                    // Lấy thông tin từ cột cụ thể trong truy vấn
+                    string namePro = reader["nameProduct"].ToString();
+                    int quantityPro = Convert.ToInt32(reader["quantity"].ToString());
+                    int originPricePro = Convert.ToInt32(reader["originPrice"].ToString());
+                    int picePro = Convert.ToInt32(reader["price"].ToString());
+                    string categoryID = reader["categoryID"].ToString();
+                    string supplierID = reader["supplierID"].ToString();
+                    string trademarkID = reader["trademarkID"].ToString();
+                    decimal weightPro = Convert.ToDecimal(reader["weight"].ToString());
+                    string descriptionPro = reader["description"].ToString();
+                    string pathDbimage = reader["img"].ToString();
+                    // Gán thông tin vào các TextBox trên Form B
+                    try
                     {
-                        // Lấy thông tin từ cột cụ thể trong truy vấn
-                        string namePro = reader["nameProduct"].ToString();
-                        int quantityPro = Convert.ToInt32(reader["quantity"].ToString());
-                        int originPricePro = Convert.ToInt32(reader["originPrice"].ToString());
-                        int picePro = Convert.ToInt32(reader["price"].ToString());
-                        string categoryID = reader["categoryID"].ToString();
-                        string supplierID = reader["supplierID"].ToString();
-                        string trademarkID = reader["trademarkID"].ToString();
-                        decimal weightPro = Convert.ToDecimal(reader["weight"].ToString());
-                        string descriptionPro = reader["description"].ToString();
-                        string pathDbimage = reader["img"].ToString();
-                            // Gán thông tin vào các TextBox trên Form B
-                            try
-                            {
-                                if (pathDbimage != null && pathDbimage != string.Empty)
-                                {
-                                    boxPicture.Image = new Bitmap($@"{Directory.GetCurrentDirectory()}\{pathDbimage}");
-                                }
-                            }
-                            catch
-                            {
-
-                            }
-                           
-                            txtNameP.Text = namePro;
-                        txtQuantityP.Text = quantityPro.ToString();
-                        txtOriginPrice.Text = originPricePro.ToString();
-                        txtPrice.Text = picePro.ToString();
-                        txtDescription.Text = descriptionPro.ToString();
-                        txtWeight.Text = weightPro.ToString();
-
-
-                        //category.Items.Add(categoryName);
-                        category.SelectedValue = categoryID;
-
-
-                        supplier.SelectedValue = supplierID;
-
-
-                        trademark.SelectedValue = trademarkID;
-
-                        int active = Convert.ToInt32(reader["status"]);
-                         swActive.Checked = (active == 1); // Nếu status là 1 thì bật nút switch, ngược lại tắt
-
-                        int physic = Convert.ToInt32(reader["isPhysic"]);
-                        swPhysic.Checked = (physic == 1);
-
-                        int limit = Convert.ToInt32(reader["noLimit"]);
-                        swLimit.Checked = (limit == 1);
-
-                            // ...
+                        if (pathDbimage != null && pathDbimage != string.Empty)
+                        {
+                            boxPicture.Image = new Bitmap($@"{Directory.GetCurrentDirectory()}\{pathDbimage}");
                         }
                     }
+                    catch
+                    {
+
+                    }
+
+                    txtNameP.Text = namePro;
+                    txtQuantityP.Text = quantityPro.ToString();
+                    txtOriginPrice.Text = originPricePro.ToString();
+                    txtPrice.Text = picePro.ToString();
+                    txtDescription.Text = descriptionPro.ToString();
+                    txtWeight.Text = weightPro.ToString();
+
+
+                    //category.Items.Add(categoryName);
+                    category.SelectedValue = categoryID;
+
+
+                    supplier.SelectedValue = supplierID;
+
+
+                    trademark.SelectedValue = trademarkID;
+
+                    int active = Convert.ToInt32(reader["status"]);
+                    swActive.Checked = (active == 1); // Nếu status là 1 thì bật nút switch, ngược lại tắt
+
+                    int physic = Convert.ToInt32(reader["isPhysic"]);
+                    swPhysic.Checked = (physic == 1);
+
+                    int limit = Convert.ToInt32(reader["noLimit"]);
+                    swLimit.Checked = (limit == 1);
+
+                    // ...
                 }
             
+            dataServices.CloseDB();
+               
             }
         }
         public  void setControl(bool status)
