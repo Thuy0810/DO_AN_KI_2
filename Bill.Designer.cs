@@ -34,10 +34,10 @@
             // guna2HtmlLabel1
             // 
             this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel1.Font = new System.Drawing.Font("UD Digi Kyokasho NK-B", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.guna2HtmlLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.guna2HtmlLabel1.Location = new System.Drawing.Point(282, 172);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(114, 76);
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(92, 75);
             this.guna2HtmlLabel1.TabIndex = 8;
             this.guna2HtmlLabel1.Text = "Bill";
             // 
@@ -49,7 +49,7 @@
             this.Controls.Add(this.guna2HtmlLabel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "Bill";
-            this.Text = "Bill";
+            this.Text = " ";
             this.Load += new System.EventHandler(this.Bill_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

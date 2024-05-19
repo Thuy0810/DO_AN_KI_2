@@ -92,7 +92,7 @@
     <Compile Include="CustomerDetails.Designer.cs">
       <DependentUpon>CustomerDetails.cs</DependentUpon>
     </Compile>
-    <Compile Include="DataServices.cs" />
+    <Compile Include="service\DataServices.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
