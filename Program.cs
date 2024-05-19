@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DO_AN_KI_2
@@ -16,7 +13,7 @@ namespace DO_AN_KI_2
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Customer());
+            Application.Run(new Form1());
         }
     }
 }
