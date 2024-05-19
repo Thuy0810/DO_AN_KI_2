@@ -111,7 +111,7 @@ namespace DO_AN_KI_2
                             string phone = row["phone"].ToString();
                             string email= row["email"].ToString() ;
                             string adress= row["adress"].ToString() ;
-                            GnDtSupplier.Rows.Add(id, suplierName, phone, emailC, adress);
+                            GnDtSupplier.Rows.Add(id, suplierName, phone, email, adress);
                         }   
                     }
                 }

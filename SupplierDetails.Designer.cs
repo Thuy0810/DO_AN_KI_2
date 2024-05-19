@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnSaveSupplier = new Guna.UI2.WinForms.Guna2Button();
+            this.btnSaveCustomer = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.btnEditsupplier = new Guna.UI2.WinForms.Guna2Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnEditCustomer = new Guna.UI2.WinForms.Guna2Button();
             this.txtPhone = new Guna.UI2.WinForms.Guna2TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtEmail = new Guna.UI2.WinForms.Guna2TextBox();
@@ -40,35 +41,34 @@
             this.txtNameU = new Guna.UI2.WinForms.Guna2TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel3.SuspendLayout();
             this.SuspendLayout();
             // 
-            // btnSaveSupplier
+            // btnSaveCustomer
             // 
-            this.btnSaveSupplier.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSaveSupplier.BorderRadius = 5;
-            this.btnSaveSupplier.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnSaveSupplier.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnSaveSupplier.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnSaveSupplier.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnSaveSupplier.FillColor = System.Drawing.Color.RoyalBlue;
-            this.btnSaveSupplier.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSaveSupplier.ForeColor = System.Drawing.Color.White;
-            this.btnSaveSupplier.Location = new System.Drawing.Point(549, 336);
-            this.btnSaveSupplier.Name = "btnSaveSupplier";
-            this.btnSaveSupplier.Size = new System.Drawing.Size(70, 28);
-            this.btnSaveSupplier.TabIndex = 27;
-            this.btnSaveSupplier.TabStop = false;
-            this.btnSaveSupplier.Text = "Lưu";
-            this.btnSaveSupplier.Click += new System.EventHandler(this.btnSaveSupplier_Click);
+            this.btnSaveCustomer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSaveCustomer.BorderRadius = 5;
+            this.btnSaveCustomer.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnSaveCustomer.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnSaveCustomer.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnSaveCustomer.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnSaveCustomer.FillColor = System.Drawing.Color.RoyalBlue;
+            this.btnSaveCustomer.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaveCustomer.ForeColor = System.Drawing.Color.White;
+            this.btnSaveCustomer.Location = new System.Drawing.Point(549, 336);
+            this.btnSaveCustomer.Name = "btnSaveCustomer";
+            this.btnSaveCustomer.Size = new System.Drawing.Size(70, 28);
+            this.btnSaveCustomer.TabIndex = 27;
+            this.btnSaveCustomer.TabStop = false;
+            this.btnSaveCustomer.Text = "Lưu";
+            this.btnSaveCustomer.Click += new System.EventHandler(this.btnSaveSupplier_Click);
             // 
             // guna2Panel1
             // 
             this.guna2Panel1.BackColor = System.Drawing.Color.White;
             this.guna2Panel1.Controls.Add(this.label1);
-            this.guna2Panel1.Controls.Add(this.btnEditsupplier);
+            this.guna2Panel1.Controls.Add(this.btnEditCustomer);
             this.guna2Panel1.CustomBorderColor = System.Drawing.Color.LightGray;
             this.guna2Panel1.CustomBorderThickness = new System.Windows.Forms.Padding(0, 1, 0, 1);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -77,24 +77,37 @@
             this.guna2Panel1.Size = new System.Drawing.Size(638, 34);
             this.guna2Panel1.TabIndex = 25;
             // 
-            // btnEditsupplier
+            // label1
             // 
-            this.btnEditsupplier.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEditsupplier.BorderRadius = 5;
-            this.btnEditsupplier.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnEditsupplier.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnEditsupplier.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnEditsupplier.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnEditsupplier.FillColor = System.Drawing.Color.Gold;
-            this.btnEditsupplier.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditsupplier.ForeColor = System.Drawing.Color.Black;
-            this.btnEditsupplier.Location = new System.Drawing.Point(549, 3);
-            this.btnEditsupplier.Name = "btnEditsupplier";
-            this.btnEditsupplier.Size = new System.Drawing.Size(70, 28);
-            this.btnEditsupplier.TabIndex = 10;
-            this.btnEditsupplier.TabStop = false;
-            this.btnEditsupplier.Text = "Sửa";
-            this.btnEditsupplier.Click += new System.EventHandler(this.btnEditsupplier_Click);
+            this.label1.Font = new System.Drawing.Font("Leelawadee UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.label1.Image = global::DO_AN_KI_2.Properties.Resources.Customer11;
+            this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label1.Location = new System.Drawing.Point(3, 2);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(204, 29);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "CHI TIẾT KHÁCH HÀNG";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // btnEditCustomer
+            // 
+            this.btnEditCustomer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEditCustomer.BorderRadius = 5;
+            this.btnEditCustomer.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnEditCustomer.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnEditCustomer.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnEditCustomer.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnEditCustomer.FillColor = System.Drawing.Color.Gold;
+            this.btnEditCustomer.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditCustomer.ForeColor = System.Drawing.Color.Black;
+            this.btnEditCustomer.Location = new System.Drawing.Point(549, 3);
+            this.btnEditCustomer.Name = "btnEditCustomer";
+            this.btnEditCustomer.Size = new System.Drawing.Size(70, 28);
+            this.btnEditCustomer.TabIndex = 10;
+            this.btnEditCustomer.TabStop = false;
+            this.btnEditCustomer.Text = "Sửa";
+            this.btnEditCustomer.Click += new System.EventHandler(this.btnEditsupplier_Click);
             // 
             // txtPhone
             // 
@@ -251,25 +264,12 @@
             this.guna2Panel3.Size = new System.Drawing.Size(607, 281);
             this.guna2Panel3.TabIndex = 26;
             // 
-            // label1
-            // 
-            this.label1.Font = new System.Drawing.Font("Leelawadee UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label1.Image = global::DO_AN_KI_2.Properties.Resources.aSupplier;
-            this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label1.Location = new System.Drawing.Point(3, 2);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(223, 29);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "CHI TIẾT NHÀ CUNG CẤP";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // SupplierDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(638, 367);
-            this.Controls.Add(this.btnSaveSupplier);
+            this.Controls.Add(this.btnSaveCustomer);
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.guna2Panel3);
             this.Name = "SupplierDetails";
@@ -284,10 +284,10 @@
 
         #endregion
 
-        private Guna.UI2.WinForms.Guna2Button btnSaveSupplier;
+        private Guna.UI2.WinForms.Guna2Button btnSaveCustomer;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private System.Windows.Forms.Label label1;
-        private Guna.UI2.WinForms.Guna2Button btnEditsupplier;
+        private Guna.UI2.WinForms.Guna2Button btnEditCustomer;
         private Guna.UI2.WinForms.Guna2TextBox txtPhone;
         private System.Windows.Forms.Label label7;
         private Guna.UI2.WinForms.Guna2TextBox txtEmail;

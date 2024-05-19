@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DO_AN_KI_2.service;
+using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
@@ -16,6 +17,7 @@ namespace DO_AN_KI_2
         private bool Modeview;
         private bool EditMode;
         private string linkImage { get; set; }
+        private string linkOldImage { get; set; }
         public ProductDetils(int id, bool Modeview)
         {
             InitializeComponent();
@@ -114,15 +116,15 @@ namespace DO_AN_KI_2
                     string categoryID = reader["categoryID"].ToString();
                     string supplierID = reader["supplierID"].ToString();
                     string trademarkID = reader["trademarkID"].ToString();
-                    decimal weightPro = Convert.ToDecimal(reader["weight"].ToString());
+                    decimal weightPro =  Convert.ToDecimal(reader["weight"].ToString());
                     string descriptionPro = reader["description"].ToString();
-                    string pathDbimage = reader["img"].ToString();
+                     linkOldImage = reader["img"].ToString();
                     // Gán thông tin vào các TextBox trên Form B
                     try
                     {
-                        if (pathDbimage != null && pathDbimage != string.Empty)
+                        if (linkOldImage != null && linkOldImage != string.Empty)
                         {
-                            boxPicture.Image = new Bitmap($@"{Directory.GetCurrentDirectory()}\{pathDbimage}");
+                            boxPicture.Image = new Bitmap($@"{Directory.GetCurrentDirectory()}\{linkOldImage}");
                         }
                     }
                     catch
@@ -255,7 +257,8 @@ namespace DO_AN_KI_2
                         int.TryParse(txtPrice.Text, out price);
                         // Sử dụng parameterized query để tránh lỗ hổng SQL injection
                         string query = $"UPDATE tblPRODUCT SET nameProduct = @nameProduct, isPhysic=@isPhysic, originPrice=@originPrice, price=@price, noLimit=@noLimit,img=@img, description=@description, categoryID=@categoryID, trademarkID=@trademarkID, status=@status, supplierID= @supplierID, weight=@weight where ProductID={id}"; // Thay đổi tblCATEGORY thành tên bảng của bạn
-                        string linkImageSaveToDb = $@"upload\{Path.GetFileName(linkImage)}";
+                        string linkImageSaveToDb =linkImage != null ? $@"upload\{Path.GetFileName(linkImage)}":linkOldImage;
+                   
                     SqlCommand command = new SqlCommand(query, dataServices.connection);
 
 
@@ -281,11 +284,16 @@ namespace DO_AN_KI_2
                     }
 
                     string newPathImage = $@"{currentPath}\{Path.GetFileName(linkImage)}";
-                    if (File.Exists(newPathImage))
+                    string oldPathImage = $@"{Directory.GetCurrentDirectory()}\{linkOldImage}";
+                    
+                    if (linkImage != null)
                     {
-                        File.Delete(newPathImage);
+                        if (File.Exists(oldPathImage))
+                        {
+                            File.Delete(oldPathImage);
+                        }
+                        File.Copy(linkImage, newPathImage, true);
                     }
-                    File.Copy(linkImage, newPathImage, true);
 
 
                     // Thực thi câu lệnh SQL
@@ -324,7 +332,7 @@ namespace DO_AN_KI_2
                         command.Parameters.AddWithValue("@categoryID", category.SelectedValue);
                         command.Parameters.AddWithValue("@trademarkID", trademark.SelectedValue);
                         command.Parameters.AddWithValue("@isPhysic", swPhysic.Checked);
-                        command.Parameters.AddWithValue("@weight", txtWeight.Text);
+                        command.Parameters.AddWithValue("@weight", txtWeight.Text != "" ? txtWeight.Text : "0");
                         command.Parameters.AddWithValue("@status", swActive.Checked);
                         command.Parameters.AddWithValue("@supplierID", supplier.SelectedValue);
 
@@ -371,6 +379,10 @@ namespace DO_AN_KI_2
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
                     linkImage = ofd.FileName;
+                    if (boxPicture.Image != null)
+                    {
+                        boxPicture.Image.Dispose();
+                    }
                     boxPicture.Image = new Bitmap(linkImage);
                 }
             }

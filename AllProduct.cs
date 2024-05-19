@@ -94,7 +94,7 @@ namespace DO_AN_KI_2
 
             ProductDetils Add = new ProductDetils(0, false);
 
-            // Display the new form
+         
             Add.ShowDialog();
             Display();
         }
@@ -102,13 +102,13 @@ namespace DO_AN_KI_2
         private void GnDtP_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             GnDtP.ReadOnly = true;
-            if (e.RowIndex >= 0) // Check if a valid row is clicked
+            if (e.RowIndex >= 0)
             {
                 string id = GnDtP.Rows[e.RowIndex].Cells[0].Value.ToString();
 
                 ProductDetils details = new ProductDetils(Convert.ToInt32(id), true);
 
-                // Display the new form
+           
                 details.ShowDialog();
                 Display();
             }
@@ -207,7 +207,8 @@ namespace DO_AN_KI_2
                             ((DataGridViewImageCell)GnDtP.Rows[row].Cells[7]).Value = Properties.Resources.Delete2;
                         }
                     }                   
-                }              
+                } 
+                services.CloseDB();
             }
             catch(Exception ex)
             {

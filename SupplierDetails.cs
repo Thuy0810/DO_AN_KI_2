@@ -24,8 +24,8 @@ namespace DO_AN_KI_2
             InitializeComponent();
             this.id = id;
             this.Modeview = Modeview;
-            btnEditsupplier.Visible = Modeview;
-            btnSaveSupplier.Visible = !Modeview;
+            btnEditCustomer.Visible = Modeview;
+            btnSaveCustomer.Visible = !Modeview;
             services.OpenDB();
             SetControl(Modeview);
         }
@@ -36,28 +36,24 @@ namespace DO_AN_KI_2
             {
 
                 string queryShowupplierDetails = $"select supplierID,supplierName,phone,email,adress from tblSUPPLIER where supplierID={id}";
-                using(SqlCommand command= new SqlCommand(queryShowupplierDetails,services.connection))
+                services.OpenDB();
+                SqlDataReader reader = services.DataReader(queryShowupplierDetails);
+                if (reader.Read())
                 {
-                   
-                    using (SqlDataReader reader= command.ExecuteReader())
-                    {
-                        if(reader.Read())
-                        {
-                            string SupplierName= reader["supplierName"].ToString();
-                            string phone = reader["phone"].ToString();
-                            string email= reader["email"].ToString();
-                            string address= reader["adress"].ToString();
+                    string SupplierName = reader["supplierName"].ToString();
+                    string phone = reader["phone"].ToString();
+                    string email = reader["email"].ToString();
+                    string address = reader["adress"].ToString();
 
-                            txtNameU.Text = SupplierName;
-                            txtPhone.Text = phone;
-                            txtEmail.Text = email;
-                            txtAddress.Text = address;
+                    txtNameU.Text = SupplierName;
+                    txtPhone.Text = phone;
+                    txtEmail.Text = email;
+                    txtAddress.Text = address;
 
-                            oldEmail= txtEmail.Text;
-                            oldPhone = txtPhone.Text;
-                        }
-                    }
+                    oldEmail = txtEmail.Text;
+                    oldPhone = txtPhone.Text;
                 }
+                services.CloseDB();
             }
         }
 
@@ -71,7 +67,7 @@ namespace DO_AN_KI_2
         }
         private void btnEditsupplier_Click(object sender, EventArgs e)
         {
-           btnSaveSupplier.Visible=true;
+           btnSaveCustomer.Visible=true;
             SetControl(false);
         }
 
@@ -142,8 +138,9 @@ namespace DO_AN_KI_2
                     command.Parameters.AddWithValue("@adress",txtAddress.Text.Trim());
 
                     command.ExecuteNonQuery();
+                    services.CloseDB();
                     this.Close();
-
+                    services.CloseDB();
                 }
                 catch 
                 {
@@ -190,6 +187,7 @@ namespace DO_AN_KI_2
                     command2.ExecuteNonQuery();
                     MessageBox.Show("Lưu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
+                    services.CloseDB();
                 }
                 catch 
                 {

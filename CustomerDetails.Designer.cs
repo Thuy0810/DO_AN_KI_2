@@ -75,6 +75,7 @@
             this.btnSaveCustomer.TabIndex = 24;
             this.btnSaveCustomer.TabStop = false;
             this.btnSaveCustomer.Text = "Lưu";
+            this.btnSaveCustomer.Click += new System.EventHandler(this.btnSaveCustomer_Click);
             // 
             // txtPhoneCustomer
             // 
@@ -248,6 +249,7 @@
             this.btnEditCustomer.TabIndex = 10;
             this.btnEditCustomer.TabStop = false;
             this.btnEditCustomer.Text = "Sửa";
+            this.btnEditCustomer.Click += new System.EventHandler(this.btnEditCustomer_Click);
             // 
             // guna2Panel1
             // 

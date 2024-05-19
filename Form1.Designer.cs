@@ -210,6 +210,8 @@
             this.PnHome.FillColor = System.Drawing.Color.Snow;
             this.PnHome.Font = new System.Drawing.Font("HoloLens MDL2 Assets", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PnHome.ForeColor = System.Drawing.Color.Black;
+            this.PnHome.HoverState.CustomBorderColor = System.Drawing.Color.Gray;
+            this.PnHome.HoverState.FillColor = System.Drawing.Color.LightCyan;
             this.PnHome.Image = global::DO_AN_KI_2.Properties.Resources.Home2;
             this.PnHome.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.PnHome.ImeMode = System.Windows.Forms.ImeMode.NoControl;

@@ -30,6 +30,7 @@
         {
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.btnEdit = new Guna.UI2.WinForms.Guna2Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.btnSave = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel6 = new Guna.UI2.WinForms.Guna2Panel();
@@ -48,6 +49,7 @@
             this.txtDescription = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
             this.label4 = new System.Windows.Forms.Label();
+            this.boxPicture = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             this.swActive = new Guna.UI2.WinForms.Guna2ToggleSwitch();
             this.label5 = new System.Windows.Forms.Label();
@@ -61,15 +63,13 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.boxPicture = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             this.guna2Panel6.SuspendLayout();
             this.guna2Panel5.SuspendLayout();
             this.guna2Panel4.SuspendLayout();
-            this.guna2Panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.boxPicture)).BeginInit();
+            this.guna2Panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2Panel1
@@ -104,6 +104,20 @@
             this.btnEdit.TabStop = false;
             this.btnEdit.Text = "Sửa";
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Leelawadee UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.label1.Image = global::DO_AN_KI_2.Properties.Resources.Details221;
+            this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(202, 29);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "CHI TIẾT SẢN PHẨM ";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // guna2Panel2
             // 
@@ -171,9 +185,9 @@
             this.supplier.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.supplier.ForeColor = System.Drawing.Color.Black;
             this.supplier.ItemHeight = 20;
-            this.supplier.Location = new System.Drawing.Point(102, 145);
+            this.supplier.Location = new System.Drawing.Point(67, 145);
             this.supplier.Name = "supplier";
-            this.supplier.Size = new System.Drawing.Size(114, 26);
+            this.supplier.Size = new System.Drawing.Size(158, 26);
             this.supplier.TabIndex = 9;
             // 
             // label12
@@ -204,7 +218,7 @@
             this.trademark.ItemHeight = 20;
             this.trademark.Location = new System.Drawing.Point(102, 82);
             this.trademark.Name = "trademark";
-            this.trademark.Size = new System.Drawing.Size(114, 26);
+            this.trademark.Size = new System.Drawing.Size(123, 26);
             this.trademark.TabIndex = 8;
             // 
             // label11
@@ -235,7 +249,7 @@
             this.category.ItemHeight = 20;
             this.category.Location = new System.Drawing.Point(100, 25);
             this.category.Name = "category";
-            this.category.Size = new System.Drawing.Size(114, 26);
+            this.category.Size = new System.Drawing.Size(125, 26);
             this.category.TabIndex = 7;
             // 
             // label10
@@ -388,6 +402,21 @@
             this.label4.TabIndex = 4;
             this.label4.Text = "THAY ĐỔI";
             this.label4.Click += new System.EventHandler(this.label4_Click);
+            // 
+            // boxPicture
+            // 
+            this.boxPicture.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.boxPicture.BorderRadius = 1;
+            this.boxPicture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.boxPicture.ImageRotate = 0F;
+            this.boxPicture.Location = new System.Drawing.Point(17, 14);
+            this.boxPicture.Name = "boxPicture";
+            this.boxPicture.Size = new System.Drawing.Size(208, 164);
+            this.boxPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.boxPicture.TabIndex = 6;
+            this.boxPicture.TabStop = false;
             // 
             // guna2Panel3
             // 
@@ -601,35 +630,6 @@
             this.label7.TabIndex = 5;
             this.label7.Text = "GIÁ GỐC :";
             // 
-            // boxPicture
-            // 
-            this.boxPicture.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.boxPicture.BorderRadius = 1;
-            this.boxPicture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.boxPicture.ImageRotate = 0F;
-            this.boxPicture.Location = new System.Drawing.Point(17, 14);
-            this.boxPicture.Name = "boxPicture";
-            this.boxPicture.Size = new System.Drawing.Size(208, 164);
-            this.boxPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.boxPicture.TabIndex = 6;
-            this.boxPicture.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.Font = new System.Drawing.Font("Leelawadee UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label1.Image = global::DO_AN_KI_2.Properties.Resources.Details221;
-            this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label1.Location = new System.Drawing.Point(3, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(202, 29);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "CHI TIẾT SẢN PHẨM ";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
             // ProductDetils
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -649,9 +649,9 @@
             this.guna2Panel5.PerformLayout();
             this.guna2Panel4.ResumeLayout(false);
             this.guna2Panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.boxPicture)).EndInit();
             this.guna2Panel3.ResumeLayout(false);
             this.guna2Panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.boxPicture)).EndInit();
             this.ResumeLayout(false);
 
         }
