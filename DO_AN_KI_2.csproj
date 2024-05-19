@@ -218,6 +218,9 @@
     <EmbeddedResource Include="TblUsers.resx">
       <DependentUpon>TblUsers.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Trademark.resx">
+      <DependentUpon>Trademark.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="User.resx">
       <DependentUpon>User.cs</DependentUpon>
     </EmbeddedResource>

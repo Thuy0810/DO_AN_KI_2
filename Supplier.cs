@@ -21,7 +21,7 @@ namespace DO_AN_KI_2
 
         private void Supplier_Load(object sender, EventArgs e)
         {
-           // this.ControlBox = false;
+            this.ControlBox = false;
             services.OpenDB();
             DisplaySupplier();
         }

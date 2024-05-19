@@ -164,7 +164,8 @@ namespace DO_AN_KI_2
                 allProduct.MdiParent = this;
                 allProduct.Dock = DockStyle.Fill;
                 allProduct.Show();
-               
+            
+
 
             }
             else
@@ -342,19 +343,23 @@ namespace DO_AN_KI_2
         {
             tbluser = null;
         }
-        private void btnTrademark_Click(object sender, EventArgs e)
+       
+      
+        private void btnTrademark_Click_1(object sender, EventArgs e)
         {
-            if(trademark == null)
+            if (trademark == null)
             {
-                trademark= new Trademark();
+                trademark = new Trademark();
                 trademark.MdiParent = this;
                 trademark.FormClosed -= Trademark_FormClosed;
                 trademark.Dock = DockStyle.Fill;
                 trademark.Show();
+
             }
             else
             {
                 trademark.Activate();
+
             }
         }
         private void Trademark_FormClosed(object sender, EventArgs e)
