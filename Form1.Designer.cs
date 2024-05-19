@@ -30,16 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.siderBar = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.MenuContainer = new System.Windows.Forms.FlowLayoutPanel();
+            this.Menu_Transiton = new System.Windows.Forms.Timer(this.components);
+            this.SiderBar_Transition = new System.Windows.Forms.Timer(this.components);
             this.btnTrademark = new Guna.UI2.WinForms.Guna2Button();
             this.PnHome = new Guna.UI2.WinForms.Guna2Button();
-            this.MenuContainer = new System.Windows.Forms.FlowLayoutPanel();
             this.Menu1 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
@@ -50,21 +47,26 @@
             this.pnCustomer = new Guna.UI2.WinForms.Guna2Button();
             this.btnUser = new Guna.UI2.WinForms.Guna2Button();
             this.btnRevenue = new Guna.UI2.WinForms.Guna2Button();
-            this.Menu_Transiton = new System.Windows.Forms.Timer(this.components);
-            this.SiderBar_Transition = new System.Windows.Forms.Timer(this.components);
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.guna2Panel2.SuspendLayout();
+            this.siderBar.SuspendLayout();
+            this.MenuContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            this.siderBar.SuspendLayout();
-            this.MenuContainer.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2Panel2
             // 
             this.guna2Panel2.BackColor = System.Drawing.Color.White;
+            this.guna2Panel2.Controls.Add(this.button1);
             this.guna2Panel2.Controls.Add(this.pictureBox3);
             this.guna2Panel2.Controls.Add(this.pictureBox4);
             this.guna2Panel2.Controls.Add(this.pictureBox2);
@@ -79,58 +81,6 @@
             this.guna2Panel2.Name = "guna2Panel2";
             this.guna2Panel2.Size = new System.Drawing.Size(865, 62);
             this.guna2Panel2.TabIndex = 1;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::DO_AN_KI_2.Properties.Resources.A1;
-            this.pictureBox3.Location = new System.Drawing.Point(159, 12);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(26, 35);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 3;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = global::DO_AN_KI_2.Properties.Resources.U;
-            this.pictureBox4.Location = new System.Drawing.Point(108, 12);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(24, 35);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 3;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::DO_AN_KI_2.Properties.Resources.N3;
-            this.pictureBox2.Location = new System.Drawing.Point(128, 12);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(37, 35);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 3;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox1.Image = global::DO_AN_KI_2.Properties.Resources.Menu2;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(37, 35);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Image = global::DO_AN_KI_2.Properties.Resources.T_Cute;
-            this.pictureBox5.Location = new System.Drawing.Point(76, 12);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(37, 35);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox5.TabIndex = 3;
-            this.pictureBox5.TabStop = false;
             // 
             // label1
             // 
@@ -168,6 +118,30 @@
             this.siderBar.Name = "siderBar";
             this.siderBar.Size = new System.Drawing.Size(192, 421);
             this.siderBar.TabIndex = 2;
+            // 
+            // MenuContainer
+            // 
+            this.MenuContainer.BackColor = System.Drawing.Color.White;
+            this.MenuContainer.Controls.Add(this.Menu1);
+            this.MenuContainer.Controls.Add(this.guna2Button3);
+            this.MenuContainer.Controls.Add(this.guna2Button4);
+            this.MenuContainer.Controls.Add(this.guna2Button2);
+            this.MenuContainer.Controls.Add(this.guna2Button5);
+            this.MenuContainer.ForeColor = System.Drawing.Color.Black;
+            this.MenuContainer.Location = new System.Drawing.Point(9, 66);
+            this.MenuContainer.Name = "MenuContainer";
+            this.MenuContainer.Size = new System.Drawing.Size(169, 42);
+            this.MenuContainer.TabIndex = 5;
+            // 
+            // Menu_Transiton
+            // 
+            this.Menu_Transiton.Interval = 10;
+            this.Menu_Transiton.Tick += new System.EventHandler(this.Menu_Timer_Tick);
+            // 
+            // SiderBar_Transition
+            // 
+            this.SiderBar_Transition.Interval = 10;
+            this.SiderBar_Transition.Tick += new System.EventHandler(this.SiderBar_Transition_Tick);
             // 
             // btnTrademark
             // 
@@ -224,20 +198,6 @@
             this.PnHome.Text = "Trang Chủ ";
             this.PnHome.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.PnHome.Click += new System.EventHandler(this.PnHome_Click);
-            // 
-            // MenuContainer
-            // 
-            this.MenuContainer.BackColor = System.Drawing.Color.White;
-            this.MenuContainer.Controls.Add(this.Menu1);
-            this.MenuContainer.Controls.Add(this.guna2Button3);
-            this.MenuContainer.Controls.Add(this.guna2Button4);
-            this.MenuContainer.Controls.Add(this.guna2Button2);
-            this.MenuContainer.Controls.Add(this.guna2Button5);
-            this.MenuContainer.ForeColor = System.Drawing.Color.Black;
-            this.MenuContainer.Location = new System.Drawing.Point(9, 66);
-            this.MenuContainer.Name = "MenuContainer";
-            this.MenuContainer.Size = new System.Drawing.Size(169, 42);
-            this.MenuContainer.TabIndex = 5;
             // 
             // Menu1
             // 
@@ -483,15 +443,67 @@
             this.btnRevenue.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnRevenue.Click += new System.EventHandler(this.guna2Button6_Click);
             // 
-            // Menu_Transiton
+            // pictureBox3
             // 
-            this.Menu_Transiton.Interval = 10;
-            this.Menu_Transiton.Tick += new System.EventHandler(this.Menu_Timer_Tick);
+            this.pictureBox3.Image = global::DO_AN_KI_2.Properties.Resources.A1;
+            this.pictureBox3.Location = new System.Drawing.Point(159, 12);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(26, 35);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 3;
+            this.pictureBox3.TabStop = false;
             // 
-            // SiderBar_Transition
+            // pictureBox4
             // 
-            this.SiderBar_Transition.Interval = 10;
-            this.SiderBar_Transition.Tick += new System.EventHandler(this.SiderBar_Transition_Tick);
+            this.pictureBox4.Image = global::DO_AN_KI_2.Properties.Resources.U;
+            this.pictureBox4.Location = new System.Drawing.Point(108, 12);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(24, 35);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 3;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::DO_AN_KI_2.Properties.Resources.N3;
+            this.pictureBox2.Location = new System.Drawing.Point(128, 12);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(37, 35);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 3;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox1.Image = global::DO_AN_KI_2.Properties.Resources.Menu2;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(37, 35);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = global::DO_AN_KI_2.Properties.Resources.T_Cute;
+            this.pictureBox5.Location = new System.Drawing.Point(76, 12);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(37, 35);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox5.TabIndex = 3;
+            this.pictureBox5.TabStop = false;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.Image = global::DO_AN_KI_2.Properties.Resources.Close_Window3;
+            this.button1.Location = new System.Drawing.Point(816, 8);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(37, 39);
+            this.button1.TabIndex = 4;
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // Form1
             // 
@@ -506,13 +518,13 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Resize += new System.EventHandler(this.Form1_Resize);
             this.guna2Panel2.ResumeLayout(false);
+            this.siderBar.ResumeLayout(false);
+            this.MenuContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            this.siderBar.ResumeLayout(false);
-            this.MenuContainer.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -541,6 +553,7 @@
         private Guna.UI2.WinForms.Guna2Button btnRevenue;
         private Guna.UI2.WinForms.Guna2Button btnUser;
         private Guna.UI2.WinForms.Guna2Button btnTrademark;
+        private System.Windows.Forms.Button button1;
     }
 }
 

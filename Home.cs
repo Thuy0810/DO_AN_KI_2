@@ -21,7 +21,10 @@ namespace DO_AN_KI_2
 
         private void Home_Load_1(object sender, EventArgs e)
         {
-            //this.ControlBox = false;
+            this.ControlBox = false;
         }
+
+       
+       
     }
 }

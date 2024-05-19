@@ -32,6 +32,8 @@ namespace DO_AN_KI_2
         {
             InitializeComponent();
             MdiProp();
+         
+           
         }
        
      
@@ -377,5 +379,6 @@ namespace DO_AN_KI_2
             home.Show();
         }
 
+      
     }
 }

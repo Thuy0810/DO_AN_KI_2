@@ -427,7 +427,9 @@
   <ItemGroup>
     <None Include="Resources\Delete2.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\homeimg.jpg" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Male User.png" />
   </ItemGroup>
@@ -457,6 +459,63 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\aSupplier.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\images.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\homeimg1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\green.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dep.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ARevenue1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Stocks Growth.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\date2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\month1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\date1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\total.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Combo Chart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Coins.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ACombo Chart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Coins1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Close Window.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Close Window3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Close Window31.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AClose Window.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
