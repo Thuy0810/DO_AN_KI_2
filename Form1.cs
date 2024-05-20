@@ -125,6 +125,7 @@ namespace DO_AN_KI_2
                     MenuContainer.Width = 171;
                     btnUser.Width = 170;
                     btnTrademark.Width = 170;
+                   
                 }
             }
         }
@@ -133,6 +134,7 @@ namespace DO_AN_KI_2
         {
             SiderBar_Transition.Start();
             MenuContainer.Height = 43;
+
 
 
         }
@@ -221,7 +223,7 @@ namespace DO_AN_KI_2
         }
         private void Import_FormClosed(Object sender, EventArgs e)
         {
-            supplier = null;
+            import = null;
         }
 
         private void guna2Button5_Click(object sender, EventArgs e)
@@ -370,6 +372,7 @@ namespace DO_AN_KI_2
         }
         private void Form1_Load(object sender, EventArgs e)
         {
+            //this.ControlBox= false;
                     MenuContainer.Height = 43;
 
             home = new Home();
@@ -379,6 +382,6 @@ namespace DO_AN_KI_2
             home.Show();
         }
 
-      
+        
     }
 }

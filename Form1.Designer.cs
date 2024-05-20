@@ -30,13 +30,16 @@
         {
             this.components = new System.ComponentModel.Container();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.siderBar = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
-            this.MenuContainer = new System.Windows.Forms.FlowLayoutPanel();
-            this.Menu_Transiton = new System.Windows.Forms.Timer(this.components);
-            this.SiderBar_Transition = new System.Windows.Forms.Timer(this.components);
             this.btnTrademark = new Guna.UI2.WinForms.Guna2Button();
             this.PnHome = new Guna.UI2.WinForms.Guna2Button();
+            this.MenuContainer = new System.Windows.Forms.FlowLayoutPanel();
             this.Menu1 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
@@ -47,26 +50,21 @@
             this.pnCustomer = new Guna.UI2.WinForms.Guna2Button();
             this.btnUser = new Guna.UI2.WinForms.Guna2Button();
             this.btnRevenue = new Guna.UI2.WinForms.Guna2Button();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.Menu_Transiton = new System.Windows.Forms.Timer(this.components);
+            this.SiderBar_Transition = new System.Windows.Forms.Timer(this.components);
             this.guna2Panel2.SuspendLayout();
-            this.siderBar.SuspendLayout();
-            this.MenuContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            this.siderBar.SuspendLayout();
+            this.MenuContainer.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2Panel2
             // 
             this.guna2Panel2.BackColor = System.Drawing.Color.White;
-            this.guna2Panel2.Controls.Add(this.button1);
             this.guna2Panel2.Controls.Add(this.pictureBox3);
             this.guna2Panel2.Controls.Add(this.pictureBox4);
             this.guna2Panel2.Controls.Add(this.pictureBox2);
@@ -82,16 +80,68 @@
             this.guna2Panel2.Size = new System.Drawing.Size(865, 62);
             this.guna2Panel2.TabIndex = 1;
             // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::DO_AN_KI_2.Properties.Resources.A1;
+            this.pictureBox3.Location = new System.Drawing.Point(159, 12);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(26, 35);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 3;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = global::DO_AN_KI_2.Properties.Resources.U;
+            this.pictureBox4.Location = new System.Drawing.Point(108, 12);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(24, 35);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 3;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::DO_AN_KI_2.Properties.Resources.N3;
+            this.pictureBox2.Location = new System.Drawing.Point(128, 12);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(37, 35);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 3;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox1.Image = global::DO_AN_KI_2.Properties.Resources.Menu2;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(37, 35);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = global::DO_AN_KI_2.Properties.Resources.T_Cute;
+            this.pictureBox5.Location = new System.Drawing.Point(76, 12);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(37, 35);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox5.TabIndex = 3;
+            this.pictureBox5.TabStop = false;
+            // 
             // label1
             // 
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(103, 4);
+            this.label1.Location = new System.Drawing.Point(119, 7);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(762, 47);
+            this.label1.Size = new System.Drawing.Size(650, 47);
             this.label1.TabIndex = 0;
-            this.label1.Text = "    HỆ THỐNG QUẢN LÝ KHO VÀ BÁN  HÀNG";
+            this.label1.Text = "      HỆ THỐNG QUẢN LÝ KHO VÀ BÁN  HÀNG";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // siderBar
@@ -119,30 +169,6 @@
             this.siderBar.Size = new System.Drawing.Size(192, 421);
             this.siderBar.TabIndex = 2;
             // 
-            // MenuContainer
-            // 
-            this.MenuContainer.BackColor = System.Drawing.Color.White;
-            this.MenuContainer.Controls.Add(this.Menu1);
-            this.MenuContainer.Controls.Add(this.guna2Button3);
-            this.MenuContainer.Controls.Add(this.guna2Button4);
-            this.MenuContainer.Controls.Add(this.guna2Button2);
-            this.MenuContainer.Controls.Add(this.guna2Button5);
-            this.MenuContainer.ForeColor = System.Drawing.Color.Black;
-            this.MenuContainer.Location = new System.Drawing.Point(9, 66);
-            this.MenuContainer.Name = "MenuContainer";
-            this.MenuContainer.Size = new System.Drawing.Size(169, 42);
-            this.MenuContainer.TabIndex = 5;
-            // 
-            // Menu_Transiton
-            // 
-            this.Menu_Transiton.Interval = 10;
-            this.Menu_Transiton.Tick += new System.EventHandler(this.Menu_Timer_Tick);
-            // 
-            // SiderBar_Transition
-            // 
-            this.SiderBar_Transition.Interval = 10;
-            this.SiderBar_Transition.Tick += new System.EventHandler(this.SiderBar_Transition_Tick);
-            // 
             // btnTrademark
             // 
             this.btnTrademark.BackColor = System.Drawing.Color.White;
@@ -154,9 +180,10 @@
             this.btnTrademark.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnTrademark.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnTrademark.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnTrademark.FillColor = System.Drawing.Color.White;
+            this.btnTrademark.FillColor = System.Drawing.Color.WhiteSmoke;
             this.btnTrademark.Font = new System.Drawing.Font("HoloLens MDL2 Assets", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTrademark.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.btnTrademark.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnTrademark.Image = global::DO_AN_KI_2.Properties.Resources.APeugeot;
             this.btnTrademark.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnTrademark.Location = new System.Drawing.Point(8, 354);
@@ -181,11 +208,12 @@
             this.PnHome.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.PnHome.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.PnHome.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.PnHome.FillColor = System.Drawing.Color.Snow;
+            this.PnHome.FillColor = System.Drawing.Color.WhiteSmoke;
             this.PnHome.Font = new System.Drawing.Font("HoloLens MDL2 Assets", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PnHome.ForeColor = System.Drawing.Color.Black;
             this.PnHome.HoverState.CustomBorderColor = System.Drawing.Color.Gray;
-            this.PnHome.HoverState.FillColor = System.Drawing.Color.LightCyan;
+            this.PnHome.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.PnHome.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.PnHome.Image = global::DO_AN_KI_2.Properties.Resources.Home2;
             this.PnHome.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.PnHome.ImeMode = System.Windows.Forms.ImeMode.NoControl;
@@ -199,6 +227,20 @@
             this.PnHome.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.PnHome.Click += new System.EventHandler(this.PnHome_Click);
             // 
+            // MenuContainer
+            // 
+            this.MenuContainer.BackColor = System.Drawing.Color.White;
+            this.MenuContainer.Controls.Add(this.Menu1);
+            this.MenuContainer.Controls.Add(this.guna2Button3);
+            this.MenuContainer.Controls.Add(this.guna2Button4);
+            this.MenuContainer.Controls.Add(this.guna2Button2);
+            this.MenuContainer.Controls.Add(this.guna2Button5);
+            this.MenuContainer.ForeColor = System.Drawing.Color.Black;
+            this.MenuContainer.Location = new System.Drawing.Point(9, 66);
+            this.MenuContainer.Name = "MenuContainer";
+            this.MenuContainer.Size = new System.Drawing.Size(169, 42);
+            this.MenuContainer.TabIndex = 5;
+            // 
             // Menu1
             // 
             this.Menu1.BackColor = System.Drawing.Color.White;
@@ -210,9 +252,10 @@
             this.Menu1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.Menu1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.Menu1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.Menu1.FillColor = System.Drawing.Color.White;
+            this.Menu1.FillColor = System.Drawing.Color.WhiteSmoke;
             this.Menu1.Font = new System.Drawing.Font("HoloLens MDL2 Assets", 12F, System.Drawing.FontStyle.Bold);
             this.Menu1.ForeColor = System.Drawing.Color.Black;
+            this.Menu1.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.Menu1.Image = global::DO_AN_KI_2.Properties.Resources.plm;
             this.Menu1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.Menu1.ImageOffset = new System.Drawing.Point(-1, 0);
@@ -332,9 +375,10 @@
             this.btnBill.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnBill.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnBill.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnBill.FillColor = System.Drawing.Color.White;
+            this.btnBill.FillColor = System.Drawing.Color.WhiteSmoke;
             this.btnBill.Font = new System.Drawing.Font("HoloLens MDL2 Assets", 12F, System.Drawing.FontStyle.Bold);
             this.btnBill.ForeColor = System.Drawing.SystemColors.MenuText;
+            this.btnBill.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnBill.Image = global::DO_AN_KI_2.Properties.Resources.b5;
             this.btnBill.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnBill.Location = new System.Drawing.Point(8, 162);
@@ -357,9 +401,10 @@
             this.PNCategpry.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.PNCategpry.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.PNCategpry.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.PNCategpry.FillColor = System.Drawing.Color.White;
+            this.PNCategpry.FillColor = System.Drawing.Color.WhiteSmoke;
             this.PNCategpry.Font = new System.Drawing.Font("HoloLens MDL2 Assets", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PNCategpry.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.PNCategpry.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.PNCategpry.Image = global::DO_AN_KI_2.Properties.Resources.cm;
             this.PNCategpry.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.PNCategpry.Location = new System.Drawing.Point(8, 306);
@@ -381,9 +426,10 @@
             this.pnCustomer.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.pnCustomer.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.pnCustomer.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.pnCustomer.FillColor = System.Drawing.Color.White;
+            this.pnCustomer.FillColor = System.Drawing.Color.WhiteSmoke;
             this.pnCustomer.Font = new System.Drawing.Font("HoloLens MDL2 Assets", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pnCustomer.ForeColor = System.Drawing.Color.Black;
+            this.pnCustomer.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.pnCustomer.Image = global::DO_AN_KI_2.Properties.Resources.cus2;
             this.pnCustomer.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.pnCustomer.Location = new System.Drawing.Point(8, 114);
@@ -405,9 +451,10 @@
             this.btnUser.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnUser.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnUser.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnUser.FillColor = System.Drawing.Color.White;
+            this.btnUser.FillColor = System.Drawing.Color.WhiteSmoke;
             this.btnUser.Font = new System.Drawing.Font("HoloLens MDL2 Assets", 12F, System.Drawing.FontStyle.Bold);
             this.btnUser.ForeColor = System.Drawing.SystemColors.MenuText;
+            this.btnUser.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnUser.Image = global::DO_AN_KI_2.Properties.Resources.Male_User;
             this.btnUser.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnUser.Location = new System.Drawing.Point(8, 258);
@@ -429,9 +476,10 @@
             this.btnRevenue.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnRevenue.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnRevenue.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnRevenue.FillColor = System.Drawing.Color.White;
+            this.btnRevenue.FillColor = System.Drawing.Color.WhiteSmoke;
             this.btnRevenue.Font = new System.Drawing.Font("HoloLens MDL2 Assets", 12F, System.Drawing.FontStyle.Bold);
             this.btnRevenue.ForeColor = System.Drawing.SystemColors.MenuText;
+            this.btnRevenue.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnRevenue.Image = global::DO_AN_KI_2.Properties.Resources.re1;
             this.btnRevenue.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnRevenue.Location = new System.Drawing.Point(8, 210);
@@ -439,71 +487,19 @@
             this.btnRevenue.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnRevenue.Size = new System.Drawing.Size(168, 42);
             this.btnRevenue.TabIndex = 4;
-            this.btnRevenue.Text = "Doanh Thu";
+            this.btnRevenue.Text = "Bảo Hành";
             this.btnRevenue.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnRevenue.Click += new System.EventHandler(this.guna2Button6_Click);
             // 
-            // pictureBox3
+            // Menu_Transiton
             // 
-            this.pictureBox3.Image = global::DO_AN_KI_2.Properties.Resources.A1;
-            this.pictureBox3.Location = new System.Drawing.Point(159, 12);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(26, 35);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 3;
-            this.pictureBox3.TabStop = false;
+            this.Menu_Transiton.Interval = 10;
+            this.Menu_Transiton.Tick += new System.EventHandler(this.Menu_Timer_Tick);
             // 
-            // pictureBox4
+            // SiderBar_Transition
             // 
-            this.pictureBox4.Image = global::DO_AN_KI_2.Properties.Resources.U;
-            this.pictureBox4.Location = new System.Drawing.Point(108, 12);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(24, 35);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 3;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::DO_AN_KI_2.Properties.Resources.N3;
-            this.pictureBox2.Location = new System.Drawing.Point(128, 12);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(37, 35);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 3;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox1.Image = global::DO_AN_KI_2.Properties.Resources.Menu2;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(37, 35);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Image = global::DO_AN_KI_2.Properties.Resources.T_Cute;
-            this.pictureBox5.Location = new System.Drawing.Point(76, 12);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(37, 35);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox5.TabIndex = 3;
-            this.pictureBox5.TabStop = false;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.Image = global::DO_AN_KI_2.Properties.Resources.Close_Window3;
-            this.button1.Location = new System.Drawing.Point(816, 8);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(37, 39);
-            this.button1.TabIndex = 4;
-            this.button1.UseVisualStyleBackColor = false;
+            this.SiderBar_Transition.Interval = 10;
+            this.SiderBar_Transition.Tick += new System.EventHandler(this.SiderBar_Transition_Tick);
             // 
             // Form1
             // 
@@ -518,13 +514,13 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Resize += new System.EventHandler(this.Form1_Resize);
             this.guna2Panel2.ResumeLayout(false);
-            this.siderBar.ResumeLayout(false);
-            this.MenuContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            this.siderBar.ResumeLayout(false);
+            this.MenuContainer.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -553,7 +549,6 @@
         private Guna.UI2.WinForms.Guna2Button btnRevenue;
         private Guna.UI2.WinForms.Guna2Button btnUser;
         private Guna.UI2.WinForms.Guna2Button btnTrademark;
-        private System.Windows.Forms.Button button1;
     }
 }
 

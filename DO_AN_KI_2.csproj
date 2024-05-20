@@ -517,6 +517,36 @@
   <ItemGroup>
     <None Include="Resources\AClose Window.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Close22.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AClose Window1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Close221.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Maximize Button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Minus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Subtract.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ASubtract.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Maximize Window.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AClose1 Window.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Clock.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>

@@ -265,9 +265,9 @@
             this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(153, 33);
+            this.label1.Size = new System.Drawing.Size(129, 34);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Nhập hàng";
+            this.label1.Text = "NHẬP HÀNG";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // DataGridView
@@ -307,7 +307,7 @@
             dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.DataGridView.DefaultCellStyle = dataGridViewCellStyle8;
             this.DataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.DataGridView.Location = new System.Drawing.Point(-1, 39);
+            this.DataGridView.Location = new System.Drawing.Point(0, 39);
             this.DataGridView.Name = "DataGridView";
             this.DataGridView.ReadOnly = true;
             dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -388,7 +388,7 @@
             // 
             // avx
             // 
-            this.avx.HeaderText = "Ngày nhập hàng";
+            this.avx.HeaderText = "NGÀY NHẬP";
             this.avx.Name = "avx";
             this.avx.ReadOnly = true;
             // 
@@ -407,7 +407,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.DataGridView);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "Import";
             this.Text = "Import Product";
             this.Load += new System.EventHandler(this.Import_Load);
