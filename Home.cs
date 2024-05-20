@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,16 +28,16 @@ namespace DO_AN_KI_2
             this.ControlBox = false;
             int selectedMonth = DateTime.Now.Month;
             DateTime currentDate = DateTime.Now.Date;
-
+            NumberFormatInfo nfi = new CultureInfo("vi-VN", false).NumberFormat;
             try
             {
                 services.OpenDB();
 
-                // Định nghĩa câu truy vấn và tạo đối tượng SqlCommand
+             
                 string query = "SELECT SUM(total) FROM tblORDER WHERE MONTH(orderDate) = @month";
                 using (SqlCommand command = new SqlCommand(query, services.connection))
                 {
-                    // Thêm tham số và thực thi câu truy vấn
+                   
                     command.Parameters.AddWithValue("@month", selectedMonth);
 
                     // ExecuteScalar trả về cột đầu tiên của hàng đầu tiên trong tập kết quả, hoặc null nếu tập kết quả rỗng
@@ -45,29 +46,48 @@ namespace DO_AN_KI_2
                     // Kiểm tra DBNull trước khi chuyển đổi sang decimal
                     decimal totalRevenue = (result != DBNull.Value) ? Convert.ToDecimal(result) : 0;
 
-                    // Cập nhật TextBox với tổng doanh thu
+               
                     label.Text = $"Doanh thu tháng {selectedMonth}: ";
-                    totalMonth.Text = totalRevenue.ToString() + " VND";
+                    totalMonth.Text = totalRevenue.ToString("N0", nfi) + " VND";
                 }
 
-                // Thực hiện câu truy vấn mới để tính tổng tiền theo ngày
+                
                 string query1 = "SELECT SUM(total) FROM tblORDER WHERE CONVERT(date, orderDate) = @currentDate";
                 using (SqlCommand command = new SqlCommand(query1, services.connection))
                 {
-                    // Thêm tham số và thực thi câu truy vấn
                     command.Parameters.AddWithValue("@currentDate", currentDate);
 
                     // ExecuteScalar trả về cột đầu tiên của hàng đầu tiên trong tập kết quả, hoặc null nếu tập kết quả rỗng
                     object result = command.ExecuteScalar();
 
                     // Kiểm tra DBNull trước khi chuyển đổi sang decimal
-                    decimal totalRevenue = (result != DBNull.Value) ? Convert.ToDecimal(result) : 0;
+                    decimal totalRevenueDate = (result != DBNull.Value) ? Convert.ToDecimal(result) : 0;
 
-                    // Hiển thị kết quả trong TextBox
+                  
                    label3.Text = $" Doanh thu ngày: {currentDate.ToShortDateString()}";
-                    totalDate.Text = $" {totalRevenue} VND";
+                    totalDate.Text = $" {totalRevenueDate.ToString("N0", nfi)} VND";
                    
                 }
+                //nhap hang
+                string queryTotalImportProduct = "select sum(total) from tblImportProduct WHERE MONTH(dateImport) = @month";
+                using (SqlCommand commandTotal= new SqlCommand(queryTotalImportProduct,services.connection))
+                {
+                    commandTotal.Parameters.AddWithValue("@month",selectedMonth);
+                    object result = commandTotal.ExecuteScalar();
+                    decimal TotalImport= (result != DBNull.Value)?Convert.ToDecimal(result):0;
+                    totalImportMonth.Text= $"TIền nhập hàng tháng {selectedMonth}: ";
+                    totalImMonth.Text= TotalImport.ToString("N0", nfi) + " VND";
+                }
+
+
+                string queryTotalAll = "select sum(total) from tblORDER ";
+                using ( SqlCommand commandTotalAll= new SqlCommand( queryTotalAll, services.connection))
+                {
+                    object result = commandTotalAll.ExecuteScalar();
+                    decimal TotalALl=(result != DBNull.Value)? Convert.ToDecimal(result):0;
+                    totalAllFull.Text= TotalALl.ToString("N0", nfi) + " VND";
+                }
+
             }
             catch (Exception ex)
             {
@@ -124,7 +144,7 @@ namespace DO_AN_KI_2
             }
         }
 
-      
+       
     }
 }
 

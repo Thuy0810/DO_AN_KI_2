@@ -83,6 +83,36 @@ namespace DO_AN_KI_2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap aaaRefund {
+            get {
+                object obj = ResourceManager.GetObject("aaaRefund", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap aaaRefund1 {
+            get {
+                object obj = ResourceManager.GetObject("aaaRefund1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap AACoins {
+            get {
+                object obj = ResourceManager.GetObject("AACoins", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap AClose_Window {
             get {
                 object obj = ResourceManager.GetObject("AClose Window", resourceCulture);
@@ -176,6 +206,16 @@ namespace DO_AN_KI_2.Properties {
         internal static System.Drawing.Bitmap ARevenue {
             get {
                 object obj = ResourceManager.GetObject("ARevenue", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap AStatistics {
+            get {
+                object obj = ResourceManager.GetObject("AStatistics", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -353,9 +393,29 @@ namespace DO_AN_KI_2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Coins2 {
+            get {
+                object obj = ResourceManager.GetObject("Coins2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Combo_Chart {
             get {
                 object obj = ResourceManager.GetObject("Combo Chart", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Combo_Chart1 {
+            get {
+                object obj = ResourceManager.GetObject("Combo Chart1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -593,6 +653,16 @@ namespace DO_AN_KI_2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Guarantee {
+            get {
+                object obj = ResourceManager.GetObject("Guarantee", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Home {
             get {
                 object obj = ResourceManager.GetObject("Home", resourceCulture);
@@ -666,6 +736,16 @@ namespace DO_AN_KI_2.Properties {
         internal static System.Drawing.Bitmap homeimg1 {
             get {
                 object obj = ResourceManager.GetObject("homeimg1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap homeimg2 {
+            get {
+                object obj = ResourceManager.GetObject("homeimg2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

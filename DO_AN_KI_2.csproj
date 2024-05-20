@@ -547,6 +547,30 @@
   <ItemGroup>
     <None Include="Resources\Clock.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Guarantee.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Coins2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Combo Chart1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\homeimg2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AACoins.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\aaaRefund.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\aaaRefund1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AStatistics.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>
