@@ -38,15 +38,20 @@ namespace DO_AN_KI_2
                 message.showWarning("Mật khẩu không được để trống");
             }
 
-            string querySignUp = "select userName, password from tblUSER where userName= @userName and password=@password";
+            string querySignUp = "select 1 from tblUSER where userName= @userName and password=@password";
             SqlCommand command = new SqlCommand(querySignUp, services.connection);
             command.Parameters.AddWithValue("@userName", txtUserName.Text.Trim());
             command.Parameters.AddWithValue("@password", txtPass.Text.Trim());
             using (SqlDataReader reader = command.ExecuteReader())
             {
-                while (reader.Read())
+                if (reader.HasRows)
                 {
-
+                   Form1 form1 = new Form1();
+                    form1.ShowDialog();
+                }
+                else
+                {
+                    message.showError("Sai tên đăng nhập hoặc mật khẩu");
                 }
             }
 
