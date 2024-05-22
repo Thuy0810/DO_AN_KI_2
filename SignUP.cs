@@ -1,21 +1,14 @@
 ﻿using DO_AN_KI_2.service;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DO_AN_KI_2
 {
-       
+
     public partial class SignUP : Form
     {
-        DataServices services=new DataServices();
+        DataServices services = new DataServices();
         public SignUP()
         {
             InitializeComponent();
@@ -29,11 +22,11 @@ namespace DO_AN_KI_2
         private void guna2Button1_Click(object sender, EventArgs e)
         {
             services.OpenDB();
-            if(txtUserName.Text.Length==0)
+            if (txtUserName.Text.Length == 0)
             {
                 message.showWarning("Tên người dùng không được để trống");
             }
-            if (txtPass.Text.Length==0)
+            if (txtPass.Text.Length == 0)
             {
                 message.showWarning("Mật khẩu không được để trống");
             }
@@ -46,7 +39,7 @@ namespace DO_AN_KI_2
             {
                 if (reader.HasRows)
                 {
-                   Form1 form1 = new Form1();
+                    Form1 form1 = new Form1();
                     form1.ShowDialog();
                 }
                 else
@@ -54,6 +47,7 @@ namespace DO_AN_KI_2
                     message.showError("Sai tên đăng nhập hoặc mật khẩu");
                 }
             }
+            services.CloseDB();
 
         }
     }
