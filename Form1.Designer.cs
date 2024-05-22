@@ -77,7 +77,7 @@
             this.guna2Panel2.FillColor = System.Drawing.Color.MintCream;
             this.guna2Panel2.Location = new System.Drawing.Point(0, 0);
             this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(865, 62);
+            this.guna2Panel2.Size = new System.Drawing.Size(1097, 62);
             this.guna2Panel2.TabIndex = 1;
             // 
             // pictureBox3
@@ -166,7 +166,7 @@
             this.siderBar.ForeColor = System.Drawing.SystemColors.ControlText;
             this.siderBar.Location = new System.Drawing.Point(0, 62);
             this.siderBar.Name = "siderBar";
-            this.siderBar.Size = new System.Drawing.Size(192, 421);
+            this.siderBar.Size = new System.Drawing.Size(192, 519);
             this.siderBar.TabIndex = 2;
             // 
             // btnTrademark
@@ -505,7 +505,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(865, 483);
+            this.ClientSize = new System.Drawing.Size(1097, 581);
             this.Controls.Add(this.siderBar);
             this.Controls.Add(this.guna2Panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;

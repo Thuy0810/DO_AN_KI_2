@@ -64,7 +64,7 @@ namespace DO_AN_KI_2
         private void DataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
 
-            
+
             if (e.ColumnIndex == 7 && e.RowIndex >= 0)
             {
 
@@ -86,12 +86,11 @@ namespace DO_AN_KI_2
 
         private void txtSearcSupplier_TextChanged(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtSearch.Text))
-            {
-                fetchData();
-                return;
-            }
-
+            //if (string.IsNullOrEmpty(txtSearch.Text))
+            //{
+            //    fetchData();
+            //    return;
+            //}
 
             string query = $"select * from tblImportProduct as imp inner join tblSUPPLIER as sup on imp.supplierID = sup.supplierID where imp.name like '%{txtSearch.Text.Replace("'", "\'\'")}%';";
 

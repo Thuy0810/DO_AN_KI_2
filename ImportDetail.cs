@@ -106,7 +106,6 @@ namespace DO_AN_KI_2
                 sqlCommand.Parameters.AddWithValue("@description", model.description);
                 sqlCommand.ExecuteNonQuery();
 
-
                 foreach (var item in listProductModel)
                 {
                     string qr = $"insert into tblImportProductDetail values ('{id}',{item.id},{item.price},{item.quantity})";
@@ -123,7 +122,7 @@ namespace DO_AN_KI_2
 
         private void AddButton_Click(object sender, EventArgs e)
         {
-            FormSelectProduct formSelectProduct = new FormSelectProduct(modeFormAddProduct.importProduct);
+            FormSelectProduct formSelectProduct = new FormSelectProduct(modeFormAddProduct.importProduct, supplier.SelectedValue.ToString());
             formSelectProduct.ShowDialog();
             if (formSelectProduct.productModel != null)
             {
@@ -191,6 +190,12 @@ namespace DO_AN_KI_2
 
                 }
             }
+        }
+
+        private void supplier_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DataGridView.Rows.Clear();
+            listProductModel.Clear();
         }
     }
 

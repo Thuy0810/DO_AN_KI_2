@@ -296,6 +296,7 @@
             this.supplier.Name = "supplier";
             this.supplier.Size = new System.Drawing.Size(161, 26);
             this.supplier.TabIndex = 22;
+            this.supplier.SelectedIndexChanged += new System.EventHandler(this.supplier_SelectedIndexChanged);
             // 
             // AddButton
             // 
