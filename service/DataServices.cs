@@ -67,7 +67,47 @@ namespace DO_AN_KI_2
         }
 
 
-        // Method for logging errors in a file or a logging system.
+        /// <summary>
+        /// Dùng khi add with value (chống injection) 
+        /// </summary>
+        /// <param name="query">Lưu ý mỗi param phải cách (ví dụ @param )</param>
+        /// <param name="parameter">màng object , giá trị lần lượt tương ứng với value trong query</param>
+        /// <returns></returns>
+        public object ExecuteQueryWithValue(string query, object[] parameter = null)
+        {
+
+
+            using (SqlConnection connection = new SqlConnection(Sql))
+            {
+                connection.Open();
+
+                SqlCommand command = new SqlCommand(query, connection);
+
+                if (parameter != null)
+                {
+                    string[] listpara = query.Split(' ');
+                    int i = 0;
+                    foreach (string item in listpara)
+                    {
+                        if (item.Contains("@"))
+                        {
+                            command.Parameters.AddWithValue(item, parameter[i]);
+                            i++;
+                        }
+                    }
+                }
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
+                DataSet ds = new DataSet();
+                adapter.Fill(ds);
+                connection.Close();
+                if (ds.Tables.Count > 0)
+                {
+                    return ds.Tables[0];
+                }
+
+                return new object { };
+            }
+        }
 
     }
 }
