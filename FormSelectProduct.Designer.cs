@@ -28,20 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.GnDtP = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categoryPP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.WAREHOUSE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.saveButton = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.btnSearch = new Guna.UI2.WinForms.Guna2Button();
@@ -55,6 +47,15 @@
             this.priceProduct = new Guna.UI2.WinForms.Guna2NumericUpDown();
             this.IDProduct = new Guna.UI2.WinForms.Guna2TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoryPP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.abc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.WAREHOUSE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.GnDtP)).BeginInit();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.quantityProduct)).BeginInit();
@@ -64,20 +65,20 @@
             // GnDtP
             // 
             this.GnDtP.AllowUserToAddRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.GnDtP.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            this.GnDtP.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
             this.GnDtP.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.GnDtP.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Leelawadee UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.InactiveCaption;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.GnDtP.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Leelawadee UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.InactiveCaption;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.GnDtP.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.GnDtP.ColumnHeadersHeight = 40;
             this.GnDtP.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.GnDtP.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -87,34 +88,35 @@
             this.OPrice,
             this.price,
             this.categoryPP,
+            this.abc,
             this.status,
             this.WAREHOUSE});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.GnDtP.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.GnDtP.DefaultCellStyle = dataGridViewCellStyle8;
             this.GnDtP.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.GnDtP.Location = new System.Drawing.Point(2, 78);
             this.GnDtP.Name = "GnDtP";
             this.GnDtP.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Moccasin;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Wheat;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.GnDtP.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.Moccasin;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Wheat;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.GnDtP.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.GnDtP.RowHeadersVisible = false;
             this.GnDtP.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.GnDtP.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.GnDtP.RowsDefaultCellStyle = dataGridViewCellStyle10;
             this.GnDtP.RowTemplate.Height = 35;
-            this.GnDtP.Size = new System.Drawing.Size(937, 421);
+            this.GnDtP.Size = new System.Drawing.Size(1154, 462);
             this.GnDtP.TabIndex = 5;
             this.GnDtP.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.GnDtP.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -139,55 +141,6 @@
             this.GnDtP.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.GnDtP.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GnDtP_CellClick);
             // 
-            // id
-            // 
-            this.id.HeaderText = "ID";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            // 
-            // name
-            // 
-            this.name.HeaderText = "TÊN";
-            this.name.Name = "name";
-            this.name.ReadOnly = true;
-            // 
-            // quantity
-            // 
-            this.quantity.HeaderText = "SỐ LƯỢNG TRONG KHO";
-            this.quantity.Name = "quantity";
-            this.quantity.ReadOnly = true;
-            // 
-            // OPrice
-            // 
-            this.OPrice.HeaderText = "GIÁ GỐC";
-            this.OPrice.Name = "OPrice";
-            this.OPrice.ReadOnly = true;
-            // 
-            // price
-            // 
-            this.price.HeaderText = "GIÁ BÁN";
-            this.price.Name = "price";
-            this.price.ReadOnly = true;
-            // 
-            // categoryPP
-            // 
-            this.categoryPP.HeaderText = "PHÂN LOẠI";
-            this.categoryPP.Name = "categoryPP";
-            this.categoryPP.ReadOnly = true;
-            // 
-            // status
-            // 
-            this.status.HeaderText = "TRẠNG THÁI";
-            this.status.Name = "status";
-            this.status.ReadOnly = true;
-            // 
-            // WAREHOUSE
-            // 
-            this.WAREHOUSE.HeaderText = "Column1";
-            this.WAREHOUSE.Name = "WAREHOUSE";
-            this.WAREHOUSE.ReadOnly = true;
-            this.WAREHOUSE.Visible = false;
-            // 
             // saveButton
             // 
             this.saveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -199,7 +152,7 @@
             this.saveButton.FillColor = System.Drawing.Color.RoyalBlue;
             this.saveButton.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.saveButton.ForeColor = System.Drawing.Color.White;
-            this.saveButton.Location = new System.Drawing.Point(857, 505);
+            this.saveButton.Location = new System.Drawing.Point(1074, 546);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(70, 28);
             this.saveButton.TabIndex = 31;
@@ -218,7 +171,7 @@
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(939, 37);
+            this.guna2Panel1.Size = new System.Drawing.Size(1156, 37);
             this.guna2Panel1.TabIndex = 32;
             // 
             // btnSearch
@@ -311,7 +264,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(771, 50);
+            this.label4.Location = new System.Drawing.Point(789, 50);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(59, 12);
             this.label4.TabIndex = 37;
@@ -322,7 +275,7 @@
             this.quantityProduct.BackColor = System.Drawing.Color.Transparent;
             this.quantityProduct.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.quantityProduct.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.quantityProduct.Location = new System.Drawing.Point(851, 43);
+            this.quantityProduct.Location = new System.Drawing.Point(869, 43);
             this.quantityProduct.Maximum = new decimal(new int[] {
             99999999,
             0,
@@ -346,7 +299,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(485, 53);
+            this.label2.Location = new System.Drawing.Point(503, 53);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(28, 12);
             this.label2.TabIndex = 35;
@@ -357,7 +310,7 @@
             this.priceProduct.BackColor = System.Drawing.Color.Transparent;
             this.priceProduct.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.priceProduct.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.priceProduct.Location = new System.Drawing.Point(519, 43);
+            this.priceProduct.Location = new System.Drawing.Point(537, 43);
             this.priceProduct.Maximum = new decimal(new int[] {
             -1981284353,
             -1966660860,
@@ -400,11 +353,66 @@
             this.label5.TabIndex = 40;
             this.label5.Text = "ID :";
             // 
+            // id
+            // 
+            this.id.HeaderText = "ID";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            // 
+            // name
+            // 
+            this.name.HeaderText = "TÊN";
+            this.name.Name = "name";
+            this.name.ReadOnly = true;
+            // 
+            // quantity
+            // 
+            this.quantity.HeaderText = "SỐ LƯỢNG TRONG KHO";
+            this.quantity.Name = "quantity";
+            this.quantity.ReadOnly = true;
+            // 
+            // OPrice
+            // 
+            this.OPrice.HeaderText = "GIÁ GỐC";
+            this.OPrice.Name = "OPrice";
+            this.OPrice.ReadOnly = true;
+            // 
+            // price
+            // 
+            this.price.HeaderText = "GIÁ BÁN";
+            this.price.Name = "price";
+            this.price.ReadOnly = true;
+            // 
+            // categoryPP
+            // 
+            this.categoryPP.HeaderText = "PHÂN LOẠI";
+            this.categoryPP.Name = "categoryPP";
+            this.categoryPP.ReadOnly = true;
+            // 
+            // abc
+            // 
+            this.abc.HeaderText = "NHÀ CUNG CẤP";
+            this.abc.Name = "abc";
+            this.abc.ReadOnly = true;
+            // 
+            // status
+            // 
+            this.status.HeaderText = "TRẠNG THÁI";
+            this.status.Name = "status";
+            this.status.ReadOnly = true;
+            // 
+            // WAREHOUSE
+            // 
+            this.WAREHOUSE.HeaderText = "Column1";
+            this.WAREHOUSE.Name = "WAREHOUSE";
+            this.WAREHOUSE.ReadOnly = true;
+            this.WAREHOUSE.Visible = false;
+            // 
             // FormSelectProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(939, 537);
+            this.ClientSize = new System.Drawing.Size(1156, 578);
             this.Controls.Add(this.IDProduct);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.priceProduct);
@@ -451,6 +459,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn OPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn price;
         private System.Windows.Forms.DataGridViewTextBoxColumn categoryPP;
+        private System.Windows.Forms.DataGridViewTextBoxColumn abc;
         private System.Windows.Forms.DataGridViewTextBoxColumn status;
         private System.Windows.Forms.DataGridViewTextBoxColumn WAREHOUSE;
     }

@@ -20,20 +20,31 @@ namespace DO_AN_KI_2
 
         int quantityInWareHouse = 0;
 
-        public FormSelectProduct(modeFormAddProduct mode)
+        string supplierID = "";
+
+        public FormSelectProduct(modeFormAddProduct mode, string supplierID = "")
         {
             InitializeComponent();
+            GnDtP.Columns[0].Width = 40;
             this.mode = mode;
+            this.supplierID = supplierID;
         }
 
 
         void fetchData()
         {
-            string query = "SELECT p.ProductID, p.nameProduct, p.quantity, p.originPrice, p.price, p.noLimit, c.name, c.categoryID, t.trademarkID, p.status, p.supplierID, p.weight, p.description, p.isPhysic, p.img " +
+
+            string query = "SELECT p.ProductID, p.nameProduct, p.quantity, p.originPrice, p.price, p.noLimit, c.name, c.categoryID, t.trademarkID, p.status, p.supplierID, p.weight, p.description, p.isPhysic, p.img , s.supplierName " +
               "FROM tblPRODUCT p " +
               "INNER JOIN tblCATEGORY c ON p.categoryID = c.categoryID " +
               "INNER JOIN tblTRADEMARK t ON p.trademarkID = t.trademarkID " +
-              "INNER JOIN tblSUPPLIER s ON p.supplierID = s.supplierID";
+              $"INNER JOIN tblSUPPLIER s ON p.supplierID = s.supplierID";
+
+            if (mode == modeFormAddProduct.importProduct)
+            {
+                query += $" where s.supplierID = {supplierID}";
+            }
+
             DataTable dataTable = (DataTable)DataServices.ShowObjectData(query);
             foreach (DataRow row in dataTable.Rows)
             {
@@ -48,13 +59,14 @@ namespace DO_AN_KI_2
                 string nameCategory = row["name"].ToString();
                 int status = Convert.ToInt32(row["status"]);
                 string dispStatus = (status == 1) ? "Hoạt động" : "Không hoạt động ";
+                string nameSuplider = row["supplierName"].ToString();
 
                 foreach (DataGridViewColumn column in GnDtP.Columns)
                 {
                     column.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 }
 
-                GnDtP.Rows.Add(id, productName, display, originPrice, price, nameCategory, dispStatus, quantity);
+                GnDtP.Rows.Add(id, productName, display, originPrice, price, nameCategory, nameSuplider, dispStatus, quantity);
             }
 
         }
@@ -74,7 +86,7 @@ namespace DO_AN_KI_2
                 {
                     priceProduct.Value = Int32.Parse(GnDtP.Rows[e.RowIndex].Cells[3].Value.ToString());
                 }
-                quantityInWareHouse = Int32.Parse(GnDtP.Rows[e.RowIndex].Cells[7].Value.ToString());
+                quantityInWareHouse = Int32.Parse(GnDtP.Rows[e.RowIndex].Cells[8].Value.ToString());
             }
         }
 
@@ -91,55 +103,51 @@ namespace DO_AN_KI_2
         {
             try
             {
-                if (string.IsNullOrWhiteSpace(txtSearch.Text))
+
+                DataServices.OpenDB();
+                string query = "SELECT p.ProductID, p.nameProduct, p.quantity, p.originPrice, p.price, p.noLimit, c.name, c.categoryID, t.trademarkID, p.status, p.supplierID, p.weight, p.description, p.isPhysic, p.img , s.supplierName " +
+              "FROM tblPRODUCT p " +
+              "INNER JOIN tblCATEGORY c ON p.categoryID = c.categoryID " +
+              "INNER JOIN tblTRADEMARK t ON p.trademarkID = t.trademarkID " +
+              "INNER JOIN tblSUPPLIER s ON p.supplierID = s.supplierID where nameProduct like @nameProduct";
+                if (mode == modeFormAddProduct.importProduct)
                 {
-                    // Hiển thị bảng ban đầu khi txtSearch trống
-                    fetchData();
-                    return;
+                    query += $" and s.supplierID = {supplierID}";
                 }
-                if (txtSearch.Text != string.Empty)
+
+                using (SqlCommand command = new SqlCommand(query, DataServices.connection))
                 {
-
-                    DataServices.OpenDB();
-                    string query = "SELECT p.ProductID, p.nameProduct, p.quantity, p.originPrice, p.price, p.noLimit, c.name, c.categoryID, t.trademarkID, p.status, p.supplierID, p.weight, p.description, p.isPhysic, p.img " +
-                  "FROM tblPRODUCT p " +
-                  "INNER JOIN tblCATEGORY c ON p.categoryID = c.categoryID " +
-                  "INNER JOIN tblTRADEMARK t ON p.trademarkID = t.trademarkID " +
-                  "INNER JOIN tblSUPPLIER s ON p.supplierID = s.supplierID where nameProduct like @nameProduct";
-
-                    using (SqlCommand command = new SqlCommand(query, DataServices.connection))
+                    command.Parameters.AddWithValue("@nameProduct", "%" + txtSearch.Text.Trim('\'') + "%");
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(command))
                     {
-                        command.Parameters.AddWithValue("@nameProduct", "%" + txtSearch.Text.Trim('\'') + "%");
-                        using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                        DataSet dataSet = new DataSet();
+                        adapter.Fill(dataSet, "Products");
+                        DataTable dataTable = dataSet.Tables["Products"];
+                        GnDtP.Rows.Clear();
+
+                        foreach (DataRow row in dataTable.Rows)
                         {
-                            DataSet dataSet = new DataSet();
-                            adapter.Fill(dataSet, "Products");
-                            DataTable dataTable = dataSet.Tables["Products"];
-                            GnDtP.Rows.Clear();
 
-                            foreach (DataRow row in dataTable.Rows)
+                            int id = Convert.ToInt32(row["ProductID"]);
+                            string productName = row["nameProduct"].ToString();
+                            int quantity = Convert.ToInt32(row["quantity"]);
+                            int originPrice = Convert.ToInt32(row["originPrice"]);
+                            int price = Convert.ToInt32(row["price"]);
+                            int noLimit = Convert.ToInt32(row["noLimit"]);
+                            string display = (noLimit == 1) ? "Không giới hạn " : quantity.ToString();
+                            string nameCategory = row["name"].ToString();
+                            int status = Convert.ToInt32(row["status"]);
+                            string dispStatus = (status == 1) ? "Hoạt động" : "Không hoạt động";
+                            string nameSuplider = row["supplierName"].ToString();
+
+                            foreach (DataGridViewColumn column in GnDtP.Columns)
                             {
-
-                                int id = Convert.ToInt32(row["ProductID"]);
-                                string productName = row["nameProduct"].ToString();
-                                int quantity = Convert.ToInt32(row["quantity"]);
-                                int originPrice = Convert.ToInt32(row["originPrice"]);
-                                int price = Convert.ToInt32(row["price"]);
-                                int noLimit = Convert.ToInt32(row["noLimit"]);
-                                string display = (noLimit == 1) ? "Không giới hạn " : quantity.ToString();
-                                string nameCategory = row["name"].ToString();
-                                int status = Convert.ToInt32(row["status"]);
-                                string dispStatus = (status == 1) ? "Hoạt động" : "Không hoạt động";
-
-                                foreach (DataGridViewColumn column in GnDtP.Columns)
-                                {
-                                    column.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                                }
-
-                                Console.WriteLine($"Name: {productName}, Price: {price}");
-                                GnDtP.Rows.Add(id, productName, display, originPrice, price, nameCategory, dispStatus, quantity);
-
+                                column.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
                             }
+
+                            Console.WriteLine($"Name: {productName}, Price: {price}");
+                            GnDtP.Rows.Add(id, productName, display, originPrice, price, nameCategory, nameSuplider, dispStatus, quantity);
+
                         }
                     }
                 }
@@ -157,7 +165,6 @@ namespace DO_AN_KI_2
         public string productName { get; set; }
         public int quantity { get; set; }
         public int price { get; set; }
-
         public int quantityInWareHouse { get; set; }
         public ProductModelAdd(string id, string productName, int quantity, int price, int quantityInWareHouse)
         {
