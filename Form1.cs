@@ -1,15 +1,7 @@
-﻿using Sipaa.Framework;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using System;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web.UI.HtmlControls;
 using System.Windows.Forms;
-using System.Data.SqlClient;
 
 namespace DO_AN_KI_2
 {
@@ -26,22 +18,25 @@ namespace DO_AN_KI_2
         Bill bill;
         TblUsers tbluser;
         Trademark trademark;
-       DataServices services= new DataServices();
+        DataServices services = new DataServices();
 
         public Form1()
         {
+
+
             InitializeComponent();
+
             MdiProp();
-         
-           
+
+
         }
-       
-     
+
+
 
         private void MdiProp()
         {
             this.SetBevel(false);
-            Controls.OfType<MdiClient>().FirstOrDefault().BackColor = Color.FromArgb(232, 234, 237);  
+            Controls.OfType<MdiClient>().FirstOrDefault().BackColor = Color.FromArgb(232, 234, 237);
         }
         private void Form1_Resize(object sender, EventArgs e)
         {
@@ -60,7 +55,7 @@ namespace DO_AN_KI_2
                     Menu_Transiton.Stop();
                     MenuEx = true;
                 }
-                
+
             }
             else
             {
@@ -78,27 +73,27 @@ namespace DO_AN_KI_2
         private void Menu_Click(object sender, EventArgs e)
         {
             Menu_Transiton.Start();
-          
+
         }
 
         bool Menu2Ex = false;
-     
 
-      
+
+
 
         bool siderBarEx = true;
         private void SiderBar_Transition_Tick(object sender, EventArgs e)
         {
-            if(siderBarEx)
+            if (siderBarEx)
             {
-               siderBar.Width -= 10;
-                if(siderBar.Width <= 65)
+                siderBar.Width -= 10;
+                if (siderBar.Width <= 65)
                 {
-                    siderBarEx=false;
+                    siderBarEx = false;
                     SiderBar_Transition.Stop();
 
                     PnHome.Width = 41;
-                    btnBill.Width =41;
+                    btnBill.Width = 41;
                     PNCategpry.Width = 41;
                     pnCustomer.Width = 41;
                     btnRevenue.Width = 41;
@@ -125,7 +120,7 @@ namespace DO_AN_KI_2
                     MenuContainer.Width = 171;
                     btnUser.Width = 170;
                     btnTrademark.Width = 170;
-                   
+
                 }
             }
         }
@@ -161,14 +156,14 @@ namespace DO_AN_KI_2
 
         private void guna2Button3_Click(object sender, EventArgs e)
         {
-            if(allProduct==null)
+            if (allProduct == null)
             {
-                allProduct= new AllProduct();
+                allProduct = new AllProduct();
                 allProduct.FormClosed += AllProduct_FormClosed;
                 allProduct.MdiParent = this;
                 allProduct.Dock = DockStyle.Fill;
                 allProduct.Show();
-            
+
 
 
             }
@@ -185,14 +180,14 @@ namespace DO_AN_KI_2
 
         private void guna2Button4_Click(object sender, EventArgs e)
         {
-            if(supplier == null)
+            if (supplier == null)
             {
                 supplier = new Supplier();
                 supplier.FormClosed += Supplier_FormClosed;
                 supplier.MdiParent = this;
                 supplier.Dock = DockStyle.Fill;
                 supplier.Show();
-               
+
 
             }
             else
@@ -201,16 +196,16 @@ namespace DO_AN_KI_2
 
             }
         }
-       private void Supplier_FormClosed(Object sender, EventArgs e)
+        private void Supplier_FormClosed(Object sender, EventArgs e)
         {
-            supplier= null;
+            supplier = null;
         }
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
-            if(import==null)
+            if (import == null)
             {
-                import= new Import();
+                import = new Import();
                 import.FormClosed += Import_FormClosed;
                 import.MdiParent = this;
                 import.Dock = DockStyle.Fill;
@@ -261,16 +256,16 @@ namespace DO_AN_KI_2
                 category.Activate();
             }
         }
-        private void Category_FormClosed(Object　sender, EventArgs e)
+        private void Category_FormClosed(Object sender, EventArgs e)
         {
             category = null;
         }
 
         private void pnCustomer_Click(object sender, EventArgs e)
         {
-            if(customer== null)
+            if (customer == null)
             {
-                customer= new Customer();
+                customer = new Customer();
                 customer.FormClosed += Customer_FormClosed;
                 customer.MdiParent = this;
                 customer.Dock = DockStyle.Fill;
@@ -289,7 +284,7 @@ namespace DO_AN_KI_2
 
         private void guna2Button6_Click(object sender, EventArgs e)
         {
-            if (revenue==null)
+            if (revenue == null)
             {
                 revenue = new Revenue();
                 revenue.FormClosed += Revenue_FormClosed;
@@ -309,16 +304,16 @@ namespace DO_AN_KI_2
 
         private void btnBill_Click(object sender, EventArgs e)
         {
-            if (bill==null)
+            if (bill == null)
             {
-                bill= new Bill();
+                bill = new Bill();
                 bill.FormClosed += Bill_FormClosed;
                 bill.MdiParent = this;
-                bill.Dock = DockStyle.Fill; 
+                bill.Dock = DockStyle.Fill;
                 bill.Show();
             }
             else
-            { 
+            {
                 bill.Activate();
             }
         }
@@ -347,8 +342,8 @@ namespace DO_AN_KI_2
         {
             tbluser = null;
         }
-       
-      
+
+
         private void btnTrademark_Click_1(object sender, EventArgs e)
         {
             if (trademark == null)
@@ -373,8 +368,8 @@ namespace DO_AN_KI_2
         private void Form1_Load(object sender, EventArgs e)
         {
             //this.ControlBox= false;
-                    MenuContainer.Height = 43;
-           
+            MenuContainer.Height = 43;
+
             if (home == null)
             {
                 home = new Home();
@@ -389,6 +384,6 @@ namespace DO_AN_KI_2
             }
         }
 
-        
+
     }
 }
