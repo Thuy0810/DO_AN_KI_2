@@ -16,7 +16,7 @@ namespace DO_AN_KI_2
 {
     public partial class Home : Form
     {
-        DataServices services= new DataServices();
+        DataServices services = new DataServices();
         public Home()
         {
             InitializeComponent();
@@ -33,11 +33,11 @@ namespace DO_AN_KI_2
             {
                 services.OpenDB();
 
-             
+
                 string query = "SELECT SUM(total) FROM tblORDER WHERE MONTH(orderDate) = @month";
                 using (SqlCommand command = new SqlCommand(query, services.connection))
                 {
-                   
+
                     command.Parameters.AddWithValue("@month", selectedMonth);
 
                     // ExecuteScalar trả về cột đầu tiên của hàng đầu tiên trong tập kết quả, hoặc null nếu tập kết quả rỗng
@@ -46,12 +46,12 @@ namespace DO_AN_KI_2
                     // Kiểm tra DBNull trước khi chuyển đổi sang decimal
                     decimal totalRevenue = (result != DBNull.Value) ? Convert.ToDecimal(result) : 0;
 
-               
+
                     label.Text = $"Doanh thu tháng {selectedMonth}: ";
                     totalMonth.Text = totalRevenue.ToString("N0", nfi) + " VND";
                 }
 
-                
+
                 string query1 = "SELECT SUM(total) FROM tblORDER WHERE CONVERT(date, orderDate) = @currentDate";
                 using (SqlCommand command = new SqlCommand(query1, services.connection))
                 {
@@ -63,29 +63,29 @@ namespace DO_AN_KI_2
                     // Kiểm tra DBNull trước khi chuyển đổi sang decimal
                     decimal totalRevenueDate = (result != DBNull.Value) ? Convert.ToDecimal(result) : 0;
 
-                  
-                   label3.Text = $" Doanh thu ngày: {currentDate.ToShortDateString()}";
+
+                    label3.Text = $" Doanh thu ngày: {currentDate.ToShortDateString()}";
                     totalDate.Text = $" {totalRevenueDate.ToString("N0", nfi)} VND";
-                   
+
                 }
                 //nhap hang
                 string queryTotalImportProduct = "select sum(total) from tblImportProduct WHERE MONTH(dateImport) = @month";
-                using (SqlCommand commandTotal= new SqlCommand(queryTotalImportProduct,services.connection))
+                using (SqlCommand commandTotal = new SqlCommand(queryTotalImportProduct, services.connection))
                 {
-                    commandTotal.Parameters.AddWithValue("@month",selectedMonth);
+                    commandTotal.Parameters.AddWithValue("@month", selectedMonth);
                     object result = commandTotal.ExecuteScalar();
-                    decimal TotalImport= (result != DBNull.Value)?Convert.ToDecimal(result):0;
-                    totalImportMonth.Text= $"TIền nhập hàng tháng {selectedMonth}: ";
-                    totalImMonth.Text= TotalImport.ToString("N0", nfi) + " VND";
+                    decimal TotalImport = (result != DBNull.Value) ? Convert.ToDecimal(result) : 0;
+                    totalImportMonth.Text = $"TIền nhập hàng tháng {selectedMonth}: ";
+                    totalImMonth.Text = TotalImport.ToString("N0", nfi) + " VND";
                 }
 
 
                 string queryTotalAll = "select sum(total) from tblORDER ";
-                using ( SqlCommand commandTotalAll= new SqlCommand( queryTotalAll, services.connection))
+                using (SqlCommand commandTotalAll = new SqlCommand(queryTotalAll, services.connection))
                 {
                     object result = commandTotalAll.ExecuteScalar();
-                    decimal TotalALl=(result != DBNull.Value)? Convert.ToDecimal(result):0;
-                    totalAllFull.Text= TotalALl.ToString("N0", nfi) + " VND";
+                    decimal TotalALl = (result != DBNull.Value) ? Convert.ToDecimal(result) : 0;
+                    totalAllFull.Text = TotalALl.ToString("N0", nfi) + " VND";
                 }
 
             }
@@ -100,7 +100,7 @@ namespace DO_AN_KI_2
                 services.CloseDB();
             }
 
-  
+
 
             ///
             UpdateTime();
@@ -144,7 +144,6 @@ namespace DO_AN_KI_2
             }
         }
 
-       
     }
 }
 

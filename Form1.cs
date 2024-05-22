@@ -374,12 +374,19 @@ namespace DO_AN_KI_2
         {
             //this.ControlBox= false;
                     MenuContainer.Height = 43;
-
-            home = new Home();
-            home.FormClosed += Home_FormClosed;
-            home.MdiParent = this;
-            home.WindowState = FormWindowState.Maximized;
-            home.Show();
+           
+            if (home == null)
+            {
+                home = new Home();
+                home.FormClosed += Home_FormClosed;
+                home.MdiParent = this;
+                home.WindowState = FormWindowState.Maximized;
+                home.Show();
+            }
+            else
+            {
+                home.Activate();
+            }
         }
 
         
