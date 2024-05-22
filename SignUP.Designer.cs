@@ -40,7 +40,7 @@
             this.guna2Panel2.SuspendLayout();
             this.guna2CustomGradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
-            this.SuspendLayout()
+            this.SuspendLayout();
             // 
             // guna2PictureBox2
             // 
