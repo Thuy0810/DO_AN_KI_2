@@ -73,6 +73,16 @@ namespace DO_AN_KI_2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap A_USER1 {
+            get {
+                object obj = ResourceManager.GetObject("A USER1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap A1 {
             get {
                 object obj = ResourceManager.GetObject("A1", resourceCulture);
@@ -106,6 +116,16 @@ namespace DO_AN_KI_2.Properties {
         internal static System.Drawing.Bitmap AACoins {
             get {
                 object obj = ResourceManager.GetObject("AACoins", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap aaName {
+            get {
+                object obj = ResourceManager.GetObject("aaName", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -476,6 +496,16 @@ namespace DO_AN_KI_2.Properties {
         internal static System.Drawing.Bitmap Customer11 {
             get {
                 object obj = ResourceManager.GetObject("Customer11", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Customer111 {
+            get {
+                object obj = ResourceManager.GetObject("Customer111", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -876,6 +906,26 @@ namespace DO_AN_KI_2.Properties {
         internal static System.Drawing.Bitmap Male_User {
             get {
                 object obj = ResourceManager.GetObject("Male User", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Male_User1 {
+            get {
+                object obj = ResourceManager.GetObject("Male User1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Male_User2 {
+            get {
+                object obj = ResourceManager.GetObject("Male User2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
