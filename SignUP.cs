@@ -32,15 +32,21 @@ namespace DO_AN_KI_2
                 message.showWarning("Mật khẩu không được để trống");
             }
 
-            string querySignUp = "select 1 from tblUSER where userName= @userName and password=@password";
+            string querySignUp = "select fullName ,userID from tblUSER where userName= @userName and password= @password";
             SqlCommand command = new SqlCommand(querySignUp, services.connection);
             command.Parameters.AddWithValue("@userName", txtUserName.Text.Trim());
             command.Parameters.AddWithValue("@password", txtPass.Text.Trim());
             using (SqlDataReader reader = command.ExecuteReader())
             {
-                if (reader.HasRows)
+                if (reader.Read())
                 {
                     isLogin = true;
+                    string fullName = reader["fullName"].ToString();
+
+                    Properties.Settings.Default.fullName = fullName;
+                    Properties.Settings.Default.userID = reader["userID"].ToString();
+                    Properties.Settings.Default.Save();
+
                     this.Close();
                 }
                 else

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DO_AN_KI_2.service;
+using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
@@ -7,7 +8,7 @@ namespace DO_AN_KI_2
 {
     public enum modeFormAddProduct
     {
-        importProduct
+        importProduct, Order
     }
     public partial class FormSelectProduct : Form
     {
@@ -21,6 +22,8 @@ namespace DO_AN_KI_2
         int quantityInWareHouse = 0;
 
         string supplierID = "";
+
+        int maxQuantity = 999999999;
 
         public FormSelectProduct(modeFormAddProduct mode, string supplierID = "")
         {
@@ -43,6 +46,10 @@ namespace DO_AN_KI_2
             if (mode == modeFormAddProduct.importProduct)
             {
                 query += $" where s.supplierID = {supplierID}";
+            }
+            if (mode == modeFormAddProduct.Order)
+            {
+                query += $" where p.status = 1";
             }
 
             DataTable dataTable = (DataTable)DataServices.ShowObjectData(query);
@@ -74,19 +81,40 @@ namespace DO_AN_KI_2
         private void FormSelectProduct_Load(object sender, EventArgs e)
         {
             fetchData();
+            if (mode == modeFormAddProduct.Order)
+            {
+                originPrice.Visible = false;
+                status.Visible = false;
+                priceProduct.Enabled = false;
+            }
         }
 
         private void GnDtP_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            quantityProduct.Value = 1;
             if (e.RowIndex >= 0) // Check if a valid row is clicked
             {
                 IDProduct.Text = GnDtP.Rows[e.RowIndex].Cells[0].Value.ToString();
                 nameProduct.Text = GnDtP.Rows[e.RowIndex].Cells[1].Value.ToString();
+                quantityInWareHouse = Int32.Parse(GnDtP.Rows[e.RowIndex].Cells[8].Value.ToString());
                 if (mode == modeFormAddProduct.importProduct)
                 {
                     priceProduct.Value = Int32.Parse(GnDtP.Rows[e.RowIndex].Cells[3].Value.ToString());
                 }
-                quantityInWareHouse = Int32.Parse(GnDtP.Rows[e.RowIndex].Cells[8].Value.ToString());
+                if (mode == modeFormAddProduct.Order)
+                {
+                    priceProduct.Value = Int32.Parse(GnDtP.Rows[e.RowIndex].Cells[4].Value.ToString());
+                    if (GnDtP.Rows[e.RowIndex].Cells[2].Value.ToString().TrimEnd() != "Không giới hạn")
+                    {
+                        maxQuantity = quantityInWareHouse;
+                    }
+                    else
+                    {
+                        maxQuantity = 9999999;
+                    }
+                }
+
+
             }
         }
 
@@ -114,7 +142,10 @@ namespace DO_AN_KI_2
                 {
                     query += $" and s.supplierID = {supplierID}";
                 }
-
+                if (mode == modeFormAddProduct.Order)
+                {
+                    query += $" and p.status = 1";
+                }
                 using (SqlCommand command = new SqlCommand(query, DataServices.connection))
                 {
                     command.Parameters.AddWithValue("@nameProduct", "%" + txtSearch.Text.Trim('\'') + "%");
@@ -145,7 +176,7 @@ namespace DO_AN_KI_2
                                 column.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
                             }
 
-                            Console.WriteLine($"Name: {productName}, Price: {price}");
+                            //Console.WriteLine($"Name: {productName}, Price: {price}");
                             GnDtP.Rows.Add(id, productName, display, originPrice, price, nameCategory, nameSuplider, dispStatus, quantity);
 
                         }
@@ -157,6 +188,15 @@ namespace DO_AN_KI_2
                 MessageBox.Show($"Error +{ex}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             DataServices.CloseDB();
+        }
+
+        private void quantityProduct_ValueChanged(object sender, EventArgs e)
+        {
+            if (quantityProduct.Value > maxQuantity)
+            {
+                message.showWarning("không chọn giá trị lớn hơn số lượng trong kho");
+                quantityProduct.Value = maxQuantity;
+            }
         }
     }
     public class ProductModelAdd

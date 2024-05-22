@@ -1,24 +1,13 @@
-﻿using Guna.UI2.WinForms;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static DO_AN_KI_2.ProductDetils;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using System.Text.RegularExpressions;
 namespace DO_AN_KI_2
 {
     public partial class AllProduct : Form
     {
-        DataServices services= new DataServices();
-       
+        DataServices services = new DataServices();
+
 
         public AllProduct()
         {
@@ -28,7 +17,7 @@ namespace DO_AN_KI_2
 
         private void AllProduct_Load(object sender, EventArgs e)
         {
-            this.ControlBox=false;
+            this.ControlBox = false;
             services.OpenDB();
             Display();
 
@@ -47,7 +36,7 @@ namespace DO_AN_KI_2
 
 
 
-            using (SqlCommand command = new SqlCommand(query,services.connection ))
+            using (SqlCommand command = new SqlCommand(query, services.connection))
             {
                 using (SqlDataAdapter adapter = new SqlDataAdapter(command))
                 {
@@ -72,7 +61,7 @@ namespace DO_AN_KI_2
                         {
                             column.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
                         }
-                        
+
                         GnDtP.Rows.Add(id, productName, display, originPrice, price, nameCategory, dispStatus);
                     }
                 }
@@ -94,7 +83,7 @@ namespace DO_AN_KI_2
 
             ProductDetils Add = new ProductDetils(0, false);
 
-         
+
             Add.ShowDialog();
             Display();
         }
@@ -108,7 +97,7 @@ namespace DO_AN_KI_2
 
                 ProductDetils details = new ProductDetils(Convert.ToInt32(id), true);
 
-           
+
                 details.ShowDialog();
                 Display();
             }
@@ -126,9 +115,9 @@ namespace DO_AN_KI_2
                     int r = GnDtP.CurrentRow.Index;
                     string productID = GnDtP.Rows[r].Cells[0].Value.ToString();
                     string query = "Delete from tblPRODUCT where ProductID = " + productID;
-                    SqlCommand command1 = new SqlCommand(query,services.connection);
+                    SqlCommand command1 = new SqlCommand(query, services.connection);
                     command1.ExecuteNonQuery();
-                    GnDtP.Rows.Clear(); 
+                    GnDtP.Rows.Clear();
                     Display();
 
                 }
@@ -148,7 +137,7 @@ namespace DO_AN_KI_2
             GnDtP.Cursor = Cursors.Default;
         }
 
-       private void txtSearch_TextChanged(object sender, EventArgs e)
+        private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             try
             {
@@ -181,7 +170,7 @@ namespace DO_AN_KI_2
                             foreach (DataRow row in dataTable.Rows)
                             {
 
-                                int id = Convert.ToInt32(row["ProductID"]);                               
+                                int id = Convert.ToInt32(row["ProductID"]);
                                 string productName = row["nameProduct"].ToString();
                                 int quantity = Convert.ToInt32(row["quantity"]);
                                 int originPrice = Convert.ToInt32(row["originPrice"]);
@@ -206,19 +195,18 @@ namespace DO_AN_KI_2
                         {
                             ((DataGridViewImageCell)GnDtP.Rows[row].Cells[7]).Value = Properties.Resources.Delete2;
                         }
-                    }                   
-                } 
+                    }
+                }
                 services.CloseDB();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show($"Error +{ex}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-      
+
     }
 }
 
 
-        
