@@ -9,6 +9,7 @@ namespace DO_AN_KI_2
     public partial class SignUP : Form
     {
         DataServices services = new DataServices();
+        public bool isLogin { get; set; } = false;
         public SignUP()
         {
             InitializeComponent();
@@ -39,11 +40,12 @@ namespace DO_AN_KI_2
             {
                 if (reader.HasRows)
                 {
-                    Form1 form1 = new Form1();
-                    form1.ShowDialog();
+                    isLogin = true;
+                    this.Close();
                 }
                 else
                 {
+                    isLogin = false;
                     message.showError("Sai tên đăng nhập hoặc mật khẩu");
                 }
             }
