@@ -31,37 +31,36 @@
             this.components = new System.ComponentModel.Container();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.datepickerHome = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.label1 = new System.Windows.Forms.Label();
+            this.hours = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.date = new Guna.UI2.WinForms.Guna2Panel();
             this.totalDate = new System.Windows.Forms.Label();
             this.guna2ShadowPanel2 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
-            this.label6 = new System.Windows.Forms.Label();
+            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.guna2GradientPanel2 = new Guna.UI2.WinForms.Guna2GradientPanel();
-            this.month = new Guna.UI2.WinForms.Guna2Panel();
-            this.totalMonth = new System.Windows.Forms.Label();
-            this.impotMonth = new Guna.UI2.WinForms.Guna2Panel();
-            this.totalImMonth = new System.Windows.Forms.Label();
-            this.guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
-            this.totalAllFull = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.hours = new System.Windows.Forms.Label();
-            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.totalImportMonth = new System.Windows.Forms.Label();
             this.label = new System.Windows.Forms.Label();
+            this.month = new Guna.UI2.WinForms.Guna2Panel();
+            this.totalMonth = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.impotMonth = new Guna.UI2.WinForms.Guna2Panel();
+            this.totalImMonth = new System.Windows.Forms.Label();
             this.total = new System.Windows.Forms.Label();
+            this.guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
+            this.totalAllFull = new System.Windows.Forms.Label();
             this.guna2Panel1.SuspendLayout();
             this.date.SuspendLayout();
             this.guna2ShadowPanel2.SuspendLayout();
             this.guna2GradientPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.guna2GradientPanel2.SuspendLayout();
             this.month.SuspendLayout();
             this.impotMonth.SuspendLayout();
             this.guna2Panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2Panel1
@@ -95,6 +94,33 @@
             this.datepickerHome.Size = new System.Drawing.Size(131, 34);
             this.datepickerHome.TabIndex = 22;
             this.datepickerHome.Value = new System.DateTime(2024, 5, 19, 23, 57, 19, 339);
+            // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Leelawadee UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.label1.Image = global::DO_AN_KI_2.Properties.Resources.A_USER;
+            this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label1.Location = new System.Drawing.Point(1, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(216, 29);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "XIN CHÀO: TÔ THỊ THỦY";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // hours
+            // 
+            this.hours.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.hours.BackColor = System.Drawing.Color.Transparent;
+            this.hours.Font = new System.Drawing.Font("Leelawadee UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hours.Image = global::DO_AN_KI_2.Properties.Resources.Clock;
+            this.hours.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.hours.Location = new System.Drawing.Point(448, 0);
+            this.hours.Name = "hours";
+            this.hours.Size = new System.Drawing.Size(140, 34);
+            this.hours.TabIndex = 37;
+            this.hours.Text = "20:25";
+            this.hours.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // timer1
             // 
@@ -154,7 +180,6 @@
             this.guna2GradientPanel1.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dash;
             this.guna2GradientPanel1.BorderThickness = 2;
             this.guna2GradientPanel1.Controls.Add(this.guna2PictureBox1);
-            this.guna2GradientPanel1.Controls.Add(this.label6);
             this.guna2GradientPanel1.Controls.Add(this.label5);
             this.guna2GradientPanel1.CustomBorderColor = System.Drawing.Color.LightSeaGreen;
             this.guna2GradientPanel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -164,20 +189,18 @@
             this.guna2GradientPanel1.Size = new System.Drawing.Size(710, 128);
             this.guna2GradientPanel1.TabIndex = 41;
             // 
-            // label6
+            // guna2PictureBox1
             // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label6.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label6.Location = new System.Drawing.Point(14, 53);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(465, 60);
-            this.label6.TabIndex = 4;
-            this.label6.Text = "Hệ thống chúc bạn một ngày tốt lành. Cảm ơn bạn đã quan tâm và tin dùng . Xin mời" +
-    " bạn xem lại doanh thu của cửa hàng quan từng mốc thời gian. Trân trọng!";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.guna2PictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2PictureBox1.BorderRadius = 20;
+            this.guna2PictureBox1.Image = global::DO_AN_KI_2.Properties.Resources.images__2_;
+            this.guna2PictureBox1.ImageRotate = 0F;
+            this.guna2PictureBox1.Location = new System.Drawing.Point(526, 4);
+            this.guna2PictureBox1.Name = "guna2PictureBox1";
+            this.guna2PictureBox1.Size = new System.Drawing.Size(163, 119);
+            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2PictureBox1.TabIndex = 5;
+            this.guna2PictureBox1.TabStop = false;
             // 
             // label5
             // 
@@ -186,7 +209,7 @@
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label5.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label5.Location = new System.Drawing.Point(14, 11);
+            this.label5.Location = new System.Drawing.Point(25, 27);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(436, 42);
             this.label5.TabIndex = 3;
@@ -218,131 +241,6 @@
             this.guna2GradientPanel2.Name = "guna2GradientPanel2";
             this.guna2GradientPanel2.Size = new System.Drawing.Size(710, 288);
             this.guna2GradientPanel2.TabIndex = 42;
-            // 
-            // month
-            // 
-            this.month.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.month.BackColor = System.Drawing.Color.Transparent;
-            this.month.BorderRadius = 5;
-            this.month.Controls.Add(this.totalMonth);
-            this.month.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.month.CustomBorderThickness = new System.Windows.Forms.Padding(1);
-            this.month.Location = new System.Drawing.Point(24, 143);
-            this.month.Name = "month";
-            this.month.Size = new System.Drawing.Size(407, 30);
-            this.month.TabIndex = 31;
-            // 
-            // totalMonth
-            // 
-            this.totalMonth.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.totalMonth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalMonth.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.totalMonth.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.totalMonth.Location = new System.Drawing.Point(89, 1);
-            this.totalMonth.Name = "totalMonth";
-            this.totalMonth.Size = new System.Drawing.Size(249, 30);
-            this.totalMonth.TabIndex = 2;
-            this.totalMonth.Text = "1 500 000 đồng";
-            this.totalMonth.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // impotMonth
-            // 
-            this.impotMonth.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.impotMonth.BackColor = System.Drawing.Color.Transparent;
-            this.impotMonth.BorderRadius = 5;
-            this.impotMonth.Controls.Add(this.totalImMonth);
-            this.impotMonth.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.impotMonth.CustomBorderThickness = new System.Windows.Forms.Padding(1);
-            this.impotMonth.FillColor = System.Drawing.Color.Transparent;
-            this.impotMonth.Location = new System.Drawing.Point(25, 87);
-            this.impotMonth.Name = "impotMonth";
-            this.impotMonth.Size = new System.Drawing.Size(406, 31);
-            this.impotMonth.TabIndex = 30;
-            // 
-            // totalImMonth
-            // 
-            this.totalImMonth.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.totalImMonth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalImMonth.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.totalImMonth.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.totalImMonth.Location = new System.Drawing.Point(87, 7);
-            this.totalImMonth.Name = "totalImMonth";
-            this.totalImMonth.Size = new System.Drawing.Size(254, 19);
-            this.totalImMonth.TabIndex = 1;
-            this.totalImMonth.Text = "1 500 000 đồng";
-            this.totalImMonth.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // guna2Panel5
-            // 
-            this.guna2Panel5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2Panel5.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Panel5.BorderRadius = 5;
-            this.guna2Panel5.Controls.Add(this.totalAllFull);
-            this.guna2Panel5.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.guna2Panel5.CustomBorderThickness = new System.Windows.Forms.Padding(1);
-            this.guna2Panel5.Location = new System.Drawing.Point(25, 195);
-            this.guna2Panel5.Name = "guna2Panel5";
-            this.guna2Panel5.Size = new System.Drawing.Size(406, 36);
-            this.guna2Panel5.TabIndex = 31;
-            // 
-            // totalAllFull
-            // 
-            this.totalAllFull.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.totalAllFull.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalAllFull.ForeColor = System.Drawing.Color.Red;
-            this.totalAllFull.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.totalAllFull.Location = new System.Drawing.Point(87, 7);
-            this.totalAllFull.Name = "totalAllFull";
-            this.totalAllFull.Size = new System.Drawing.Size(226, 25);
-            this.totalAllFull.TabIndex = 3;
-            this.totalAllFull.Text = "1 500 000 đồng";
-            this.totalAllFull.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label1
-            // 
-            this.label1.Font = new System.Drawing.Font("Leelawadee UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label1.Image = global::DO_AN_KI_2.Properties.Resources.A_USER;
-            this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label1.Location = new System.Drawing.Point(1, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(216, 29);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "XIN CHÀO: TÔ THỊ THỦY";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // hours
-            // 
-            this.hours.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.hours.BackColor = System.Drawing.Color.Transparent;
-            this.hours.Font = new System.Drawing.Font("Leelawadee UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hours.Image = global::DO_AN_KI_2.Properties.Resources.Clock;
-            this.hours.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.hours.Location = new System.Drawing.Point(448, 0);
-            this.hours.Name = "hours";
-            this.hours.Size = new System.Drawing.Size(140, 34);
-            this.hours.TabIndex = 37;
-            this.hours.Text = "20:25";
-            this.hours.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // guna2PictureBox1
-            // 
-            this.guna2PictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2PictureBox1.BorderRadius = 20;
-            this.guna2PictureBox1.Image = global::DO_AN_KI_2.Properties.Resources.images__2_;
-            this.guna2PictureBox1.ImageRotate = 0F;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(526, 4);
-            this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.Size = new System.Drawing.Size(163, 119);
-            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2PictureBox1.TabIndex = 5;
-            this.guna2PictureBox1.TabStop = false;
             // 
             // label3
             // 
@@ -386,6 +284,34 @@
             this.label.Text = "Doanh Thu Tháng 5 :";
             this.label.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // month
+            // 
+            this.month.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.month.BackColor = System.Drawing.Color.Transparent;
+            this.month.BorderRadius = 5;
+            this.month.Controls.Add(this.totalMonth);
+            this.month.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.month.CustomBorderThickness = new System.Windows.Forms.Padding(1);
+            this.month.Location = new System.Drawing.Point(24, 143);
+            this.month.Name = "month";
+            this.month.Size = new System.Drawing.Size(407, 30);
+            this.month.TabIndex = 31;
+            // 
+            // totalMonth
+            // 
+            this.totalMonth.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.totalMonth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalMonth.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.totalMonth.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.totalMonth.Location = new System.Drawing.Point(89, 1);
+            this.totalMonth.Name = "totalMonth";
+            this.totalMonth.Size = new System.Drawing.Size(249, 30);
+            this.totalMonth.TabIndex = 2;
+            this.totalMonth.Text = "1 500 000 đồng";
+            this.totalMonth.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // label4
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -395,6 +321,35 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(67, 67);
             this.label4.TabIndex = 38;
+            // 
+            // impotMonth
+            // 
+            this.impotMonth.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.impotMonth.BackColor = System.Drawing.Color.Transparent;
+            this.impotMonth.BorderRadius = 5;
+            this.impotMonth.Controls.Add(this.totalImMonth);
+            this.impotMonth.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.impotMonth.CustomBorderThickness = new System.Windows.Forms.Padding(1);
+            this.impotMonth.FillColor = System.Drawing.Color.Transparent;
+            this.impotMonth.Location = new System.Drawing.Point(25, 87);
+            this.impotMonth.Name = "impotMonth";
+            this.impotMonth.Size = new System.Drawing.Size(406, 31);
+            this.impotMonth.TabIndex = 30;
+            // 
+            // totalImMonth
+            // 
+            this.totalImMonth.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.totalImMonth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalImMonth.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.totalImMonth.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.totalImMonth.Location = new System.Drawing.Point(87, 7);
+            this.totalImMonth.Name = "totalImMonth";
+            this.totalImMonth.Size = new System.Drawing.Size(254, 19);
+            this.totalImMonth.TabIndex = 1;
+            this.totalImMonth.Text = "1 500 000 đồng";
+            this.totalImMonth.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // total
             // 
@@ -409,6 +364,34 @@
             this.total.TabIndex = 28;
             this.total.Text = "TỔNG DOANH THU :";
             this.total.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // guna2Panel5
+            // 
+            this.guna2Panel5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2Panel5.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Panel5.BorderRadius = 5;
+            this.guna2Panel5.Controls.Add(this.totalAllFull);
+            this.guna2Panel5.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.guna2Panel5.CustomBorderThickness = new System.Windows.Forms.Padding(1);
+            this.guna2Panel5.Location = new System.Drawing.Point(25, 195);
+            this.guna2Panel5.Name = "guna2Panel5";
+            this.guna2Panel5.Size = new System.Drawing.Size(406, 36);
+            this.guna2Panel5.TabIndex = 31;
+            // 
+            // totalAllFull
+            // 
+            this.totalAllFull.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.totalAllFull.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalAllFull.ForeColor = System.Drawing.Color.Red;
+            this.totalAllFull.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.totalAllFull.Location = new System.Drawing.Point(87, 7);
+            this.totalAllFull.Name = "totalAllFull";
+            this.totalAllFull.Size = new System.Drawing.Size(226, 25);
+            this.totalAllFull.TabIndex = 3;
+            this.totalAllFull.Text = "1 500 000 đồng";
+            this.totalAllFull.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // Home
             // 
@@ -425,11 +408,11 @@
             this.date.ResumeLayout(false);
             this.guna2ShadowPanel2.ResumeLayout(false);
             this.guna2GradientPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.guna2GradientPanel2.ResumeLayout(false);
             this.month.ResumeLayout(false);
             this.impotMonth.ResumeLayout(false);
             this.guna2Panel5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -455,7 +438,6 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel5;
         private System.Windows.Forms.Label totalAllFull;
         private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel1;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
         private System.Windows.Forms.Label hours;
