@@ -97,13 +97,13 @@
             // 
             // label1
             // 
+            this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Leelawadee UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label1.Image = global::DO_AN_KI_2.Properties.Resources.A_USER;
             this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label1.Location = new System.Drawing.Point(1, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(216, 29);
+            this.label1.Size = new System.Drawing.Size(172, 20);
             this.label1.TabIndex = 3;
             this.label1.Text = "XIN CHÀO: TÔ THỊ THỦY";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -405,6 +405,7 @@
             this.Text = "Home";
             this.Load += new System.EventHandler(this.Home_Load_1);
             this.guna2Panel1.ResumeLayout(false);
+            this.guna2Panel1.PerformLayout();
             this.date.ResumeLayout(false);
             this.guna2ShadowPanel2.ResumeLayout(false);
             this.guna2GradientPanel1.ResumeLayout(false);
