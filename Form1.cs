@@ -330,7 +330,7 @@ namespace DO_AN_KI_2
 
         private void btnUser_Click(object sender, EventArgs e)
         {
-            if (role != 1)
+            if (role !=1)
             {
                 message.showWarning("Bạn không có quyền thực hiện chức năng này");
                 return;

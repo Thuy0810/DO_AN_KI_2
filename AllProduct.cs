@@ -52,6 +52,7 @@ namespace DO_AN_KI_2
                         int quantity = Convert.ToInt32(row["quantity"]);
                         int originPrice = Convert.ToInt32(row["originPrice"]);
                         int price = Convert.ToInt32(row["price"]);
+
                         int noLimit = Convert.ToInt32(row["noLimit"]);
                         string display = (noLimit == 1) ? "Không giới hạn " : quantity.ToString();
                         string nameCategory = row["name"].ToString();

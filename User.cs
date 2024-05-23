@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DO_AN_KI_2.service;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -57,13 +58,14 @@ namespace DO_AN_KI_2
        
         private void User_Load(object sender, EventArgs e)
         {
-           
+            this.ControlBox = true;
             if (Modeview) //
             {
-                string query = "select u.fullName, u.sex,u.birthday,u.birthday,u.adress,u.dayStart,u.userName,u.userID,u.password,r.roleName, u.status,u.phone,u.email from tblUSER u inner join tblUSERROLE rl on u.userID= rl.userID inner join tblROLE r on r.roleID= rl.roleID where u.userID = @id";
+                
+                string query = $"select u.fullName, u.sex,u.birthday,u.birthday,u.adress,u.dayStart,u.userName,u.userID,u.password,r.roleID, u.status,u.phone,u.email from tblUSER u inner join tblUSERROLE rl on u.userID= rl.userID inner join tblROLE r on r.roleID= rl.roleID where u.userID = {id}";
                 using (SqlCommand command=new SqlCommand(query,services.connection))
                 {
-                    command.Parameters.AddWithValue("@id", id);
+                   
                     // Thêm tham số cho câu truy vấn
 
                     using (SqlDataReader reader= command.ExecuteReader())
@@ -79,7 +81,8 @@ namespace DO_AN_KI_2
                             string userName= reader["userName"].ToString();
                             string password= reader["password"].ToString();
                             string email= reader["email"].ToString();
-                        
+                            string roleId = reader["roleID"].ToString() ;
+                            cboRole.SelectedValue = roleId ;
                             string phone = reader["phone"].ToString();
 
                             int status = Convert.ToInt32(reader["status"]);
@@ -129,34 +132,34 @@ namespace DO_AN_KI_2
             //kiem tra thong tin nhap vao
             if(txtNameU.Text.Trim().Length ==0)
             {
-                services.ShowErrorMessageBox("Họ tên không được để trống ");
+               message.showWarning("Họ tên không được để trống ");
                txtNameU.Focus();
                 return;
             }
             if(txtAddress.Text.Trim().Length ==0)
             {
-                services.ShowErrorMessageBox("Địa chỉ không được để trống");
+                message.showWarning("Địa chỉ không được để trống");
                 txtAddress.Focus();
                 return ;
             }
            
             if(txtPass.Text.Trim().Length ==0)
             {
-                services.ShowErrorMessageBox("Mật khẩu không được để trống");
+                message.showWarning("Mật khẩu không được để trống");
                 txtPass.Focus(); 
                 return ;
             }
            
             if(txtuserName.Text.Trim().Length == 0)
             {
-                services.ShowErrorMessageBox("UserName không được để trống");
+                message.showWarning("UserName không được để trống");
                 txtuserName.Focus();
                 return;
             }
 
             if(txtPhone.Text.Trim().Length == 0)
             {
-                services.ShowErrorMessageBox("Số điện thoại không được để trống");
+                message.showWarning("Số điện thoại không được để trống");
                 txtPhone.Focus();
                 return ; 
             }
@@ -164,19 +167,18 @@ namespace DO_AN_KI_2
             {
                 // Không có mục nào được chọn trong ComboBox
                 // Thực hiện xử lý tương ứng ở đây
-                MessageBox.Show("Vui lòng chọn giới tính.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                message.showWarning("Vui lòng chọn giới tính.");
                 return ;
             }
             if (Modeview == true)
             {
                
-                // Kiểm tra xem người dùng đã sửa userName hay không
-                bool userNameChanged = !string.IsNullOrEmpty(txtuserName.Text) && txtuserName.Text != olduserName; // userName là biến lưu giữ giá trị userName trước đó
                
-                // Nếu userName đã thay đổi, kiểm tra xem userName mới đã tồn tại trong cơ sở dữ liệu hay không
+                bool userNameChanged = !string.IsNullOrEmpty(txtuserName.Text) && txtuserName.Text != olduserName; 
+               
                 if (userNameChanged)
                 {
-                    // Kiểm tra xem userName mới đã tồn tại trong cơ sở dữ liệu hay không
+                
                     string queryCheckUserName = "SELECT COUNT(*) FROM tblUSER WHERE userName = @userName";
                     SqlCommand commandCheckUserName = new SqlCommand(queryCheckUserName, services.connection);
                     commandCheckUserName.Parameters.AddWithValue("@userName", txtuserName.Text);
@@ -184,8 +186,8 @@ namespace DO_AN_KI_2
                     int count = (int)commandCheckUserName.ExecuteScalar();
                     if (count > 0)
                     {
-                        // Nếu userName mới đã tồn tại trong cơ sở dữ liệu, hiển thị thông báo lỗi
-                        services.ShowErrorMessageBox("Tên người dùng này đã tồn tại trong cơ sở dữ liệu. Vui lòng chọn một tên người dùng khác.");
+
+                        message.showWarning("Tên người dùng này đã tồn tại trong cơ sở dữ liệu. Vui lòng chọn một tên người dùng khác.");
                         return; // Dừng việc lưu trữ và thoát khỏi phương thức
                     }
                 }
@@ -199,18 +201,16 @@ namespace DO_AN_KI_2
                     int countPhone= (int)commandCheckPhone.ExecuteScalar(); 
                     if (countPhone > 0)
                     {
-                        services.ShowErrorMessageBox("Số điện thoại đã tồn tại, vui lòng nhập lại.");                      
+                        message.showWarning("Số điện thoại đã tồn tại, vui lòng nhập lại.");                      
                         return;
                     }
                 }
 
-                // Tiếp tục thực hiện lưu trữ người dùng nếu không có lỗi
-                // Viết mã lưu trữ ở đây
 
             }
             if (Modeview == false )
             {
-                // Kiểm tra userName trùng lặp
+             
                 string sSqlUserName = "SELECT 1 FROM tblUSER WHERE userName = @userName";
                 SqlCommand commandCheckUserName = new SqlCommand(sSqlUserName, services.connection);
                 commandCheckUserName.Parameters.AddWithValue("@userName", txtuserName.Text);
@@ -219,7 +219,7 @@ namespace DO_AN_KI_2
                 {
                     if (reader.HasRows)
                     {
-                        services.ShowErrorMessageBox("Tên người dùng này đã tồn tại trong cơ sở dữ liệu. Vui lòng chọn một tên người dùng khác.");
+                        message.showWarning("Tên người dùng này đã tồn tại trong cơ sở dữ liệu. Vui lòng chọn một tên người dùng khác.");
                         txtuserName.Focus();
                         reader.Close();
                         return;
@@ -236,7 +236,7 @@ namespace DO_AN_KI_2
                 {
                     if (reader.HasRows)
                     {
-                        services.ShowErrorMessageBox("Số điện thoại này đã tồn tại trong cơ sở dữ liệu. Vui lòng chọn một số điện thoại khác.");
+                        message.showWarning("Số điện thoại này đã tồn tại trong cơ sở dữ liệu. Vui lòng chọn một số điện thoại khác.");
                         txtPhone.Focus();
                         reader.Close();
                         return;
@@ -255,12 +255,11 @@ namespace DO_AN_KI_2
                     DialogResult dr = MessageBox.Show("Lưu thay đổi?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (dr == DialogResult.No) return;
 
-                    //Câu lệnh UPDATE để cập nhật thông tin người dùng
                     string query = "UPDATE tblUSER SET fullName = @fullName, userName = @userName, password = @password, sex = @sex, ";
                     query += "phone = @phone, email = @email, adress = @address, ";
                     query += "birthday = @birthday, dayStart = @dayStart, status = @status WHERE userID = @userID";
                     SqlCommand command = new SqlCommand(query, services.connection);
-                    command.Parameters.AddWithValue("@userID", id); //Sử dụng ID hiện tại của người dùng
+                    command.Parameters.AddWithValue("@userID", id); 
                     command.Parameters.AddWithValue("@fullName", txtNameU.Text);
                     command.Parameters.AddWithValue("@userName", txtuserName.Text);
                     command.Parameters.AddWithValue("@password", txtPass.Text);
@@ -271,19 +270,19 @@ namespace DO_AN_KI_2
                     command.Parameters.AddWithValue("@birthday", DBirthday.Value);
                     command.Parameters.AddWithValue("@dayStart", DstartDay.Value);
                     command.Parameters.AddWithValue("@status", swStatus.Checked ? 1 : 0);
-                    command.ExecuteNonQuery(); //Không cần ExecuteScalar() vì không có giá trị trả về
+                    command.ExecuteNonQuery(); 
 
-                    //Lấy roleID từ roleName đã chọn trong combobox
+                    
                     string selectedRoleName = cboRole.Text;
                     string queryRole = "SELECT roleID FROM tblROLE WHERE roleName = @roleName";
                     SqlCommand commandRole = new SqlCommand(queryRole, services.connection);
                     commandRole.Parameters.AddWithValue("@roleName", selectedRoleName);
                     int newRoleID = (int)commandRole.ExecuteScalar();
 
-                    //Cập nhật lại  role của người dùng trong bảng tblROLEUSER
+                    
                     string queryUserRole = "UPDATE tblUSERROLE SET roleID = @roleID WHERE userID = @userID";
                     SqlCommand commandUserRole = new SqlCommand(queryUserRole, services.connection);
-                    commandUserRole.Parameters.AddWithValue("@userID", id); //Sử dụng ID hiện tại của người dùng
+                    commandUserRole.Parameters.AddWithValue("@userID", id);
                     commandUserRole.Parameters.AddWithValue("@roleID", newRoleID);
                     commandUserRole.ExecuteNonQuery();
 
@@ -326,13 +325,13 @@ namespace DO_AN_KI_2
 
                     int newUserID = Convert.ToInt32(insertUserCommand.ExecuteScalar()); // Lấy userID mới
 
-                    // Lấy roleID tương ứng với roleName
+                   
                     string getRoleIDQuery = "SELECT roleID FROM tblROLE WHERE roleName = @roleName";
                     SqlCommand getRoleIDCommand = new SqlCommand(getRoleIDQuery, services.connection);
                     getRoleIDCommand.Parameters.AddWithValue("@roleName", cboRole.Text);
                     int roleID = Convert.ToInt32(getRoleIDCommand.ExecuteScalar());
 
-                    // Thêm người dùng vào bảng tblUSERROLE
+                   
                     string insertUserRoleQuery = "INSERT INTO tblUSERROLE (userID, roleID) VALUES (@userID, @roleID)";
                     SqlCommand insertUserRoleCommand = new SqlCommand(insertUserRoleQuery, services.connection);
                     insertUserRoleCommand.Parameters.AddWithValue("@userID", newUserID);
