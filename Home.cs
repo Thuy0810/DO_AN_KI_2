@@ -1,15 +1,6 @@
-﻿using Guna.UI2.WinForms;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using System;
 using System.Data.SqlClient;
-using System.Drawing;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web.UI.WebControls;
 using System.Windows.Forms;
 
 namespace DO_AN_KI_2
@@ -17,10 +8,12 @@ namespace DO_AN_KI_2
     public partial class Home : Form
     {
         DataServices services = new DataServices();
+        string fullName = Properties.Settings.Default.fullName;
         public Home()
         {
             InitializeComponent();
             this.Load += new EventHandler(Home_Load_1);
+            label1.Text = $"XIN CHÀO {fullName.ToUpper()}";
         }
 
         private void Home_Load_1(object sender, EventArgs e)
