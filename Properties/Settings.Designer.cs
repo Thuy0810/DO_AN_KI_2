@@ -25,7 +25,7 @@ namespace DO_AN_KI_2.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("15")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string userID {
             get {
                 return ((string)(this["userID"]));
@@ -49,7 +49,7 @@ namespace DO_AN_KI_2.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Lê Thị Hà")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string fullName {
             get {
                 return ((string)(this["fullName"]));
