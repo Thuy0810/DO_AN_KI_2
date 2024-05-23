@@ -37,9 +37,10 @@
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.originPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.categoryPP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.abc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.WAREHOUSE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.saveButton = new Guna.UI2.WinForms.Guna2Button();
@@ -84,9 +85,10 @@
             this.id,
             this.name,
             this.quantity,
-            this.OPrice,
+            this.originPrice,
             this.price,
             this.categoryPP,
+            this.abc,
             this.status,
             this.WAREHOUSE});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -114,7 +116,7 @@
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.GnDtP.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.GnDtP.RowTemplate.Height = 35;
-            this.GnDtP.Size = new System.Drawing.Size(937, 421);
+            this.GnDtP.Size = new System.Drawing.Size(1154, 462);
             this.GnDtP.TabIndex = 5;
             this.GnDtP.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.GnDtP.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -157,11 +159,11 @@
             this.quantity.Name = "quantity";
             this.quantity.ReadOnly = true;
             // 
-            // OPrice
+            // originPrice
             // 
-            this.OPrice.HeaderText = "GIÁ GỐC";
-            this.OPrice.Name = "OPrice";
-            this.OPrice.ReadOnly = true;
+            this.originPrice.HeaderText = "GIÁ GỐC";
+            this.originPrice.Name = "originPrice";
+            this.originPrice.ReadOnly = true;
             // 
             // price
             // 
@@ -174,6 +176,12 @@
             this.categoryPP.HeaderText = "PHÂN LOẠI";
             this.categoryPP.Name = "categoryPP";
             this.categoryPP.ReadOnly = true;
+            // 
+            // abc
+            // 
+            this.abc.HeaderText = "NHÀ CUNG CẤP";
+            this.abc.Name = "abc";
+            this.abc.ReadOnly = true;
             // 
             // status
             // 
@@ -199,7 +207,7 @@
             this.saveButton.FillColor = System.Drawing.Color.RoyalBlue;
             this.saveButton.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.saveButton.ForeColor = System.Drawing.Color.White;
-            this.saveButton.Location = new System.Drawing.Point(857, 505);
+            this.saveButton.Location = new System.Drawing.Point(1074, 546);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(70, 28);
             this.saveButton.TabIndex = 31;
@@ -218,7 +226,7 @@
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(939, 37);
+            this.guna2Panel1.Size = new System.Drawing.Size(1156, 37);
             this.guna2Panel1.TabIndex = 32;
             // 
             // btnSearch
@@ -311,7 +319,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(771, 50);
+            this.label4.Location = new System.Drawing.Point(789, 50);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(59, 12);
             this.label4.TabIndex = 37;
@@ -322,7 +330,7 @@
             this.quantityProduct.BackColor = System.Drawing.Color.Transparent;
             this.quantityProduct.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.quantityProduct.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.quantityProduct.Location = new System.Drawing.Point(851, 43);
+            this.quantityProduct.Location = new System.Drawing.Point(869, 43);
             this.quantityProduct.Maximum = new decimal(new int[] {
             99999999,
             0,
@@ -341,12 +349,13 @@
             0,
             0,
             0});
+            this.quantityProduct.ValueChanged += new System.EventHandler(this.quantityProduct_ValueChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(485, 53);
+            this.label2.Location = new System.Drawing.Point(503, 53);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(28, 12);
             this.label2.TabIndex = 35;
@@ -357,7 +366,7 @@
             this.priceProduct.BackColor = System.Drawing.Color.Transparent;
             this.priceProduct.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.priceProduct.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.priceProduct.Location = new System.Drawing.Point(519, 43);
+            this.priceProduct.Location = new System.Drawing.Point(537, 43);
             this.priceProduct.Maximum = new decimal(new int[] {
             -1981284353,
             -1966660860,
@@ -404,7 +413,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(939, 537);
+            this.ClientSize = new System.Drawing.Size(1156, 578);
             this.Controls.Add(this.IDProduct);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.priceProduct);
@@ -448,9 +457,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantity;
-        private System.Windows.Forms.DataGridViewTextBoxColumn OPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn originPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn price;
         private System.Windows.Forms.DataGridViewTextBoxColumn categoryPP;
+        private System.Windows.Forms.DataGridViewTextBoxColumn abc;
         private System.Windows.Forms.DataGridViewTextBoxColumn status;
         private System.Windows.Forms.DataGridViewTextBoxColumn WAREHOUSE;
     }

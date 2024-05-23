@@ -52,6 +52,7 @@
             this.btnRevenue = new Guna.UI2.WinForms.Guna2Button();
             this.Menu_Transiton = new System.Windows.Forms.Timer(this.components);
             this.SiderBar_Transition = new System.Windows.Forms.Timer(this.components);
+            this.btnCreateOrder = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -77,7 +78,7 @@
             this.guna2Panel2.FillColor = System.Drawing.Color.MintCream;
             this.guna2Panel2.Location = new System.Drawing.Point(0, 0);
             this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(865, 62);
+            this.guna2Panel2.Size = new System.Drawing.Size(1097, 62);
             this.guna2Panel2.TabIndex = 1;
             // 
             // pictureBox3
@@ -156,6 +157,7 @@
             this.siderBar.Controls.Add(this.pnCustomer);
             this.siderBar.Controls.Add(this.btnUser);
             this.siderBar.Controls.Add(this.btnRevenue);
+            this.siderBar.Controls.Add(this.btnCreateOrder);
             this.siderBar.CustomBorderColor = System.Drawing.Color.Gray;
             this.siderBar.CustomBorderThickness = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.siderBar.Dock = System.Windows.Forms.DockStyle.Left;
@@ -166,7 +168,7 @@
             this.siderBar.ForeColor = System.Drawing.SystemColors.ControlText;
             this.siderBar.Location = new System.Drawing.Point(0, 62);
             this.siderBar.Name = "siderBar";
-            this.siderBar.Size = new System.Drawing.Size(192, 421);
+            this.siderBar.Size = new System.Drawing.Size(192, 519);
             this.siderBar.TabIndex = 2;
             // 
             // btnTrademark
@@ -186,7 +188,7 @@
             this.btnTrademark.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnTrademark.Image = global::DO_AN_KI_2.Properties.Resources.APeugeot;
             this.btnTrademark.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnTrademark.Location = new System.Drawing.Point(8, 354);
+            this.btnTrademark.Location = new System.Drawing.Point(8, 402);
             this.btnTrademark.Name = "btnTrademark";
             this.btnTrademark.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnTrademark.Size = new System.Drawing.Size(168, 42);
@@ -407,7 +409,7 @@
             this.PNCategpry.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.PNCategpry.Image = global::DO_AN_KI_2.Properties.Resources.cm;
             this.PNCategpry.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.PNCategpry.Location = new System.Drawing.Point(8, 306);
+            this.PNCategpry.Location = new System.Drawing.Point(8, 354);
             this.PNCategpry.Name = "PNCategpry";
             this.PNCategpry.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.PNCategpry.Size = new System.Drawing.Size(168, 42);
@@ -457,7 +459,7 @@
             this.btnUser.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnUser.Image = global::DO_AN_KI_2.Properties.Resources.Male_User;
             this.btnUser.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnUser.Location = new System.Drawing.Point(8, 258);
+            this.btnUser.Location = new System.Drawing.Point(8, 306);
             this.btnUser.Name = "btnUser";
             this.btnUser.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnUser.Size = new System.Drawing.Size(168, 42);
@@ -482,7 +484,7 @@
             this.btnRevenue.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnRevenue.Image = global::DO_AN_KI_2.Properties.Resources.re1;
             this.btnRevenue.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnRevenue.Location = new System.Drawing.Point(8, 210);
+            this.btnRevenue.Location = new System.Drawing.Point(8, 258);
             this.btnRevenue.Name = "btnRevenue";
             this.btnRevenue.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnRevenue.Size = new System.Drawing.Size(168, 42);
@@ -501,11 +503,37 @@
             this.SiderBar_Transition.Interval = 10;
             this.SiderBar_Transition.Tick += new System.EventHandler(this.SiderBar_Transition_Tick);
             // 
+            // btnCreateOrder
+            // 
+            this.btnCreateOrder.BackColor = System.Drawing.Color.White;
+            this.btnCreateOrder.BorderColor = System.Drawing.Color.White;
+            this.btnCreateOrder.BorderRadius = 5;
+            this.btnCreateOrder.CustomBorderColor = System.Drawing.Color.Silver;
+            this.btnCreateOrder.CustomBorderThickness = new System.Windows.Forms.Padding(1);
+            this.btnCreateOrder.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnCreateOrder.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnCreateOrder.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnCreateOrder.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnCreateOrder.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.btnCreateOrder.Font = new System.Drawing.Font("HoloLens MDL2 Assets", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreateOrder.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.btnCreateOrder.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnCreateOrder.Image = global::DO_AN_KI_2.Properties.Resources.APeugeot;
+            this.btnCreateOrder.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnCreateOrder.Location = new System.Drawing.Point(8, 210);
+            this.btnCreateOrder.Name = "btnCreateOrder";
+            this.btnCreateOrder.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnCreateOrder.Size = new System.Drawing.Size(168, 42);
+            this.btnCreateOrder.TabIndex = 7;
+            this.btnCreateOrder.Text = "Tạo Hóa Đơn";
+            this.btnCreateOrder.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnCreateOrder.Click += new System.EventHandler(this.guna2Button1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(865, 483);
+            this.ClientSize = new System.Drawing.Size(1097, 581);
             this.Controls.Add(this.siderBar);
             this.Controls.Add(this.guna2Panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -549,6 +577,7 @@
         private Guna.UI2.WinForms.Guna2Button btnRevenue;
         private Guna.UI2.WinForms.Guna2Button btnUser;
         private Guna.UI2.WinForms.Guna2Button btnTrademark;
+        private Guna.UI2.WinForms.Guna2Button btnCreateOrder;
     }
 }
 
