@@ -37,7 +37,6 @@
             this.date = new Guna.UI2.WinForms.Guna2Panel();
             this.totalDate = new System.Windows.Forms.Label();
             this.guna2ShadowPanel2 = new Guna.UI2.WinForms.Guna2ShadowPanel();
-            this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.guna2GradientPanel2 = new Guna.UI2.WinForms.Guna2GradientPanel();
@@ -55,7 +54,6 @@
             this.guna2Panel1.SuspendLayout();
             this.date.SuspendLayout();
             this.guna2ShadowPanel2.SuspendLayout();
-            this.guna2GradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.guna2GradientPanel2.SuspendLayout();
             this.month.SuspendLayout();
@@ -161,8 +159,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2ShadowPanel2.BackColor = System.Drawing.Color.White;
             this.guna2ShadowPanel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.guna2ShadowPanel2.Controls.Add(this.guna2GradientPanel1);
+            this.guna2ShadowPanel2.Controls.Add(this.guna2PictureBox1);
             this.guna2ShadowPanel2.Controls.Add(this.guna2GradientPanel2);
+            this.guna2ShadowPanel2.Controls.Add(this.label5);
             this.guna2ShadowPanel2.FillColor = System.Drawing.Color.White;
             this.guna2ShadowPanel2.Location = new System.Drawing.Point(-9, 32);
             this.guna2ShadowPanel2.Name = "guna2ShadowPanel2";
@@ -172,30 +171,13 @@
             this.guna2ShadowPanel2.Size = new System.Drawing.Size(735, 419);
             this.guna2ShadowPanel2.TabIndex = 24;
             // 
-            // guna2GradientPanel1
-            // 
-            this.guna2GradientPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2GradientPanel1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2GradientPanel1.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            this.guna2GradientPanel1.BorderThickness = 2;
-            this.guna2GradientPanel1.Controls.Add(this.guna2PictureBox1);
-            this.guna2GradientPanel1.Controls.Add(this.label5);
-            this.guna2GradientPanel1.CustomBorderColor = System.Drawing.Color.LightSeaGreen;
-            this.guna2GradientPanel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.guna2GradientPanel1.FillColor2 = System.Drawing.Color.WhiteSmoke;
-            this.guna2GradientPanel1.Location = new System.Drawing.Point(9, 2);
-            this.guna2GradientPanel1.Name = "guna2GradientPanel1";
-            this.guna2GradientPanel1.Size = new System.Drawing.Size(710, 128);
-            this.guna2GradientPanel1.TabIndex = 41;
-            // 
             // guna2PictureBox1
             // 
             this.guna2PictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2PictureBox1.BorderRadius = 20;
             this.guna2PictureBox1.Image = global::DO_AN_KI_2.Properties.Resources.images__2_;
             this.guna2PictureBox1.ImageRotate = 0F;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(526, 4);
+            this.guna2PictureBox1.Location = new System.Drawing.Point(503, 8);
             this.guna2PictureBox1.Name = "guna2PictureBox1";
             this.guna2PictureBox1.Size = new System.Drawing.Size(163, 119);
             this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -209,7 +191,7 @@
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label5.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label5.Location = new System.Drawing.Point(25, 27);
+            this.label5.Location = new System.Drawing.Point(34, 46);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(436, 42);
             this.label5.TabIndex = 3;
@@ -407,7 +389,6 @@
             this.guna2Panel1.ResumeLayout(false);
             this.date.ResumeLayout(false);
             this.guna2ShadowPanel2.ResumeLayout(false);
-            this.guna2GradientPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.guna2GradientPanel2.ResumeLayout(false);
             this.month.ResumeLayout(false);
@@ -437,7 +418,6 @@
         private System.Windows.Forms.Label totalMonth;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel5;
         private System.Windows.Forms.Label totalAllFull;
-        private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel1;
         private System.Windows.Forms.Label label5;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
         private System.Windows.Forms.Label hours;
