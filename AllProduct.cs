@@ -216,7 +216,10 @@ namespace DO_AN_KI_2
             }
         }
 
-      
+        private void GnDtP_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
 

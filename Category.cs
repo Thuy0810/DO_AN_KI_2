@@ -22,5 +22,25 @@ namespace DO_AN_KI_2
         {
             this.ControlBox=false;
         }
+
+        private void GnDtSupplier_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtSearcSupplier_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
