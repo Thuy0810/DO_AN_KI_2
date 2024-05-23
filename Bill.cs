@@ -44,6 +44,27 @@ namespace DO_AN_KI_2
                 createOrder.ShowDialog();
             }
         }
+
+        private void dataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 5 && e.RowIndex >= 0)
+            {
+
+                DialogResult dr;
+                dr = MessageBox.Show("Chắc chắn xóa dòng đang chọn không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dr == DialogResult.No) return;
+                {
+                    int r = dataGridView.CurrentRow.Index;
+                    string ID = dataGridView.Rows[r].Cells[0].Value.ToString();
+                    services.OpenDB();
+                    string query = $"delete from tblORDER where orderID = '{ID}';";
+                    services.ExecuteQueries(query);
+                    services.CloseDB();
+                    dataGridView.Rows.Clear();
+                    fetchData();
+                }
+            }
+        }
     }
 
 }

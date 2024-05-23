@@ -42,6 +42,7 @@ namespace DO_AN_KI_2
             {
                 employ.Text = employName;
                 dateOrder.Text = DateTime.Now.ToString();
+                this.ControlBox = false;
             }
             else
             {
@@ -80,7 +81,6 @@ namespace DO_AN_KI_2
                 col4.HeaderText = "SỐ LƯỢNG";
                 DataGridView.Columns.Add(col4);
             }
-            this.ControlBox = false;
         }
 
         private void AddButton_Click(object sender, EventArgs e)

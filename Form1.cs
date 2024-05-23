@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DO_AN_KI_2.service;
+using System;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
@@ -18,7 +19,10 @@ namespace DO_AN_KI_2
         Bill bill;
         TblUsers tbluser;
         Trademark trademark;
+        CreateOrder createOrder;
         DataServices services = new DataServices();
+
+        int role = Int32.Parse(Properties.Settings.Default.role);
 
         public Form1()
         {
@@ -101,6 +105,7 @@ namespace DO_AN_KI_2
                     MenuContainer.Width = 42;
                     Menu1.Width = 38;
                     btnTrademark.Width = 41;
+                    btnCreateOrder.Width = 41;
                 }
 
             }
@@ -120,7 +125,7 @@ namespace DO_AN_KI_2
                     MenuContainer.Width = 171;
                     btnUser.Width = 170;
                     btnTrademark.Width = 170;
-
+                    btnCreateOrder.Width = 170;
                 }
             }
         }
@@ -325,6 +330,11 @@ namespace DO_AN_KI_2
 
         private void btnUser_Click(object sender, EventArgs e)
         {
+            if (role != 1)
+            {
+                message.showWarning("Bạn không có quyền thực hiện chức năng này");
+                return;
+            }
             if (tbluser == null)
             {
                 tbluser = new TblUsers();
@@ -384,6 +394,25 @@ namespace DO_AN_KI_2
             }
         }
 
+        void Order_FormClosed(object sender, EventArgs e)
+        {
+            tbluser = null;
+        }
 
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            if (createOrder == null)
+            {
+                createOrder = new CreateOrder();
+                createOrder.MdiParent = this;
+                createOrder.FormClosed -= Order_FormClosed;
+                createOrder.Dock = DockStyle.Fill;
+                createOrder.Show();
+            }
+            else
+            {
+                createOrder.Activate();
+            }
+        }
     }
 }
