@@ -631,6 +631,15 @@
   <ItemGroup>
     <None Include="Resources\Male User2.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pV1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\b1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Details111.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>
