@@ -22,13 +22,14 @@ namespace DO_AN_KI_2
 
         private void TblUsers_Load(object sender, EventArgs e)
         {
-            this.ControlBox = false;
-           services.OpenDB();
+            //this.ControlBox = false;
+         
             DisplayUser();
 
         }
         private void DisplayUser()
         {
+            services.OpenDB();
             string query = @"select tblUSER.userID,tblROLE.roleName, fullName, userName, password, phone from tblUSER inner join tblUSERROLE on tblUSER.userID  = tblUSERROLE.userID inner join tblROLE on tblROLE.roleID= tblUSERROLE.roleID";
 
             using (SqlCommand command = new SqlCommand(query, services.connection))
@@ -62,6 +63,7 @@ namespace DO_AN_KI_2
             {
                 ((DataGridViewImageCell)GnDtUser.Rows[row].Cells[6]).Value = Properties.Resources.Delete2;
             }
+            services.CloseDB();
         }
 
        

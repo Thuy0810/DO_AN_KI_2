@@ -50,9 +50,9 @@
             this.pnCustomer = new Guna.UI2.WinForms.Guna2Button();
             this.btnUser = new Guna.UI2.WinForms.Guna2Button();
             this.btnRevenue = new Guna.UI2.WinForms.Guna2Button();
+            this.btnCreateOrder = new Guna.UI2.WinForms.Guna2Button();
             this.Menu_Transiton = new System.Windows.Forms.Timer(this.components);
             this.SiderBar_Transition = new System.Windows.Forms.Timer(this.components);
-            this.btnCreateOrder = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -493,16 +493,6 @@
             this.btnRevenue.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnRevenue.Click += new System.EventHandler(this.guna2Button6_Click);
             // 
-            // Menu_Transiton
-            // 
-            this.Menu_Transiton.Interval = 10;
-            this.Menu_Transiton.Tick += new System.EventHandler(this.Menu_Timer_Tick);
-            // 
-            // SiderBar_Transition
-            // 
-            this.SiderBar_Transition.Interval = 10;
-            this.SiderBar_Transition.Tick += new System.EventHandler(this.SiderBar_Transition_Tick);
-            // 
             // btnCreateOrder
             // 
             this.btnCreateOrder.BackColor = System.Drawing.Color.White;
@@ -518,7 +508,7 @@
             this.btnCreateOrder.Font = new System.Drawing.Font("HoloLens MDL2 Assets", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCreateOrder.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.btnCreateOrder.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnCreateOrder.Image = global::DO_AN_KI_2.Properties.Resources.APeugeot;
+            this.btnCreateOrder.Image = global::DO_AN_KI_2.Properties.Resources.Details222;
             this.btnCreateOrder.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnCreateOrder.Location = new System.Drawing.Point(8, 210);
             this.btnCreateOrder.Name = "btnCreateOrder";
@@ -528,6 +518,16 @@
             this.btnCreateOrder.Text = "Tạo Hóa Đơn";
             this.btnCreateOrder.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnCreateOrder.Click += new System.EventHandler(this.guna2Button1_Click);
+            // 
+            // Menu_Transiton
+            // 
+            this.Menu_Transiton.Interval = 10;
+            this.Menu_Transiton.Tick += new System.EventHandler(this.Menu_Timer_Tick);
+            // 
+            // SiderBar_Transition
+            // 
+            this.SiderBar_Transition.Interval = 10;
+            this.SiderBar_Transition.Tick += new System.EventHandler(this.SiderBar_Transition_Tick);
             // 
             // Form1
             // 
