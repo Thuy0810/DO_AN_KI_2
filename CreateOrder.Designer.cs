@@ -33,12 +33,13 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.deleteRows = new System.Windows.Forms.ToolStripMenuItem();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.saveButton = new Guna.UI2.WinForms.Guna2Button();
             this.dateOrder = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
+            this.cboPay = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.employ = new Guna.UI2.WinForms.Guna2TextBox();
@@ -56,19 +57,10 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.note = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2ContextMenuStrip1 = new Guna.UI2.WinForms.Guna2ContextMenuStrip();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView)).BeginInit();
-            this.guna2ContextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // deleteRows
-            // 
-            this.deleteRows.Image = global::DO_AN_KI_2.Properties.Resources.Delete2;
-            this.deleteRows.Name = "deleteRows";
-            this.deleteRows.Size = new System.Drawing.Size(147, 22);
-            this.deleteRows.Text = "Xóa dòng này";
             // 
             // guna2Panel1
             // 
@@ -144,6 +136,8 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2Panel3.BackColor = System.Drawing.Color.White;
             this.guna2Panel3.BorderRadius = 5;
+            this.guna2Panel3.Controls.Add(this.cboPay);
+            this.guna2Panel3.Controls.Add(this.label7);
             this.guna2Panel3.Controls.Add(this.label6);
             this.guna2Panel3.Controls.Add(this.label3);
             this.guna2Panel3.Controls.Add(this.employ);
@@ -157,10 +151,36 @@
             this.guna2Panel3.Controls.Add(this.label4);
             this.guna2Panel3.Controls.Add(this.label2);
             this.guna2Panel3.Controls.Add(this.note);
-            this.guna2Panel3.Location = new System.Drawing.Point(3, 40);
+            this.guna2Panel3.Location = new System.Drawing.Point(3, 35);
             this.guna2Panel3.Name = "guna2Panel3";
-            this.guna2Panel3.Size = new System.Drawing.Size(902, 456);
+            this.guna2Panel3.Size = new System.Drawing.Size(902, 461);
             this.guna2Panel3.TabIndex = 32;
+            // 
+            // cboPay
+            // 
+            this.cboPay.BackColor = System.Drawing.Color.Transparent;
+            this.cboPay.BorderRadius = 5;
+            this.cboPay.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cboPay.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboPay.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cboPay.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cboPay.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cboPay.ForeColor = System.Drawing.Color.Black;
+            this.cboPay.ItemHeight = 20;
+            this.cboPay.Location = new System.Drawing.Point(661, 18);
+            this.cboPay.Name = "cboPay";
+            this.cboPay.Size = new System.Drawing.Size(140, 26);
+            this.cboPay.TabIndex = 29;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(496, 25);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(159, 12);
+            this.label7.TabIndex = 28;
+            this.label7.Text = "PHƯƠNG THỨC THANH TOÁN :";
             // 
             // label6
             // 
@@ -228,7 +248,7 @@
             this.customerSelect.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.customerSelect.ForeColor = System.Drawing.Color.Black;
             this.customerSelect.ItemHeight = 20;
-            this.customerSelect.Location = new System.Drawing.Point(110, 69);
+            this.customerSelect.Location = new System.Drawing.Point(115, 69);
             this.customerSelect.Name = "customerSelect";
             this.customerSelect.Size = new System.Drawing.Size(180, 26);
             this.customerSelect.TabIndex = 22;
@@ -312,7 +332,7 @@
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.DataGridView.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.DataGridView.RowTemplate.Height = 35;
-            this.DataGridView.Size = new System.Drawing.Size(862, 191);
+            this.DataGridView.Size = new System.Drawing.Size(862, 208);
             this.DataGridView.TabIndex = 19;
             this.DataGridView.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.DataGridView.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -426,22 +446,6 @@
             this.note.Size = new System.Drawing.Size(773, 75);
             this.note.TabIndex = 4;
             // 
-            // guna2ContextMenuStrip1
-            // 
-            this.guna2ContextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.deleteRows});
-            this.guna2ContextMenuStrip1.Name = "guna2ContextMenuStrip1";
-            this.guna2ContextMenuStrip1.RenderStyle.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
-            this.guna2ContextMenuStrip1.RenderStyle.BorderColor = System.Drawing.Color.Gainsboro;
-            this.guna2ContextMenuStrip1.RenderStyle.ColorTable = null;
-            this.guna2ContextMenuStrip1.RenderStyle.RoundedEdges = true;
-            this.guna2ContextMenuStrip1.RenderStyle.SelectionArrowColor = System.Drawing.Color.White;
-            this.guna2ContextMenuStrip1.RenderStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.guna2ContextMenuStrip1.RenderStyle.SelectionForeColor = System.Drawing.Color.White;
-            this.guna2ContextMenuStrip1.RenderStyle.SeparatorColor = System.Drawing.Color.Gainsboro;
-            this.guna2ContextMenuStrip1.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.guna2ContextMenuStrip1.Size = new System.Drawing.Size(148, 26);
-            // 
             // CreateOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -457,14 +461,11 @@
             this.guna2Panel3.ResumeLayout(false);
             this.guna2Panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView)).EndInit();
-            this.guna2ContextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.ToolStripMenuItem deleteRows;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2Button saveButton;
@@ -483,10 +484,11 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2TextBox note;
-        private Guna.UI2.WinForms.Guna2ContextMenuStrip guna2ContextMenuStrip1;
         private System.Windows.Forms.Label label3;
         private Guna.UI2.WinForms.Guna2TextBox employ;
         private System.Windows.Forms.Label label6;
         private Guna.UI2.WinForms.Guna2ComboBox customerSelect;
+        private Guna.UI2.WinForms.Guna2ComboBox cboPay;
+        private System.Windows.Forms.Label label7;
     }
 }

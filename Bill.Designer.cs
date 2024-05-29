@@ -41,14 +41,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2AnimateWindow1 = new Guna.UI2.WinForms.Guna2AnimateWindow(this.components);
             this.dataGridView = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.emailC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Suplider = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.active = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.note = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,6 +51,15 @@
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.datagrUser = new Guna.UI2.WinForms.Guna2DataGridView();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.emailC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Suplider = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pay = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.active = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.note = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.datagrUser)).BeginInit();
             this.guna2Panel1.SuspendLayout();
@@ -89,6 +90,7 @@
             this.phone,
             this.emailC,
             this.Suplider,
+            this.pay,
             this.active,
             this.Column1,
             this.note});
@@ -142,58 +144,6 @@
             this.dataGridView.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellClick);
             this.dataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellDoubleClick);
-            // 
-            // id
-            // 
-            this.id.HeaderText = "ID";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            // 
-            // name
-            // 
-            this.name.HeaderText = "TÊN KHÁCH HÀNG";
-            this.name.Name = "name";
-            this.name.ReadOnly = true;
-            // 
-            // phone
-            // 
-            this.phone.HeaderText = "TỔNG TIỀN";
-            this.phone.Name = "phone";
-            this.phone.ReadOnly = true;
-            // 
-            // emailC
-            // 
-            this.emailC.HeaderText = "NGÀY TẠO ĐƠN";
-            this.emailC.Name = "emailC";
-            this.emailC.ReadOnly = true;
-            // 
-            // Suplider
-            // 
-            this.Suplider.HeaderText = "NGƯỜI BÁN";
-            this.Suplider.Name = "Suplider";
-            this.Suplider.ReadOnly = true;
-            // 
-            // active
-            // 
-            this.active.HeaderText = "HÀNH ĐỘNG";
-            this.active.Name = "active";
-            this.active.ReadOnly = true;
-            this.active.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.active.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "customerId";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Visible = false;
-            // 
-            // note
-            // 
-            this.note.HeaderText = "note";
-            this.note.Name = "note";
-            this.note.ReadOnly = true;
-            this.note.Visible = false;
             // 
             // label1
             // 
@@ -339,6 +289,64 @@
             this.guna2Panel1.Size = new System.Drawing.Size(800, 39);
             this.guna2Panel1.TabIndex = 14;
             // 
+            // id
+            // 
+            this.id.HeaderText = "ID";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            // 
+            // name
+            // 
+            this.name.HeaderText = "TÊN KHÁCH HÀNG";
+            this.name.Name = "name";
+            this.name.ReadOnly = true;
+            // 
+            // phone
+            // 
+            this.phone.HeaderText = "TỔNG TIỀN";
+            this.phone.Name = "phone";
+            this.phone.ReadOnly = true;
+            // 
+            // emailC
+            // 
+            this.emailC.HeaderText = "NGÀY TẠO ĐƠN";
+            this.emailC.Name = "emailC";
+            this.emailC.ReadOnly = true;
+            // 
+            // Suplider
+            // 
+            this.Suplider.HeaderText = "NGƯỜI BÁN";
+            this.Suplider.Name = "Suplider";
+            this.Suplider.ReadOnly = true;
+            // 
+            // pay
+            // 
+            this.pay.HeaderText = "THANH TOÁN";
+            this.pay.Name = "pay";
+            this.pay.ReadOnly = true;
+            // 
+            // active
+            // 
+            this.active.HeaderText = "HÀNH ĐỘNG";
+            this.active.Name = "active";
+            this.active.ReadOnly = true;
+            this.active.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.active.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "customerId";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Visible = false;
+            // 
+            // note
+            // 
+            this.note.HeaderText = "note";
+            this.note.Name = "note";
+            this.note.ReadOnly = true;
+            this.note.Visible = false;
+            // 
             // Bill
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -376,6 +384,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn phone;
         private System.Windows.Forms.DataGridViewTextBoxColumn emailC;
         private System.Windows.Forms.DataGridViewTextBoxColumn Suplider;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pay;
         private System.Windows.Forms.DataGridViewImageColumn active;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn note;

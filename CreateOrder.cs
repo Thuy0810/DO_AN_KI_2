@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Globalization;
 using System.Windows.Forms;
 
 namespace DO_AN_KI_2
@@ -19,9 +20,12 @@ namespace DO_AN_KI_2
         OrderModel model;
         public CreateOrder(bool modeNew = true, OrderModel model = null)
         {
+            
             InitializeComponent();
             this.ModeNew = modeNew;
             this.model = model;
+            cboPay.DataSource = new string
+                [] { "QR", "Tiền mặt" };
         }
 
 
@@ -36,13 +40,14 @@ namespace DO_AN_KI_2
 
         private void CreateOrder_Load_1(object sender, EventArgs e)
         {
+            
             fillCustomer();
 
             if (ModeNew)
             {
                 employ.Text = employName;
                 dateOrder.Text = DateTime.Now.ToString();
-                this.ControlBox = false;
+                //this.ControlBox = false;
             }
             else
             {
@@ -54,8 +59,8 @@ namespace DO_AN_KI_2
                 note.ReadOnly = true;
                 AddButton.Visible = false;
                 saveButton.Visible = false;
-
-                string query = $"select od.price , od.productID , od.quantity , pr.nameProduct from tblORDERDETAIL as od left join tblPRODUCT as pr on od.ProductID = pr.ProductID where od.oderID = '{model.OrderID}';";
+                cboPay.SelectedItem = model.payMethods;
+                string query = $"select od.price , od.productID , od.quantity , pr.nameProduct, o.paymentsMethods  from tblORDERDETAIL as od left join tblPRODUCT as pr on od.ProductID = pr.ProductID left join tblORDER o on o.orderID=od.oderID where od.oderID = '{model.OrderID}';";
 
                 DataGridView.DataSource = (DataTable)services.ShowObjectData(query);
                 DataGridView.AutoGenerateColumns = false;
@@ -120,8 +125,9 @@ namespace DO_AN_KI_2
             if (ModeNew)
             {
                 DateTime today = DateTime.Now;
+                string iso8601DateTime = today.ToString("yyyy-MM-ddTHH:mm:ss.fff", CultureInfo.InvariantCulture);
                 Guid id = Guid.NewGuid();
-                string query = $"insert into tblORDER values( '{id}' , '{today}' , {customerSelect.SelectedValue} , {totalPriceNum}, @note ,{employId})";
+                string query = $"insert into tblORDER values( '{id}' , '{iso8601DateTime}' , {customerSelect.SelectedValue} , {totalPriceNum},'{cboPay.SelectedItem}', @note ,{employId})";
                 services.ExecuteQueryWithValue(query, new object[] { note.Text });
                 services.OpenDB();
                 foreach (var item in listProductModel)
@@ -173,8 +179,8 @@ namespace DO_AN_KI_2
         public string date { get; set; }
         public string employName { get; set; }
         public string totalPrice { get; set; }
-
-        public OrderModel(string orderID, string customer, string note, string date, string employName, string totalPrice)
+        public string payMethods {  get; set; }
+        public OrderModel(string orderID, string customer, string note, string date, string employName, string totalPrice, string payMethods)
         {
             OrderID = orderID;
             this.customer = customer;
@@ -182,6 +188,7 @@ namespace DO_AN_KI_2
             this.date = date;
             this.employName = employName;
             this.totalPrice = totalPrice;
+            this.payMethods = payMethods;
         }
     }
 }
