@@ -13,14 +13,14 @@ namespace DO_AN_KI_2
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            // Application.Run(new TblUsers());
+            Application.Run(new CreateOrder());
 
-            SignUP sign = new SignUP();
-            sign.ShowDialog();
-            if (sign.isLogin)
-            {
-                Application.Run(new Form1());
-            }
+            //SignUP sign = new SignUP();
+            //sign.ShowDialog();
+            //if (sign.isLogin)
+            //{
+            //    Application.Run(new Form1());
+            //}
         }
     }
 }

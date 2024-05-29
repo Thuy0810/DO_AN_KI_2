@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Globalization;
 using System.Windows.Forms;
 
 namespace DO_AN_KI_2
@@ -95,10 +96,11 @@ namespace DO_AN_KI_2
             if (modeNew)
             {
                 DateTime today = DateTime.Now;
+                string iso8601DateTime = today.ToString("yyyy-MM-ddTHH:mm:ss.fff", CultureInfo.InvariantCulture);
                 Guid id = Guid.NewGuid();
-                model = new ImportModel(id.ToString(), nameImport.Text, description.Text, totalPriceNum.ToString(), supplier.SelectedValue.ToString(), today.ToString());
+                model = new ImportModel(id.ToString(), nameImport.Text, description.Text, totalPriceNum.ToString(), supplier.SelectedValue.ToString(), iso8601DateTime.ToString());
 
-                string queryImport = $"insert into tblImportProduct values ('{id}',@name,@description,{model.total},{model.suplider},'{today}');";
+                string queryImport = $"insert into tblImportProduct values ('{id}',@name,@description,{model.total},{model.suplider},'{iso8601DateTime}');";
                 dbservice.OpenDB();
 
                 SqlCommand sqlCommand = new SqlCommand(queryImport, dbservice.connection);
