@@ -60,6 +60,7 @@
             this.active = new System.Windows.Forms.DataGridViewImageColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.note = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.monthsWarranty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.datagrUser)).BeginInit();
             this.guna2Panel1.SuspendLayout();
@@ -93,7 +94,8 @@
             this.pay,
             this.active,
             this.Column1,
-            this.note});
+            this.note,
+            this.monthsWarranty});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -347,6 +349,13 @@
             this.note.ReadOnly = true;
             this.note.Visible = false;
             // 
+            // monthsWarranty
+            // 
+            this.monthsWarranty.HeaderText = "monthsWarranty";
+            this.monthsWarranty.Name = "monthsWarranty";
+            this.monthsWarranty.ReadOnly = true;
+            this.monthsWarranty.Visible = false;
+            // 
             // Bill
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -388,5 +397,6 @@
         private System.Windows.Forms.DataGridViewImageColumn active;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn note;
+        private System.Windows.Forms.DataGridViewTextBoxColumn monthsWarranty;
     }
 }

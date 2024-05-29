@@ -107,6 +107,18 @@
     <Compile Include="FormSelectProduct.Designer.cs">
       <DependentUpon>FormSelectProduct.cs</DependentUpon>
     </Compile>
+    <Compile Include="Guarantee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Guarantee.Designer.cs">
+      <DependentUpon>Guarantee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GuaranteeDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GuaranteeDetail.Designer.cs">
+      <DependentUpon>GuaranteeDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="ImportDetail.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -231,6 +243,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormSelectProduct.resx">
       <DependentUpon>FormSelectProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Guarantee.resx">
+      <DependentUpon>Guarantee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GuaranteeDetail.resx">
+      <DependentUpon>GuaranteeDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
@@ -656,6 +674,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Details222.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Microsoft Excel 2019.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

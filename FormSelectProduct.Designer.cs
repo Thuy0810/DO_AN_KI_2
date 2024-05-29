@@ -34,15 +34,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.GnDtP = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.originPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categoryPP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.abc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.WAREHOUSE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.saveButton = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.btnSearch = new Guna.UI2.WinForms.Guna2Button();
@@ -56,6 +47,16 @@
             this.priceProduct = new Guna.UI2.WinForms.Guna2NumericUpDown();
             this.IDProduct = new Guna.UI2.WinForms.Guna2TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.originPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoryPP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.abc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.WAREHOUSE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.asd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.GnDtP)).BeginInit();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.quantityProduct)).BeginInit();
@@ -90,7 +91,8 @@
             this.categoryPP,
             this.abc,
             this.status,
-            this.WAREHOUSE});
+            this.WAREHOUSE,
+            this.asd});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -140,61 +142,6 @@
             this.GnDtP.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.GnDtP.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.GnDtP.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GnDtP_CellClick);
-            // 
-            // id
-            // 
-            this.id.HeaderText = "ID";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            // 
-            // name
-            // 
-            this.name.HeaderText = "TÊN";
-            this.name.Name = "name";
-            this.name.ReadOnly = true;
-            // 
-            // quantity
-            // 
-            this.quantity.HeaderText = "SỐ LƯỢNG TRONG KHO";
-            this.quantity.Name = "quantity";
-            this.quantity.ReadOnly = true;
-            // 
-            // originPrice
-            // 
-            this.originPrice.HeaderText = "GIÁ GỐC";
-            this.originPrice.Name = "originPrice";
-            this.originPrice.ReadOnly = true;
-            // 
-            // price
-            // 
-            this.price.HeaderText = "GIÁ BÁN";
-            this.price.Name = "price";
-            this.price.ReadOnly = true;
-            // 
-            // categoryPP
-            // 
-            this.categoryPP.HeaderText = "PHÂN LOẠI";
-            this.categoryPP.Name = "categoryPP";
-            this.categoryPP.ReadOnly = true;
-            // 
-            // abc
-            // 
-            this.abc.HeaderText = "NHÀ CUNG CẤP";
-            this.abc.Name = "abc";
-            this.abc.ReadOnly = true;
-            // 
-            // status
-            // 
-            this.status.HeaderText = "TRẠNG THÁI";
-            this.status.Name = "status";
-            this.status.ReadOnly = true;
-            // 
-            // WAREHOUSE
-            // 
-            this.WAREHOUSE.HeaderText = "Column1";
-            this.WAREHOUSE.Name = "WAREHOUSE";
-            this.WAREHOUSE.ReadOnly = true;
-            this.WAREHOUSE.Visible = false;
             // 
             // saveButton
             // 
@@ -409,6 +356,68 @@
             this.label5.TabIndex = 40;
             this.label5.Text = "ID :";
             // 
+            // id
+            // 
+            this.id.HeaderText = "ID";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            // 
+            // name
+            // 
+            this.name.HeaderText = "TÊN";
+            this.name.Name = "name";
+            this.name.ReadOnly = true;
+            // 
+            // quantity
+            // 
+            this.quantity.HeaderText = "SỐ LƯỢNG TRONG KHO";
+            this.quantity.Name = "quantity";
+            this.quantity.ReadOnly = true;
+            // 
+            // originPrice
+            // 
+            this.originPrice.HeaderText = "GIÁ GỐC";
+            this.originPrice.Name = "originPrice";
+            this.originPrice.ReadOnly = true;
+            // 
+            // price
+            // 
+            this.price.HeaderText = "GIÁ BÁN";
+            this.price.Name = "price";
+            this.price.ReadOnly = true;
+            // 
+            // categoryPP
+            // 
+            this.categoryPP.HeaderText = "PHÂN LOẠI";
+            this.categoryPP.Name = "categoryPP";
+            this.categoryPP.ReadOnly = true;
+            // 
+            // abc
+            // 
+            this.abc.HeaderText = "NHÀ CUNG CẤP";
+            this.abc.Name = "abc";
+            this.abc.ReadOnly = true;
+            // 
+            // status
+            // 
+            this.status.HeaderText = "TRẠNG THÁI";
+            this.status.Name = "status";
+            this.status.ReadOnly = true;
+            // 
+            // WAREHOUSE
+            // 
+            this.WAREHOUSE.HeaderText = "WAREHOUSE";
+            this.WAREHOUSE.Name = "WAREHOUSE";
+            this.WAREHOUSE.ReadOnly = true;
+            this.WAREHOUSE.Visible = false;
+            // 
+            // asd
+            // 
+            this.asd.HeaderText = "monthsWarranty";
+            this.asd.Name = "asd";
+            this.asd.ReadOnly = true;
+            this.asd.Visible = false;
+            // 
             // FormSelectProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -463,5 +472,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn abc;
         private System.Windows.Forms.DataGridViewTextBoxColumn status;
         private System.Windows.Forms.DataGridViewTextBoxColumn WAREHOUSE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn asd;
     }
 }

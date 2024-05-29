@@ -15,7 +15,7 @@ namespace DO_AN_KI_2
         WareHouse wareHouse;
         Category category;
         Customer customer;
-        Revenue revenue;
+        Guarantee revenue;
         Bill bill;
         TblUsers tbluser;
         Trademark trademark;
@@ -26,13 +26,9 @@ namespace DO_AN_KI_2
 
         public Form1()
         {
-
-
             InitializeComponent();
-
             MdiProp();
-
-
+            btnUser.Visible = role != 1 ? false : true;
         }
 
 
@@ -291,7 +287,7 @@ namespace DO_AN_KI_2
         {
             if (revenue == null)
             {
-                revenue = new Revenue();
+                revenue = new Guarantee();
                 revenue.FormClosed += Revenue_FormClosed;
                 revenue.MdiParent = this;
                 revenue.Dock = DockStyle.Fill;
@@ -330,7 +326,7 @@ namespace DO_AN_KI_2
 
         private void btnUser_Click(object sender, EventArgs e)
         {
-            if (role !=1)
+            if (role != 1)
             {
                 message.showWarning("Bạn không có quyền thực hiện chức năng này");
                 return;

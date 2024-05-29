@@ -1,19 +1,17 @@
-﻿using DO_AN_KI_2.service;
-using System;
+﻿using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
-using System.Security.Cryptography;
 using System.Windows.Forms;
 
 namespace DO_AN_KI_2
 {
     public partial class ProductDetils : Form
     {
-        
+
         private int id;
-       DataServices dataServices= new DataServices();
+        DataServices dataServices = new DataServices();
         private bool Modeview;
         private bool EditMode;
         private string linkImage { get; set; }
@@ -31,7 +29,7 @@ namespace DO_AN_KI_2
             setControl(Modeview);
             this.Modeview = Modeview;
             this.EditMode = !Modeview;
-         }
+        }
 
         void showDataCategory()
         {
@@ -86,24 +84,24 @@ namespace DO_AN_KI_2
             }
         }
 
-        
+
         private void ProductDetils_Load(object sender, EventArgs e)
         {
-           // this.ControlBox=false;
-          
+            // this.ControlBox=false;
+
             if (Modeview)
             {
-                
-            string query = "SELECT p.ProductID, p.nameProduct, p.quantity, p.originPrice, p.price, p.noLimit, c.categoryID, s.supplierName, t.trademarkID, s.supplierID, p.status, p.weight, p.description, p.isPhysic, p.img " +
-                  "FROM tblPRODUCT p " +
-                  "INNER JOIN tblCATEGORY c ON p.categoryID = c.categoryID " +
-                  "INNER JOIN tblTRADEMARK t ON p.trademarkID = t.trademarkID " +
-                  "INNER JOIN tblSUPPLIER s ON p.supplierID = s.supplierID " +
-                  $"WHERE ProductID = {id}";
+
+                string query = "SELECT p.ProductID, p.nameProduct, p.quantity, p.originPrice, p.price, p.noLimit , p.monthsWarranty , c.categoryID, s.supplierName, t.trademarkID, s.supplierID, p.status, p.weight, p.description, p.isPhysic, p.img " +
+                      "FROM tblPRODUCT p " +
+                      "INNER JOIN tblCATEGORY c ON p.categoryID = c.categoryID " +
+                      "INNER JOIN tblTRADEMARK t ON p.trademarkID = t.trademarkID " +
+                      "INNER JOIN tblSUPPLIER s ON p.supplierID = s.supplierID " +
+                      $"WHERE ProductID = {id}";
 
                 dataServices.OpenDB();
 
-                SqlDataReader reader= dataServices.DataReader(query);
+                SqlDataReader reader = dataServices.DataReader(query);
 
                 // Đọc dữ liệu từ DataReader
                 if (reader.Read())
@@ -116,9 +114,10 @@ namespace DO_AN_KI_2
                     string categoryID = reader["categoryID"].ToString();
                     string supplierID = reader["supplierID"].ToString();
                     string trademarkID = reader["trademarkID"].ToString();
-                    decimal weightPro =  Convert.ToDecimal(reader["weight"].ToString());
+                    decimal weightPro = Convert.ToDecimal(reader["weight"].ToString());
                     string descriptionPro = reader["description"].ToString();
-                     linkOldImage = reader["img"].ToString();
+                    monthsOfWarranty.Value = (int)reader["monthsWarranty"];
+                    linkOldImage = reader["img"].ToString();
                     // Gán thông tin vào các TextBox trên Form B
                     try
                     {
@@ -160,12 +159,12 @@ namespace DO_AN_KI_2
 
                     // ...
                 }
-            
-            dataServices.CloseDB();
-               
+
+                dataServices.CloseDB();
+
             }
         }
-        public  void setControl(bool status)
+        public void setControl(bool status)
         {
             txtNameP.ReadOnly = status;
             txtQuantityP.ReadOnly = status;
@@ -198,85 +197,85 @@ namespace DO_AN_KI_2
                 return;
             }
 
-             if (txtDescription.Text.Trim().Length > 200)
-                {
-                    MessageBox.Show("Mô tả nhập quá dài (<=200 kí tự)", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    txtDescription.Focus();
-                    return;
-                }
-          if(txtQuantityP.Text.Trim().Length ==0)
+            if (txtDescription.Text.Trim().Length > 200)
+            {
+                MessageBox.Show("Mô tả nhập quá dài (<=200 kí tự)", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtDescription.Focus();
+                return;
+            }
+            if (txtQuantityP.Text.Trim().Length == 0)
             {
                 MessageBox.Show("Số lượng không được để trống", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtQuantityP.Focus();
                 return;
             }
-          if(txtOriginPrice.Text.Trim().Length == 0)
+            if (txtOriginPrice.Text.Trim().Length == 0)
             {
                 MessageBox.Show("Giá gốc không được để trống", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
-            }    
-          if(txtPrice.Text.Trim().Length == 0)
+            }
+            if (txtPrice.Text.Trim().Length == 0)
             {
                 MessageBox.Show("Giá bán không được để trống", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
-            }    
-          if(boxPicture==null)
+            }
+            if (boxPicture == null)
             {
-                MessageBox.Show("Hình ảnh không được để trống","Thông báo",MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Hình ảnh không được để trống", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            
+
             if (Modeview)
             {
-                
+
                 try
                 {
                     dataServices.OpenDB();
                     //1. hỏi xác nhận sửa  dữ liệu không?
                     DialogResult dr;
-                    dr = MessageBox.Show("Lưu thay đổi?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    dr = MessageBox.Show("Lưu thay đổi ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (dr == DialogResult.No) return;
 
-                        // Lấy giá trị từ các điều khiển trên giao diện
+                    // Lấy giá trị từ các điều khiển trên giao diện
 
-                        string nameProduct = txtNameP.Text;
-                        string description = txtDescription.Text;
-                        decimal weightProduct;
-                        decimal.TryParse(txtWeight.Text, out weightProduct);
+                    string nameProduct = txtNameP.Text;
+                    string description = txtDescription.Text;
+                    decimal weightProduct;
+                    decimal.TryParse(txtWeight.Text, out weightProduct);
 
-                        var trademaarkId = trademark.SelectedValue.ToString();
-                        var idCategory = category.SelectedValue.ToString();
-                        var idSupplier = supplier.SelectedValue.ToString();
-                        int status = swActive.Checked ? 1 : 0;
-                        int isPhysic1 = swPhysic.Checked ? 1 : 0;
-                        int noLimit = swLimit.Checked ? 1 : 0;
+                    var trademaarkId = trademark.SelectedValue.ToString();
+                    var idCategory = category.SelectedValue.ToString();
+                    var idSupplier = supplier.SelectedValue.ToString();
+                    int status = swActive.Checked ? 1 : 0;
+                    int isPhysic1 = swPhysic.Checked ? 1 : 0;
+                    int noLimit = swLimit.Checked ? 1 : 0;
 
-                        int originPrice;
-                        int.TryParse(txtOriginPrice.Text, out originPrice);
-                        int price;
-                        int.TryParse(txtPrice.Text, out price);
-                        // Sử dụng parameterized query để tránh lỗ hổng SQL injection
-                        string query = $"UPDATE tblPRODUCT SET nameProduct = @nameProduct, isPhysic=@isPhysic, originPrice=@originPrice, price=@price, noLimit=@noLimit,img=@img, description=@description, categoryID=@categoryID, trademarkID=@trademarkID, status=@status, supplierID= @supplierID, weight=@weight where ProductID={id}"; // Thay đổi tblCATEGORY thành tên bảng của bạn
-                        string linkImageSaveToDb =linkImage != null ? $@"upload\{Path.GetFileName(linkImage)}":linkOldImage;
-                   
+                    int originPrice;
+                    int.TryParse(txtOriginPrice.Text, out originPrice);
+                    int price;
+                    int.TryParse(txtPrice.Text, out price);
+                    // Sử dụng parameterized query để tránh lỗ hổng SQL injection
+                    string query = $"UPDATE tblPRODUCT SET nameProduct = @nameProduct, isPhysic=@isPhysic, originPrice=@originPrice, price=@price, noLimit=@noLimit,img=@img, description=@description, categoryID=@categoryID, trademarkID=@trademarkID, status=@status, supplierID= @supplierID, weight=@weight , monthsWarranty = @monthsWarranty where ProductID={id}"; // Thay đổi tblCATEGORY thành tên bảng của bạn
+                    string linkImageSaveToDb = linkImage != null ? $@"upload\{Path.GetFileName(linkImage)}" : linkOldImage;
+
                     SqlCommand command = new SqlCommand(query, dataServices.connection);
 
 
-                        // Thêm các tham số và giá trị tương ứng vào câu lệnh SQL
+                    // Thêm các tham số và giá trị tương ứng vào câu lệnh SQL
 
-                        command.Parameters.AddWithValue("@nameProduct", nameProduct);
-                        command.Parameters.AddWithValue("@description", description);
-                        command.Parameters.AddWithValue("@categoryID", idCategory);
-                        command.Parameters.AddWithValue("@status", status);
-                        command.Parameters.AddWithValue("@weight", weightProduct);
-                        command.Parameters.AddWithValue("@trademarkID", trademaarkId);
-                        command.Parameters.AddWithValue("@supplierID", idSupplier);
-                        command.Parameters.AddWithValue("@isPhysic", isPhysic1);
-                        command.Parameters.AddWithValue("@noLimit", noLimit);
-                        command.Parameters.AddWithValue("@originPrice", originPrice);
-                        command.Parameters.AddWithValue("@price", price);
-                        command.Parameters.AddWithValue("@img", linkImageSaveToDb);
-
+                    command.Parameters.AddWithValue("@nameProduct", nameProduct);
+                    command.Parameters.AddWithValue("@description", description);
+                    command.Parameters.AddWithValue("@categoryID", idCategory);
+                    command.Parameters.AddWithValue("@status", status);
+                    command.Parameters.AddWithValue("@weight", weightProduct);
+                    command.Parameters.AddWithValue("@trademarkID", trademaarkId);
+                    command.Parameters.AddWithValue("@supplierID", idSupplier);
+                    command.Parameters.AddWithValue("@isPhysic", isPhysic1);
+                    command.Parameters.AddWithValue("@noLimit", noLimit);
+                    command.Parameters.AddWithValue("@originPrice", originPrice);
+                    command.Parameters.AddWithValue("@price", price);
+                    command.Parameters.AddWithValue("@img", linkImageSaveToDb);
+                    command.Parameters.AddWithValue("@monthsWarranty", monthsOfWarranty.Value);
                     string currentPath = Directory.GetCurrentDirectory() + "\\upload";
                     if (!Directory.Exists(currentPath))
                     {
@@ -285,7 +284,7 @@ namespace DO_AN_KI_2
 
                     string newPathImage = $@"{currentPath}\{Path.GetFileName(linkImage)}";
                     string oldPathImage = $@"{Directory.GetCurrentDirectory()}\{linkOldImage}";
-                    
+
                     if (linkImage != null)
                     {
                         if (File.Exists(oldPathImage))
@@ -297,11 +296,11 @@ namespace DO_AN_KI_2
 
 
                     // Thực thi câu lệnh SQL
-                    SqlCommand command1= new SqlCommand(query,dataServices.connection);   
+                    SqlCommand command1 = new SqlCommand(query, dataServices.connection);
                     command.ExecuteNonQuery();
                     this.Close();
 
-                    
+
                 }
                 catch (Exception ex)
                 {
@@ -318,7 +317,7 @@ namespace DO_AN_KI_2
                     if (dialogResult == DialogResult.No) return;
 
                     string linkImageSaveToDb = $@"upload\{Path.GetFileName(linkImage)}";
-                    string queryInsert = "INSERT INTO tblPRODUCT(nameProduct, img, quantity, originPrice, price, description, noLimit, categoryID, trademarkID, isPhysic, weight, status, supplierID) VALUES (@nameProduct, @img, @quantity, @originPrice, @price, @description, @noLimit, @categoryID, @trademarkID, @isPhysic, @weight, @status, @supplierID)";
+                    string queryInsert = "INSERT INTO tblPRODUCT(nameProduct, img, quantity, originPrice, price, description, noLimit, categoryID, trademarkID, isPhysic, weight, status, supplierID , monthsWarranty) VALUES (@nameProduct, @img, @quantity, @originPrice, @price, @description, @noLimit, @categoryID, @trademarkID, @isPhysic, @weight, @status, @supplierID, @monthsWarranty)";
 
                     using (SqlCommand command = new SqlCommand(queryInsert, dataServices.connection))
                     {
@@ -335,7 +334,7 @@ namespace DO_AN_KI_2
                         command.Parameters.AddWithValue("@weight", txtWeight.Text != "" ? txtWeight.Text : "0");
                         command.Parameters.AddWithValue("@status", swActive.Checked);
                         command.Parameters.AddWithValue("@supplierID", supplier.SelectedValue);
-
+                        command.Parameters.AddWithValue("@monthsWarranty", monthsOfWarranty.Value);
                         string currentPath = Directory.GetCurrentDirectory() + "\\upload";
                         if (!Directory.Exists(currentPath))
                         {
@@ -386,7 +385,7 @@ namespace DO_AN_KI_2
                     boxPicture.Image = new Bitmap(linkImage);
                 }
             }
-            
+
         }
         private void label1_Click(object sender, EventArgs e)
         {
