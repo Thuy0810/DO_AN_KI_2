@@ -38,5 +38,11 @@ namespace DO_AN_KI_2
                 dataGridView.Rows.Add((string)row["trademarkID"].ToString(), (string)row["nameT"], (string)row["description"], Properties.Resources.Delete2);
             }
         }
+
+        private void guna2Button1_Click_1(object sender, EventArgs e)
+        {
+            Form8 frm8 = new Form8();
+            frm8.Show();
+        }
     }
 }
