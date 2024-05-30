@@ -64,5 +64,11 @@ namespace DO_AN_KI_2
         {
 
         }
+
+        private void guna2Button1_Click_1(object sender, EventArgs e)
+        {
+            Form7 frm7 = new Form7();
+            frm7.Show();
+        }
     }
 }
