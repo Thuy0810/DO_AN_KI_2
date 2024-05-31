@@ -16,7 +16,7 @@ namespace DO_AN_KI_2
             InitializeComponent();
         }
 
-        void fetchData(string keySearch = "")
+        public void fetchData(string keySearch = "")
         {
             keySearch = $"%{keySearch}%";
             string qr = "select g.guaranteeID , g.productID , g.customerID , g.dateStart ,g.dateEnd , g.userID , p.nameProduct ,c.customerName , u.fullName as nameEmploy from tblGUARANTEE as g inner join tblPRODUCT as p on g.productID = p.ProductID inner join tblCUSTOMER as c on g.customerID = c.customerID inner join tblUSER as u on g.userID = u.userID where c.customerName like @keyword";

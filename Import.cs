@@ -12,7 +12,7 @@ namespace DO_AN_KI_2
             InitializeComponent();
         }
 
-        private void fetchData()
+        public void fetchData()
         {
             string query = "select * from tblImportProduct as imp inner join tblSUPPLIER as sup on imp.supplierID = sup.supplierID;";
 

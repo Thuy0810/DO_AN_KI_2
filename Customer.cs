@@ -24,7 +24,7 @@ namespace DO_AN_KI_2
             services.OpenDB();
             DisplayCustomer();
         }
-        private void DisplayCustomer()
+        public void DisplayCustomer()
         {
             try
             {

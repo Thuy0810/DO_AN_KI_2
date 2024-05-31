@@ -14,38 +14,41 @@ namespace DO_AN_KI_2
     {
         int TongTien;
         public bool thanhToanThanhCong { get; set; } = false;
-        public QRPay(int t)
+        string maDh;
+        public QRPay(int t, string maDh)
         {
             InitializeComponent();
-            List<BankInfo> list = new List<BankInfo>() {new BankInfo("VietcomBank", 970436, 1032359964),new BankInfo("MBbank", 970422, 0849016512)  };
-            cboNH.DataSource= list;
-            cboNH.DisplayMember= "Name";
+            List<BankInfo> list = new List<BankInfo>() { new BankInfo("VietcomBank", 970436, "1032359964", "TO THI THUY"), new BankInfo("MBbank", 970422, "8410123132004", "NGUYEN DINH TUAN") };
+            cboNH.DataSource = list;
+            cboNH.DisplayMember = "Name";
             TongTien = t;
-            moneyPay.Text= t.ToString("N0", new CultureInfo("vi-VN")) + " VND";
+            moneyPay.Text = t.ToString("N0", new CultureInfo("vi-VN")) + " VND";
+            this.maDh = maDh;
         }
 
         private void AddButton_Click(object sender, EventArgs e)
         {
-            BankInfo bankInfo= cboNH.SelectedItem as BankInfo;
+            BankInfo bankInfo = cboNH.SelectedItem as BankInfo;
 
 
             var ApiRequest = new ApiRequest()
             {
-                acqId =bankInfo.IdBank,
+                acqId = bankInfo.IdBank,
                 accountNo = bankInfo.STKBank,
-                accountName = "TO THI THUY",
+                accountName = bankInfo.chuTk,
                 amount = TongTien,
+                addInfo = $"thanh toan ma don hang {maDh}",
                 format = "text",
                 template = "print"
             };
-            var JsonApiRequest= JsonConvert.SerializeObject(ApiRequest);
+            var JsonApiRequest = JsonConvert.SerializeObject(ApiRequest);
 
             var client = new RestClient("https://api.vietqr.io/v2/generate");
             var request = new RestRequest();
 
             request.Method = Method.Post;
             request.AddHeader("Accept", "application/json");
-            
+
             request.AddParameter("application/json", JsonApiRequest, ParameterType.RequestBody);
 
             var response = client.Execute(request);
@@ -67,17 +70,18 @@ namespace DO_AN_KI_2
                 imgPay.Image = Image.FromStream(ms);
             }
         }
-     class BankInfo
+        class BankInfo
         {
             public string Name { get; set; }
-            public int IdBank {  get; set; }
-            public int STKBank {  get; set; }
-
-            public BankInfo(string name, int idBank, int sTKBank)
+            public int IdBank { get; set; }
+            public string STKBank { get; set; }
+            public string chuTk { get; set; }
+            public BankInfo(string name, int idBank, string sTKBank, string chuTk)
             {
                 this.Name = name;
                 IdBank = idBank;
                 STKBank = sTKBank;
+                this.chuTk = chuTk;
             }
         }
 
@@ -90,6 +94,11 @@ namespace DO_AN_KI_2
         {
             thanhToanThanhCong = true;
             this.Close();
+        }
+
+        private void QRPay_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
