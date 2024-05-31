@@ -25,6 +25,7 @@ namespace DO_AN_KI_2
 
         int maxQuantity = 999999999;
 
+        int monthsWarranty = 0;
         public FormSelectProduct(modeFormAddProduct mode, string supplierID = "")
         {
             InitializeComponent();
@@ -37,7 +38,7 @@ namespace DO_AN_KI_2
         void fetchData()
         {
 
-            string query = "SELECT p.ProductID, p.nameProduct, p.quantity, p.originPrice, p.price, p.noLimit, c.name, c.categoryID, t.trademarkID, p.status, p.supplierID, p.weight, p.description, p.isPhysic, p.img , s.supplierName " +
+            string query = "SELECT p.ProductID, p.nameProduct, p.quantity, p.originPrice, p.price, p.noLimit, p.monthsWarranty,  c.name, c.categoryID, t.trademarkID, p.status, p.supplierID, p.weight, p.description, p.isPhysic, p.img , s.supplierName " +
               "FROM tblPRODUCT p " +
               "INNER JOIN tblCATEGORY c ON p.categoryID = c.categoryID " +
               "INNER JOIN tblTRADEMARK t ON p.trademarkID = t.trademarkID " +
@@ -73,7 +74,7 @@ namespace DO_AN_KI_2
                     column.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 }
 
-                GnDtP.Rows.Add(id, productName, display, originPrice, price, nameCategory, nameSuplider, dispStatus, quantity);
+                GnDtP.Rows.Add(id, productName, display, originPrice, price, nameCategory, nameSuplider, dispStatus, quantity, (int)row["monthsWarranty"]);
             }
 
         }
@@ -113,7 +114,7 @@ namespace DO_AN_KI_2
                         maxQuantity = 9999999;
                     }
                 }
-
+                monthsWarranty = Int32.Parse(GnDtP.Rows[e.RowIndex].Cells[9].Value.ToString());
 
             }
         }
@@ -122,7 +123,7 @@ namespace DO_AN_KI_2
         {
             if (IDProduct.Text != string.Empty)
             {
-                productModel = new ProductModelAdd(IDProduct.Text, nameProduct.Text, (int)quantityProduct.Value, (int)priceProduct.Value, quantityInWareHouse);
+                productModel = new ProductModelAdd(IDProduct.Text, nameProduct.Text, (int)quantityProduct.Value, (int)priceProduct.Value, quantityInWareHouse, monthsWarranty);
             }
             this.Close();
         }
@@ -206,13 +207,15 @@ namespace DO_AN_KI_2
         public int quantity { get; set; }
         public int price { get; set; }
         public int quantityInWareHouse { get; set; }
-        public ProductModelAdd(string id, string productName, int quantity, int price, int quantityInWareHouse)
+        public int monthsWarranty { get; set; }
+        public ProductModelAdd(string id, string productName, int quantity, int price, int quantityInWareHouse, int monthsWarranty)
         {
             this.productName = productName;
             this.id = id;
             this.quantity = quantity;
             this.price = price;
             this.quantityInWareHouse = quantityInWareHouse;
+            this.monthsWarranty = monthsWarranty;
         }
     }
 }

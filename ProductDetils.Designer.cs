@@ -63,6 +63,8 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.monthsOfWarranty = new Guna.UI2.WinForms.Guna2NumericUpDown();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             this.guna2Panel6.SuspendLayout();
@@ -70,6 +72,7 @@
             this.guna2Panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.boxPicture)).BeginInit();
             this.guna2Panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.monthsOfWarranty)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2Panel1
@@ -423,6 +426,8 @@
             this.guna2Panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2Panel3.BackColor = System.Drawing.Color.White;
+            this.guna2Panel3.Controls.Add(this.monthsOfWarranty);
+            this.guna2Panel3.Controls.Add(this.label14);
             this.guna2Panel3.Controls.Add(this.swActive);
             this.guna2Panel3.Controls.Add(this.label5);
             this.guna2Panel3.Controls.Add(this.swLimit);
@@ -447,7 +452,7 @@
             this.swActive.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.swActive.CheckedState.InnerBorderColor = System.Drawing.Color.White;
             this.swActive.CheckedState.InnerColor = System.Drawing.Color.White;
-            this.swActive.Location = new System.Drawing.Point(392, 159);
+            this.swActive.Location = new System.Drawing.Point(390, 114);
             this.swActive.Name = "swActive";
             this.swActive.Size = new System.Drawing.Size(35, 20);
             this.swActive.TabIndex = 15;
@@ -461,7 +466,7 @@
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(290, 68);
+            this.label5.Location = new System.Drawing.Point(272, 68);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(97, 12);
             this.label5.TabIndex = 14;
@@ -474,7 +479,7 @@
             this.swLimit.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.swLimit.CheckedState.InnerBorderColor = System.Drawing.Color.White;
             this.swLimit.CheckedState.InnerColor = System.Drawing.Color.White;
-            this.swLimit.Location = new System.Drawing.Point(392, 64);
+            this.swLimit.Location = new System.Drawing.Point(390, 61);
             this.swLimit.Name = "swLimit";
             this.swLimit.Size = new System.Drawing.Size(35, 20);
             this.swLimit.TabIndex = 13;
@@ -488,7 +493,7 @@
             this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(292, 163);
+            this.label13.Location = new System.Drawing.Point(295, 118);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(71, 12);
             this.label13.TabIndex = 11;
@@ -630,6 +635,31 @@
             this.label7.TabIndex = 5;
             this.label7.Text = "GIÁ GỐC :";
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(255, 164);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(118, 12);
+            this.label14.TabIndex = 17;
+            this.label14.Text = "SỐ THÁNG BẢO HÀNH :";
+            // 
+            // monthsOfWarranty
+            // 
+            this.monthsOfWarranty.BackColor = System.Drawing.Color.Transparent;
+            this.monthsOfWarranty.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.monthsOfWarranty.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.monthsOfWarranty.Location = new System.Drawing.Point(390, 155);
+            this.monthsOfWarranty.Maximum = new decimal(new int[] {
+            999,
+            0,
+            0,
+            0});
+            this.monthsOfWarranty.Name = "monthsOfWarranty";
+            this.monthsOfWarranty.Size = new System.Drawing.Size(63, 29);
+            this.monthsOfWarranty.TabIndex = 18;
+            // 
             // ProductDetils
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -652,6 +682,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.boxPicture)).EndInit();
             this.guna2Panel3.ResumeLayout(false);
             this.guna2Panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.monthsOfWarranty)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -693,5 +724,7 @@
         private Guna.UI2.WinForms.Guna2ToggleSwitch swPhysic;
         private Guna.UI2.WinForms.Guna2Button btnEdit;
         private Guna.UI2.WinForms.Guna2Button btnSave;
+        private System.Windows.Forms.Label label14;
+        private Guna.UI2.WinForms.Guna2NumericUpDown monthsOfWarranty;
     }
 }
