@@ -28,7 +28,7 @@ namespace DO_AN_KI_2
             request.Headers.Add("x-client-id", "<CLIENT_ID_HERE>");
             request.Headers.Add("x-api-key", "<API_KEY_HERE>");
             request.Headers.Add("Cookie", "connect.sid=s%3AJa0G3lzhIbvqi2Gid8tIc7DRNTnqT58-.8ofu1hA6gLCknZ7PRXrUPZ3vKbfDOdZrqBmK5K3BAsE");
-            InfoBank info = new InfoBank("Thanh toán mã đơn hàng abc", 10000);
+            InfoBank info = new InfoBank("Thanh toán mã đơn hàng asdga", 10000);
             var jsonString = JsonConvert.SerializeObject(info);
             var content = new StringContent(jsonString, null, "application/json");
             request.Content = content;
@@ -84,6 +84,4 @@ namespace DO_AN_KI_2
         public string desc { get; set; }
         public Data data { get; set; }
     }
-
-
 }
