@@ -72,7 +72,7 @@
             this.btnSaveCustomer.Location = new System.Drawing.Point(613, 324);
             this.btnSaveCustomer.Name = "btnSaveCustomer";
             this.btnSaveCustomer.Size = new System.Drawing.Size(70, 28);
-            this.btnSaveCustomer.TabIndex = 24;
+            this.btnSaveCustomer.TabIndex = 5;
             this.btnSaveCustomer.TabStop = false;
             this.btnSaveCustomer.Text = "Lưu";
             this.btnSaveCustomer.Click += new System.EventHandler(this.btnSaveCustomer_Click);
@@ -129,7 +129,7 @@
             this.txtEmailCustomer.PlaceholderText = "";
             this.txtEmailCustomer.SelectedText = "";
             this.txtEmailCustomer.Size = new System.Drawing.Size(254, 29);
-            this.txtEmailCustomer.TabIndex = 17;
+            this.txtEmailCustomer.TabIndex = 3;
             // 
             // label3
             // 
