@@ -122,6 +122,12 @@ namespace DO_AN_KI_2
 
         private void saveButton_Click(object sender, EventArgs e)
         {
+            if (listProductModel.Count == 0)
+            {
+                message.showWarning("Vui lòng chọn ít nhất một sản phẩm!");
+                return;
+            }
+
             Guid id = Guid.NewGuid();
             if (cboPay.SelectedItem == "QR")
             {
@@ -201,6 +207,14 @@ namespace DO_AN_KI_2
             {
                 saveButton.Text = "Tiếp tục";
             }
+        }
+
+        private void AddCustomer_Click(object sender, EventArgs e)
+        {
+            CustomerDetails customerDetails = new CustomerDetails(0, false);
+            customerDetails.ShowDialog();
+            string query = "select * from tblCUSTOMER";
+            customerSelect.DataSource = services.ShowObjectData(query);
         }
     }
 
