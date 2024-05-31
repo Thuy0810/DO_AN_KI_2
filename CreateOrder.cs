@@ -116,46 +116,57 @@ namespace DO_AN_KI_2
                     listProductModel.Add(formSelectProduct.productModel);
                 }
                 totalPriceNum += (formSelectProduct.productModel.price * formSelectProduct.productModel.quantity);
-                totalPrice.Text = totalPriceNum.ToString("N0", new System.Globalization.CultureInfo("vi-VN")) + " VND";
+                totalPrice.Text = totalPriceNum.ToString("N0", new CultureInfo("vi-VN")) + " VND";
             }
         }
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-            if (ModeNew)
+
+            if (cboPay.SelectedItem == "QR")
             {
-                DateTime today = DateTime.Now;
-                string iso8601DateTime = today.ToString("yyyy-MM-ddTHH:mm:ss.fff", CultureInfo.InvariantCulture);
-                Guid id = Guid.NewGuid();
-                string query = $"insert into tblORDER values( '{id}' , '{iso8601DateTime}' , {customerSelect.SelectedValue} , {totalPriceNum},'{cboPay.SelectedItem}', @note ,{employId})";
-                services.ExecuteQueryWithValue(query, new object[] { note.Text });
-                services.OpenDB();
-                foreach (var item in listProductModel)
+                QRPay qRPay = new QRPay(totalPriceNum);
+                qRPay.ShowDialog();
+                if (!qRPay.thanhToanThanhCong)
                 {
-                    string qr = $"insert into tblORDERDETAIL values ('{id}',{item.id},{item.quantity},{item.price})";
-                    services.ExecuteQueries(qr);
-
-                    string updateQr = $"update tblPRODUCT set quantity = {item.quantityInWareHouse - item.quantity} where ProductID = {item.id};";
-                    services.ExecuteQueries(updateQr);
-
-                    if (item.monthsWarranty > 0)
-                    {
-                        int years = item.monthsWarranty / 12;
-                        int months = item.monthsWarranty % 12;
-                        DateTime dateEnd = today.AddYears(years).AddMonths(months);
-                        string createBaoHanh = $"insert into tblGUARANTEE values({item.id},'{iso8601DateTime}','{dateEnd.ToString()}',{customerSelect.SelectedValue},{employId})";
-                        services.ExecuteQueries(createBaoHanh);
-                    }
-
+                    return;
                 }
-                services.CloseDB();
-                message.showSucess("Thêm thành công");
-                DataGridView.Rows.Clear();
-                note.Text = "";
-                totalPriceNum = 0;
-                totalPrice.Text = "0 VND";
             }
-        }
+
+            if (ModeNew)
+                {
+                    DateTime today = DateTime.Now;
+                    string iso8601DateTime = today.ToString("yyyy-MM-ddTHH:mm:ss.fff", CultureInfo.InvariantCulture);
+                    Guid id = Guid.NewGuid();
+                    string query = $"insert into tblORDER values( '{id}' , '{iso8601DateTime}' , {customerSelect.SelectedValue} , {totalPriceNum},N'{cboPay.SelectedItem}', @note ,{employId})";
+                    services.ExecuteQueryWithValue(query, new object[] { note.Text });
+                    services.OpenDB();
+                    foreach (var item in listProductModel)
+                    {
+                        string qr = $"insert into tblORDERDETAIL values ('{id}',{item.id},{item.quantity},{item.price})";
+                        services.ExecuteQueries(qr);
+
+                        string updateQr = $"update tblPRODUCT set quantity = {item.quantityInWareHouse - item.quantity} where ProductID = {item.id};";
+                        services.ExecuteQueries(updateQr);
+
+                        if (item.monthsWarranty > 0)
+                        {
+                            int years = item.monthsWarranty / 12;
+                            int months = item.monthsWarranty % 12;
+                            DateTime dateEnd = today.AddYears(years).AddMonths(months);
+                            string createBaoHanh = $"insert into tblGUARANTEE values({item.id},'{iso8601DateTime}','{dateEnd.ToString()}',{customerSelect.SelectedValue},{employId})";
+                            services.ExecuteQueries(createBaoHanh);
+                        }
+
+                    }
+                    services.CloseDB();
+                    message.showSucess("Thêm thành công");
+                    DataGridView.Rows.Clear();
+                    note.Text = "";
+                    totalPriceNum = 0;
+                    totalPrice.Text = "0 VND";
+                }
+            }
 
         private void DataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -180,6 +191,17 @@ namespace DO_AN_KI_2
             }
         }
 
+        private void cboPay_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(cboPay.SelectedItem=="Tiền mặt")
+            {
+                saveButton.Text = "Lưu";
+            }
+            else if (cboPay.SelectedItem=="QR")
+            {
+                saveButton.Text = "Tiếp tục";
+            }
+        }
     }
 
     public class OrderModel
