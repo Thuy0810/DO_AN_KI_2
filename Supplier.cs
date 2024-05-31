@@ -124,6 +124,7 @@ namespace DO_AN_KI_2
 
         private void GnDtSupplier_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            services.OpenDB();
             if (e.ColumnIndex == 5 && e.RowIndex >= 0)
             {
                 DialogResult dialogResult;
@@ -132,10 +133,10 @@ namespace DO_AN_KI_2
 
               int r=GnDtSupplier.CurrentRow.Index;
               string supplierID= GnDtSupplier.Rows[r].Cells[0].Value.ToString();
-                string quyery2 = "delete from tblSUPPLIER where supplierID=" + supplierID;
-                SqlCommand command1 = new SqlCommand(quyery2, services.connection);
-                command1.ExecuteNonQuery();
-
+              string quyery2 = "delete from tblSUPPLIER where supplierID=" + supplierID;
+               SqlCommand command1 = new SqlCommand(quyery2, services.connection);
+               command1.ExecuteNonQuery();
+                services.CloseDB();
 
                 GnDtSupplier.Rows.Clear();
                 DisplaySupplier();

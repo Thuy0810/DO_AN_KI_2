@@ -60,7 +60,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.guna2PictureBox1);
             this.Controls.Add(this.guna2HtmlLabel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "WareHouse";
             this.Text = "WareHouse";
             this.Load += new System.EventHandler(this.WareHouse_Load);
