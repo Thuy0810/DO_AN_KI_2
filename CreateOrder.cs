@@ -59,6 +59,7 @@ namespace DO_AN_KI_2
                 AddButton.Visible = false;
                 saveButton.Visible = false;
                 cboPay.SelectedItem = model.payMethods;
+
                 string query = $"select od.price , od.productID , od.quantity , pr.nameProduct, o.paymentsMethods  from tblORDERDETAIL as od left join tblPRODUCT as pr on od.ProductID = pr.ProductID left join tblORDER o on o.orderID=od.oderID where od.oderID = '{model.OrderID}';";
 
                 DataGridView.DataSource = (DataTable)services.ShowObjectData(query);
