@@ -13,10 +13,11 @@ namespace DO_AN_KI_2
             InitializeComponent();
         }
 
-        void fetchData()
+        public void fetchData()
         {
             string query = "select o.orderID , c.customerName , o.total , o.orderDate , u.fullName , o.customerID ,o.note, o.paymentsMethods from tblORDER as o inner join tblCUSTOMER as c on o.customerID = c.customerID inner join tblUSER as u on u.userID = o.userID;";
             DataTable dataTable = (DataTable)services.ShowObjectData(query);
+            dataGridView.Rows.Clear();
             foreach (DataRow row in dataTable.Rows)
             {
                 dataGridView.Rows.Add((string)row["orderID"], (string)row["customerName"], ((int)row["total"]).ToString("N0", new System.Globalization.CultureInfo("vi-VN")) + " VND", row["orderDate"], (string)row["fullName"], (string)row["paymentsMethods"], Properties.Resources.Delete2, row["customerID"].ToString(), (string)row["note"]);

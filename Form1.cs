@@ -308,6 +308,7 @@ namespace DO_AN_KI_2
             if (bill == null)
             {
                 bill = new Bill();
+                bill.fetchData();
                 bill.FormClosed += Bill_FormClosed;
                 bill.MdiParent = this;
                 bill.Dock = DockStyle.Fill;
