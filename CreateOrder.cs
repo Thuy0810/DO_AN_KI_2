@@ -20,14 +20,14 @@ namespace DO_AN_KI_2
         OrderModel model;
         public CreateOrder(bool modeNew = true, OrderModel model = null)
         {
-            
+
             InitializeComponent();
             this.ModeNew = modeNew;
             this.model = model;
             cboPay.DataSource = new string
                 [] { "QR", "Tiền mặt" };
-        }
 
+        }
 
         void fillCustomer()
         {
@@ -37,17 +37,16 @@ namespace DO_AN_KI_2
             customerSelect.ValueMember = "customerID";
         }
 
-
         private void CreateOrder_Load_1(object sender, EventArgs e)
         {
-            
+
             fillCustomer();
 
             if (ModeNew)
             {
                 employ.Text = employName;
                 dateOrder.Text = DateTime.Now.ToString();
-                //this.ControlBox = false;
+                this.ControlBox = false;
             }
             else
             {
@@ -60,6 +59,7 @@ namespace DO_AN_KI_2
                 AddButton.Visible = false;
                 saveButton.Visible = false;
                 cboPay.SelectedItem = model.payMethods;
+
                 string query = $"select od.price , od.productID , od.quantity , pr.nameProduct, o.paymentsMethods  from tblORDERDETAIL as od left join tblPRODUCT as pr on od.ProductID = pr.ProductID left join tblORDER o on o.orderID=od.oderID where od.oderID = '{model.OrderID}';";
 
                 DataGridView.DataSource = (DataTable)services.ShowObjectData(query);
@@ -137,6 +137,16 @@ namespace DO_AN_KI_2
 
                     string updateQr = $"update tblPRODUCT set quantity = {item.quantityInWareHouse - item.quantity} where ProductID = {item.id};";
                     services.ExecuteQueries(updateQr);
+
+                    if (item.monthsWarranty > 0)
+                    {
+                        int years = item.monthsWarranty / 12;
+                        int months = item.monthsWarranty % 12;
+                        DateTime dateEnd = today.AddYears(years).AddMonths(months);
+                        string createBaoHanh = $"insert into tblGUARANTEE values({item.id},'{iso8601DateTime}','{dateEnd.ToString()}',{customerSelect.SelectedValue},{employId})";
+                        services.ExecuteQueries(createBaoHanh);
+                    }
+
                 }
                 services.CloseDB();
                 message.showSucess("Thêm thành công");
@@ -169,6 +179,7 @@ namespace DO_AN_KI_2
                 }
             }
         }
+
     }
 
     public class OrderModel
@@ -179,7 +190,7 @@ namespace DO_AN_KI_2
         public string date { get; set; }
         public string employName { get; set; }
         public string totalPrice { get; set; }
-        public string payMethods {  get; set; }
+        public string payMethods { get; set; }
         public OrderModel(string orderID, string customer, string note, string date, string employName, string totalPrice, string payMethods)
         {
             OrderID = orderID;

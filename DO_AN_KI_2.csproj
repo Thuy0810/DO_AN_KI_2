@@ -42,9 +42,6 @@
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="SipaaFramework, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\SipaaFramework.1.1.0\lib\net46\SipaaFramework.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.SqlClient, Version=4.6.1.6, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
@@ -107,18 +104,6 @@
     <Compile Include="CustomerDetails.Designer.cs">
       <DependentUpon>CustomerDetails.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form2.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form2.Designer.cs">
-      <DependentUpon>Form2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Form3.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form3.Designer.cs">
-      <DependentUpon>Form3.cs</DependentUpon>
-    </Compile>
     <Compile Include="Form7.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -136,6 +121,18 @@
     </Compile>
     <Compile Include="FormSelectProduct.Designer.cs">
       <DependentUpon>FormSelectProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Guarantee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Guarantee.Designer.cs">
+      <DependentUpon>Guarantee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GuaranteeDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GuaranteeDetail.Designer.cs">
+      <DependentUpon>GuaranteeDetail.cs</DependentUpon>
     </Compile>
     <Compile Include="ImportDetail.cs">
       <SubType>Form</SubType>
@@ -262,12 +259,6 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form2.resx">
-      <DependentUpon>Form2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form3.resx">
-      <DependentUpon>Form3.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Form7.resx">
       <DependentUpon>Form7.cs</DependentUpon>
     </EmbeddedResource>
@@ -276,6 +267,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormSelectProduct.resx">
       <DependentUpon>FormSelectProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Guarantee.resx">
+      <DependentUpon>Guarantee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GuaranteeDetail.resx">
+      <DependentUpon>GuaranteeDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
@@ -701,6 +698,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Details222.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Microsoft Excel 2019.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

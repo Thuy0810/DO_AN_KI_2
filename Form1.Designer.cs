@@ -188,7 +188,7 @@
             this.btnTrademark.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnTrademark.Image = global::DO_AN_KI_2.Properties.Resources.APeugeot;
             this.btnTrademark.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnTrademark.Location = new System.Drawing.Point(8, 402);
+            this.btnTrademark.Location = new System.Drawing.Point(8, 354);
             this.btnTrademark.Name = "btnTrademark";
             this.btnTrademark.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnTrademark.Size = new System.Drawing.Size(168, 42);
@@ -409,7 +409,7 @@
             this.PNCategpry.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.PNCategpry.Image = global::DO_AN_KI_2.Properties.Resources.cm;
             this.PNCategpry.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.PNCategpry.Location = new System.Drawing.Point(8, 354);
+            this.PNCategpry.Location = new System.Drawing.Point(8, 306);
             this.PNCategpry.Name = "PNCategpry";
             this.PNCategpry.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.PNCategpry.Size = new System.Drawing.Size(168, 42);
@@ -459,7 +459,7 @@
             this.btnUser.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnUser.Image = global::DO_AN_KI_2.Properties.Resources.Male_User;
             this.btnUser.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnUser.Location = new System.Drawing.Point(8, 306);
+            this.btnUser.Location = new System.Drawing.Point(8, 402);
             this.btnUser.Name = "btnUser";
             this.btnUser.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnUser.Size = new System.Drawing.Size(168, 42);

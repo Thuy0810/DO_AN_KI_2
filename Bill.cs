@@ -19,13 +19,13 @@ namespace DO_AN_KI_2
             DataTable dataTable = (DataTable)services.ShowObjectData(query);
             foreach (DataRow row in dataTable.Rows)
             {
-                _ = dataGridView.Rows.Add((string)row["orderID"], (string)row["customerName"], ((int)row["total"]).ToString("N0", new System.Globalization.CultureInfo("vi-VN")) + " VND", row["orderDate"], (string)row["fullName"], (string)row["paymentsMethods"], Properties.Resources.Delete2, row["customerID"].ToString(), (string)row["note"]);
+                dataGridView.Rows.Add((string)row["orderID"], (string)row["customerName"], ((int)row["total"]).ToString("N0", new System.Globalization.CultureInfo("vi-VN")) + " VND", row["orderDate"], (string)row["fullName"], (string)row["paymentsMethods"], Properties.Resources.Delete2, row["customerID"].ToString(), (string)row["note"]);
             }
         }
 
         private void Bill_Load(object sender, EventArgs e)
         {
-            //this.ControlBox = false;
+            this.ControlBox = false;
             fetchData();
         }
 
@@ -39,7 +39,8 @@ namespace DO_AN_KI_2
                 string date = dataGridView.Rows[e.RowIndex].Cells[3].Value.ToString();
                 string employName = dataGridView.Rows[e.RowIndex].Cells[4].Value.ToString();
                 string totalPrice = dataGridView.Rows[e.RowIndex].Cells[2].Value.ToString();
-                string payMethods= dataGridView.Rows[e.RowIndex].Cells[5].Value.ToString();
+                string payMethods = dataGridView.Rows[e.RowIndex].Cells[5].Value.ToString();
+
                 OrderModel model = new OrderModel(id, customer, note, date, employName, totalPrice, payMethods);
                 CreateOrder createOrder = new CreateOrder(false, model);
                 createOrder.ShowDialog();
