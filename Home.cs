@@ -13,7 +13,7 @@ namespace DO_AN_KI_2
         {
             InitializeComponent();
             this.Load += new EventHandler(Home_Load_1);
-            label1.Text = $"XIN CHÀO {fullName.ToUpper()}";
+            label1.Text = $"XIN CHÀO: {fullName.ToUpper()}";
         }
 
         private void Home_Load_1(object sender, EventArgs e)
