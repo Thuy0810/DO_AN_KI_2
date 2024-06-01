@@ -24,7 +24,7 @@ namespace DO_AN_KI_2
         }
 
 
-        private void Display()
+        public void Display()
         {
 
             string query = "SELECT p.ProductID, p.nameProduct, p.quantity, p.originPrice, p.price, p.noLimit, c.name, c.categoryID, t.trademarkID, p.status, p.supplierID, p.weight, p.description, p.isPhysic, p.img " +

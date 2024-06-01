@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DO_AN_KI_2.service
+﻿namespace DO_AN_KI_2.service
 {
     public class ApiRequest
     {
-        public long accountNo { get; set; }
+        public string accountNo { get; set; }
         public string accountName { get; set; }
         public int acqId { get; set; }
         public int amount { get; set; }

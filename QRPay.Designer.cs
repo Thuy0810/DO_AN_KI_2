@@ -167,6 +167,7 @@
             this.Name = "QRPay";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "QRPay";
+            this.Load += new System.EventHandler(this.QRPay_Load);
             ((System.ComponentModel.ISupportInitialize)(this.imgPay)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

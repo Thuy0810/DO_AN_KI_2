@@ -170,6 +170,7 @@ namespace DO_AN_KI_2
             }
             else
             {
+                allProduct.Display();
                 allProduct.Activate();
             }
         }
@@ -188,11 +189,10 @@ namespace DO_AN_KI_2
                 supplier.MdiParent = this;
                 supplier.Dock = DockStyle.Fill;
                 supplier.Show();
-
-
             }
             else
             {
+                supplier.DisplaySupplier();
                 supplier.Activate();
 
             }
@@ -214,6 +214,7 @@ namespace DO_AN_KI_2
             }
             else
             {
+                import.fetchData();
                 import.Activate();
             }
         }
@@ -275,6 +276,7 @@ namespace DO_AN_KI_2
             }
             else
             {
+                customer.DisplayCustomer();
                 customer.Activate();
             }
         }
@@ -295,6 +297,7 @@ namespace DO_AN_KI_2
             }
             else
             {
+                revenue.fetchData();
                 revenue.Activate();
             }
         }
@@ -315,6 +318,7 @@ namespace DO_AN_KI_2
             }
             else
             {
+                bill.fetchData();
                 bill.Activate();
             }
         }
@@ -341,6 +345,7 @@ namespace DO_AN_KI_2
             }
             else
             {
+                tbluser.DisplayUser();
                 tbluser.Activate();
             }
         }
