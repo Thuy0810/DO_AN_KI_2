@@ -170,15 +170,39 @@ namespace DO_AN_KI_2
                     string email = (string)row.Cells[3].Value;
                     string address = (string)row.Cells[4].Value;
 
-                    string query = "insert into tblCUSTOMER (customerName,phone,email,adress) values ( @customerName , @phone , @email , @adress )";
+                    services.OpenDB();
 
+                    //check trùng sdt
+                    string querySelectPhone = $"select 1 from tblCUSTOMER where phone = @phone";
+                    SqlCommand command = new SqlCommand(querySelectPhone, services.connection);
+                    command.Parameters.AddWithValue("@phone", phone);
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.HasRows)
+                        {
+                            reader.Close();
+                            continue;
+                        }
+                    }
+
+                    //checktrung mail
+                    string queryEmailCustomer = "Select 1 from tblCUSTOMER where email= @email";
+                    SqlCommand command2 = new SqlCommand(queryEmailCustomer, services.connection);
+                    command2.Parameters.AddWithValue("@email", email);
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.HasRows)
+                        {
+                            reader.Close();
+                            continue;
+                        }
+                    }
+                    services.CloseDB();
+
+                    string query = "insert into tblCUSTOMER (customerName,phone,email,adress) values ( @customerName , @phone , @email , @adress )";
                     services.ExecuteQueryWithValue(query, new string[] { name, phone, email, address });
-                    //}
                 }
-                //catch
-                //{
-                //    message.showError("Lỗi");
-                //}
+
                 message.showSucess("Thành công");
                 DisplayCustomer();
             }

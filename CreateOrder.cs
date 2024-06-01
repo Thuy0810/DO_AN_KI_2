@@ -29,7 +29,7 @@ namespace DO_AN_KI_2
 
         }
 
-        void fillCustomer()
+        public void fillCustomer()
         {
             string query = "select * from tblCUSTOMER";
             customerSelect.DataSource = services.ShowObjectData(query);
@@ -50,6 +50,8 @@ namespace DO_AN_KI_2
             }
             else
             {
+                label1.Text = "XEM ĐƠN HÀNG";
+                AddCustomer.Visible = false;
                 employ.Text = model.employName;
                 dateOrder.Text = model.date;
                 customerSelect.SelectedValue = model.customer;
@@ -108,7 +110,10 @@ namespace DO_AN_KI_2
                             break;
                         }
                     }
-                    DataGridView.Rows[rowIndex].Cells[3].Value = listProductModel[index].quantity.ToString();
+                    if (rowIndex != 1)
+                    {
+                        DataGridView.Rows[rowIndex].Cells[3].Value = listProductModel[index].quantity.ToString();
+                    }
                 }
                 else
                 {

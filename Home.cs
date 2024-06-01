@@ -16,7 +16,7 @@ namespace DO_AN_KI_2
             label1.Text = $"XIN CHÀO: {fullName.ToUpper()}";
         }
 
-        private void Home_Load_1(object sender, EventArgs e)
+        public void load()
         {
             this.ControlBox = false;
             int selectedMonth = DateTime.Now.Month;
@@ -50,10 +50,10 @@ namespace DO_AN_KI_2
                 {
                     command.Parameters.AddWithValue("@currentDate", currentDate);
 
-                    // ExecuteScalar trả về cột đầu tiên của hàng đầu tiên trong tập kết quả, hoặc null nếu tập kết quả rỗng
+
                     object result = command.ExecuteScalar();
 
-                    // Kiểm tra DBNull trước khi chuyển đổi sang decimal
+
                     decimal totalRevenueDate = (result != DBNull.Value) ? Convert.ToDecimal(result) : 0;
 
 
@@ -84,26 +84,30 @@ namespace DO_AN_KI_2
             }
             catch (Exception ex)
             {
-                // Xử lý lỗi nếu có
+
                 Console.WriteLine($"Đã xảy ra lỗi: {ex.Message}");
             }
             finally
             {
-                // Đảm bảo kết nối được đóng sau khi sử dụng
+
                 services.CloseDB();
             }
 
+        }
 
+        private void Home_Load_1(object sender, EventArgs e)
+        {
 
-            ///
+            load();
+
             UpdateTime();
-            // Đặt interval của Timer thành 1 giây (1000ms) ban đầu
+
             timer1.Interval = 1000;
 
-            // Gán sự kiện Tick cho Timer
+
             timer1.Tick += timer1_Tick;
 
-            // Bắt đầu Timer
+
             timer1.Start();
         }
 
@@ -116,18 +120,16 @@ namespace DO_AN_KI_2
         {
             DateTime now = DateTime.Now;
 
-            // Cập nhật Label với giờ và phút hiện tại
+
             hours.Text = now.ToString("HH:mm") + " Phút";
 
-            // Tính thời gian còn lại cho đến phút tiếp theo
+
             int secondsUntilNextMinute = 60 - now.Second;
 
-            // Đặt lại Timer để đồng bộ với phút tiếp theo
             if (secondsUntilNextMinute != timer1.Interval / 1000)
             {
                 timer1.Interval = secondsUntilNextMinute * 1000;
 
-                // Đặt lại Interval về 1 giây sau khi đồng bộ
                 timer1.Tick -= timer1_Tick;
                 timer1.Tick += (s, args) =>
                 {
@@ -137,7 +139,7 @@ namespace DO_AN_KI_2
             }
         }
 
-       
+
     }
 }
 

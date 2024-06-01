@@ -43,7 +43,6 @@
             this.guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
             this.swPhysic = new Guna.UI2.WinForms.Guna2ToggleSwitch();
             this.label15 = new System.Windows.Forms.Label();
-            this.txtWeight = new Guna.UI2.WinForms.Guna2TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtDescription = new Guna.UI2.WinForms.Guna2TextBox();
@@ -51,6 +50,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.boxPicture = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
+            this.monthsOfWarranty = new Guna.UI2.WinForms.Guna2NumericUpDown();
+            this.label14 = new System.Windows.Forms.Label();
             this.swActive = new Guna.UI2.WinForms.Guna2ToggleSwitch();
             this.label5 = new System.Windows.Forms.Label();
             this.swLimit = new Guna.UI2.WinForms.Guna2ToggleSwitch();
@@ -59,12 +60,11 @@
             this.txtNameP = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtOriginPrice = new Guna.UI2.WinForms.Guna2TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtQuantityP = new Guna.UI2.WinForms.Guna2TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.monthsOfWarranty = new Guna.UI2.WinForms.Guna2NumericUpDown();
+            this.txtQuantityP = new Guna.UI2.WinForms.Guna2NumericUpDown();
+            this.txtWeight = new Guna.UI2.WinForms.Guna2NumericUpDown();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             this.guna2Panel6.SuspendLayout();
@@ -73,6 +73,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.boxPicture)).BeginInit();
             this.guna2Panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.monthsOfWarranty)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtQuantityP)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtWeight)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2Panel1
@@ -272,9 +274,9 @@
             this.guna2Panel5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2Panel5.BackColor = System.Drawing.Color.White;
+            this.guna2Panel5.Controls.Add(this.txtWeight);
             this.guna2Panel5.Controls.Add(this.swPhysic);
             this.guna2Panel5.Controls.Add(this.label15);
-            this.guna2Panel5.Controls.Add(this.txtWeight);
             this.guna2Panel5.Controls.Add(this.label9);
             this.guna2Panel5.Controls.Add(this.label2);
             this.guna2Panel5.Controls.Add(this.txtDescription);
@@ -309,29 +311,6 @@
             this.label15.Size = new System.Drawing.Size(101, 12);
             this.label15.TabIndex = 13;
             this.label15.Text = "SẢN PHẨM VẬ T LÝ :";
-            // 
-            // txtWeight
-            // 
-            this.txtWeight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtWeight.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.txtWeight.BorderRadius = 5;
-            this.txtWeight.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtWeight.DefaultText = "";
-            this.txtWeight.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtWeight.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtWeight.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtWeight.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtWeight.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtWeight.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtWeight.ForeColor = System.Drawing.Color.Black;
-            this.txtWeight.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtWeight.Location = new System.Drawing.Point(110, 156);
-            this.txtWeight.Name = "txtWeight";
-            this.txtWeight.PasswordChar = '\0';
-            this.txtWeight.PlaceholderText = "";
-            this.txtWeight.SelectedText = "";
-            this.txtWeight.Size = new System.Drawing.Size(116, 29);
-            this.txtWeight.TabIndex = 6;
             // 
             // label9
             // 
@@ -426,6 +405,7 @@
             this.guna2Panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2Panel3.BackColor = System.Drawing.Color.White;
+            this.guna2Panel3.Controls.Add(this.txtQuantityP);
             this.guna2Panel3.Controls.Add(this.monthsOfWarranty);
             this.guna2Panel3.Controls.Add(this.label14);
             this.guna2Panel3.Controls.Add(this.swActive);
@@ -436,7 +416,6 @@
             this.guna2Panel3.Controls.Add(this.txtNameP);
             this.guna2Panel3.Controls.Add(this.txtOriginPrice);
             this.guna2Panel3.Controls.Add(this.label3);
-            this.guna2Panel3.Controls.Add(this.txtQuantityP);
             this.guna2Panel3.Controls.Add(this.label8);
             this.guna2Panel3.Controls.Add(this.label6);
             this.guna2Panel3.Controls.Add(this.label7);
@@ -444,6 +423,31 @@
             this.guna2Panel3.Name = "guna2Panel3";
             this.guna2Panel3.Size = new System.Drawing.Size(506, 206);
             this.guna2Panel3.TabIndex = 0;
+            // 
+            // monthsOfWarranty
+            // 
+            this.monthsOfWarranty.BackColor = System.Drawing.Color.Transparent;
+            this.monthsOfWarranty.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.monthsOfWarranty.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.monthsOfWarranty.Location = new System.Drawing.Point(390, 155);
+            this.monthsOfWarranty.Maximum = new decimal(new int[] {
+            999,
+            0,
+            0,
+            0});
+            this.monthsOfWarranty.Name = "monthsOfWarranty";
+            this.monthsOfWarranty.Size = new System.Drawing.Size(63, 29);
+            this.monthsOfWarranty.TabIndex = 18;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(255, 164);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(118, 12);
+            this.label14.TabIndex = 17;
+            this.label14.Text = "SỐ THÁNG BẢO HÀNH :";
             // 
             // swActive
             // 
@@ -581,30 +585,6 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "TÊN SẢN PHẨM :";
             // 
-            // txtQuantityP
-            // 
-            this.txtQuantityP.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtQuantityP.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.txtQuantityP.BorderRadius = 5;
-            this.txtQuantityP.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtQuantityP.DefaultText = "";
-            this.txtQuantityP.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtQuantityP.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtQuantityP.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtQuantityP.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtQuantityP.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtQuantityP.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtQuantityP.ForeColor = System.Drawing.Color.Black;
-            this.txtQuantityP.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtQuantityP.Location = new System.Drawing.Point(110, 61);
-            this.txtQuantityP.Name = "txtQuantityP";
-            this.txtQuantityP.PasswordChar = '\0';
-            this.txtQuantityP.PlaceholderText = "";
-            this.txtQuantityP.SelectedText = "";
-            this.txtQuantityP.Size = new System.Drawing.Size(81, 29);
-            this.txtQuantityP.TabIndex = 2;
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -635,30 +615,35 @@
             this.label7.TabIndex = 5;
             this.label7.Text = "GIÁ GỐC :";
             // 
-            // label14
+            // txtQuantityP
             // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Cambria", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(255, 164);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(118, 12);
-            this.label14.TabIndex = 17;
-            this.label14.Text = "SỐ THÁNG BẢO HÀNH :";
-            // 
-            // monthsOfWarranty
-            // 
-            this.monthsOfWarranty.BackColor = System.Drawing.Color.Transparent;
-            this.monthsOfWarranty.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.monthsOfWarranty.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.monthsOfWarranty.Location = new System.Drawing.Point(390, 155);
-            this.monthsOfWarranty.Maximum = new decimal(new int[] {
+            this.txtQuantityP.BackColor = System.Drawing.Color.Transparent;
+            this.txtQuantityP.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtQuantityP.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtQuantityP.Location = new System.Drawing.Point(110, 61);
+            this.txtQuantityP.Maximum = new decimal(new int[] {
             999,
             0,
             0,
             0});
-            this.monthsOfWarranty.Name = "monthsOfWarranty";
-            this.monthsOfWarranty.Size = new System.Drawing.Size(63, 29);
-            this.monthsOfWarranty.TabIndex = 18;
+            this.txtQuantityP.Name = "txtQuantityP";
+            this.txtQuantityP.Size = new System.Drawing.Size(116, 29);
+            this.txtQuantityP.TabIndex = 19;
+            // 
+            // txtWeight
+            // 
+            this.txtWeight.BackColor = System.Drawing.Color.Transparent;
+            this.txtWeight.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtWeight.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtWeight.Location = new System.Drawing.Point(110, 153);
+            this.txtWeight.Maximum = new decimal(new int[] {
+            999,
+            0,
+            0,
+            0});
+            this.txtWeight.Name = "txtWeight";
+            this.txtWeight.Size = new System.Drawing.Size(116, 29);
+            this.txtWeight.TabIndex = 20;
             // 
             // ProductDetils
             // 
@@ -683,6 +668,8 @@
             this.guna2Panel3.ResumeLayout(false);
             this.guna2Panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.monthsOfWarranty)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtQuantityP)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtWeight)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -702,13 +689,11 @@
         private System.Windows.Forms.Label label4;
         private Guna.UI2.WinForms.Guna2TextBox txtPrice;
         private Guna.UI2.WinForms.Guna2TextBox txtOriginPrice;
-        private Guna.UI2.WinForms.Guna2TextBox txtQuantityP;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label9;
-        private Guna.UI2.WinForms.Guna2TextBox txtWeight;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel6;
         private Guna.UI2.WinForms.Guna2ComboBox category;
         private System.Windows.Forms.Label label10;
@@ -726,5 +711,7 @@
         private Guna.UI2.WinForms.Guna2Button btnSave;
         private System.Windows.Forms.Label label14;
         private Guna.UI2.WinForms.Guna2NumericUpDown monthsOfWarranty;
+        private Guna.UI2.WinForms.Guna2NumericUpDown txtQuantityP;
+        private Guna.UI2.WinForms.Guna2NumericUpDown txtWeight;
     }
 }

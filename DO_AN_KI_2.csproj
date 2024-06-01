@@ -757,6 +757,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assembly Lines.ico" />
+    <None Include="Resources\Qr Code.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
