@@ -47,10 +47,10 @@ namespace DO_AN_KI_2
                 employ.Text = employName;
                 dateOrder.Text = DateTime.Now.ToString();
                 this.ControlBox = false;
-                label1.Text = "XEM ĐƠN HÀNG";
             }
             else
             {
+                label1.Text = "XEM ĐƠN HÀNG";
                 AddCustomer.Visible = false;
                 employ.Text = model.employName;
                 dateOrder.Text = model.date;

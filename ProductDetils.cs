@@ -167,11 +167,9 @@ namespace DO_AN_KI_2
         public void setControl(bool status)
         {
             txtNameP.ReadOnly = status;
-            txtQuantityP.ReadOnly = status;
             txtOriginPrice.ReadOnly = status;
             txtPrice.ReadOnly = status;
             txtDescription.ReadOnly = status;
-            txtWeight.ReadOnly = status;
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
