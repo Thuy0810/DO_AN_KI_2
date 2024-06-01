@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Globalization;
 using System.Windows.Forms;
 
 namespace DO_AN_KI_2
@@ -19,11 +20,14 @@ namespace DO_AN_KI_2
         OrderModel model;
         public CreateOrder(bool modeNew = true, OrderModel model = null)
         {
+
             InitializeComponent();
             this.ModeNew = modeNew;
             this.model = model;
-        }
+            cboPay.DataSource = new string
+                [] { "QR", "Tiền mặt" };
 
+        }
 
         void fillCustomer()
         {
@@ -33,9 +37,9 @@ namespace DO_AN_KI_2
             customerSelect.ValueMember = "customerID";
         }
 
-
         private void CreateOrder_Load_1(object sender, EventArgs e)
         {
+
             fillCustomer();
 
             if (ModeNew)
@@ -54,8 +58,9 @@ namespace DO_AN_KI_2
                 note.ReadOnly = true;
                 AddButton.Visible = false;
                 saveButton.Visible = false;
+                cboPay.SelectedItem = model.payMethods;
 
-                string query = $"select od.price , od.productID , od.quantity , pr.nameProduct from tblORDERDETAIL as od left join tblPRODUCT as pr on od.ProductID = pr.ProductID where od.oderID = '{model.OrderID}';";
+                string query = $"select od.price , od.productID , od.quantity , pr.nameProduct, o.paymentsMethods  from tblORDERDETAIL as od left join tblPRODUCT as pr on od.ProductID = pr.ProductID left join tblORDER o on o.orderID=od.oderID where od.oderID = '{model.OrderID}';";
 
                 DataGridView.DataSource = (DataTable)services.ShowObjectData(query);
                 DataGridView.AutoGenerateColumns = false;
@@ -111,17 +116,35 @@ namespace DO_AN_KI_2
                     listProductModel.Add(formSelectProduct.productModel);
                 }
                 totalPriceNum += (formSelectProduct.productModel.price * formSelectProduct.productModel.quantity);
-                totalPrice.Text = totalPriceNum.ToString("N0", new System.Globalization.CultureInfo("vi-VN")) + " VND";
+                totalPrice.Text = totalPriceNum.ToString("N0", new CultureInfo("vi-VN")) + " VND";
             }
         }
 
         private void saveButton_Click(object sender, EventArgs e)
         {
+            if (listProductModel.Count == 0)
+            {
+                message.showWarning("Vui lòng chọn ít nhất một sản phẩm!");
+                return;
+            }
+
+            Guid id = Guid.NewGuid();
+            if (cboPay.SelectedItem == "QR")
+            {
+                QRPay qRPay = new QRPay(totalPriceNum, id.ToString());
+                qRPay.ShowDialog();
+                if (!qRPay.thanhToanThanhCong)
+                {
+                    return;
+                }
+            }
+
             if (ModeNew)
             {
                 DateTime today = DateTime.Now;
-                Guid id = Guid.NewGuid();
-                string query = $"insert into tblORDER values( '{id}' , '{today}' , {customerSelect.SelectedValue} , {totalPriceNum}, @note ,{employId})";
+                string iso8601DateTime = today.ToString("yyyy-MM-ddTHH:mm:ss.fff", CultureInfo.InvariantCulture);
+
+                string query = $"insert into tblORDER values( '{id}' , '{iso8601DateTime}' , {customerSelect.SelectedValue} , {totalPriceNum},N'{cboPay.SelectedItem}', @note ,{employId})";
                 services.ExecuteQueryWithValue(query, new object[] { note.Text });
                 services.OpenDB();
                 foreach (var item in listProductModel)
@@ -131,6 +154,16 @@ namespace DO_AN_KI_2
 
                     string updateQr = $"update tblPRODUCT set quantity = {item.quantityInWareHouse - item.quantity} where ProductID = {item.id};";
                     services.ExecuteQueries(updateQr);
+
+                    if (item.monthsWarranty > 0)
+                    {
+                        int years = item.monthsWarranty / 12;
+                        int months = item.monthsWarranty % 12;
+                        DateTime dateEnd = today.AddYears(years).AddMonths(months);
+                        string createBaoHanh = $"insert into tblGUARANTEE values({item.id},'{iso8601DateTime}','{dateEnd.ToString()}',{customerSelect.SelectedValue},{employId})";
+                        services.ExecuteQueries(createBaoHanh);
+                    }
+
                 }
                 services.CloseDB();
                 message.showSucess("Thêm thành công");
@@ -163,6 +196,26 @@ namespace DO_AN_KI_2
                 }
             }
         }
+
+        private void cboPay_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cboPay.SelectedItem == "Tiền mặt")
+            {
+                saveButton.Text = "Lưu";
+            }
+            else if (cboPay.SelectedItem == "QR")
+            {
+                saveButton.Text = "Tiếp tục";
+            }
+        }
+
+        private void AddCustomer_Click(object sender, EventArgs e)
+        {
+            CustomerDetails customerDetails = new CustomerDetails(0, false);
+            customerDetails.ShowDialog();
+            string query = "select * from tblCUSTOMER";
+            customerSelect.DataSource = services.ShowObjectData(query);
+        }
     }
 
     public class OrderModel
@@ -173,8 +226,8 @@ namespace DO_AN_KI_2
         public string date { get; set; }
         public string employName { get; set; }
         public string totalPrice { get; set; }
-
-        public OrderModel(string orderID, string customer, string note, string date, string employName, string totalPrice)
+        public string payMethods { get; set; }
+        public OrderModel(string orderID, string customer, string note, string date, string employName, string totalPrice, string payMethods)
         {
             OrderID = orderID;
             this.customer = customer;
@@ -182,6 +235,7 @@ namespace DO_AN_KI_2
             this.date = date;
             this.employName = employName;
             this.totalPrice = totalPrice;
+            this.payMethods = payMethods;
         }
     }
 }

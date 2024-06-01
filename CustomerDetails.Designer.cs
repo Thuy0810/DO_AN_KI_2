@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustomerDetails));
             this.label1 = new System.Windows.Forms.Label();
             this.btnSaveCustomer = new Guna.UI2.WinForms.Guna2Button();
             this.txtPhoneCustomer = new Guna.UI2.WinForms.Guna2TextBox();
@@ -72,7 +73,7 @@
             this.btnSaveCustomer.Location = new System.Drawing.Point(613, 324);
             this.btnSaveCustomer.Name = "btnSaveCustomer";
             this.btnSaveCustomer.Size = new System.Drawing.Size(70, 28);
-            this.btnSaveCustomer.TabIndex = 24;
+            this.btnSaveCustomer.TabIndex = 5;
             this.btnSaveCustomer.TabStop = false;
             this.btnSaveCustomer.Text = "Lưu";
             this.btnSaveCustomer.Click += new System.EventHandler(this.btnSaveCustomer_Click);
@@ -129,7 +130,7 @@
             this.txtEmailCustomer.PlaceholderText = "";
             this.txtEmailCustomer.SelectedText = "";
             this.txtEmailCustomer.Size = new System.Drawing.Size(254, 29);
-            this.txtEmailCustomer.TabIndex = 17;
+            this.txtEmailCustomer.TabIndex = 3;
             // 
             // label3
             // 
@@ -272,6 +273,7 @@
             this.Controls.Add(this.btnSaveCustomer);
             this.Controls.Add(this.guna2Panel3);
             this.Controls.Add(this.guna2Panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CustomerDetails";
             this.Text = "CustomerDetails";
             this.Load += new System.EventHandler(this.CustomerDetails_Load);

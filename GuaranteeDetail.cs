@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace DO_AN_KI_2
 {
-    public partial class Form2 : Form
+    public partial class GuaranteeDetail : Form
     {
-        public Form2()
+        public GuaranteeDetail()
         {
             InitializeComponent();
         }

@@ -12,7 +12,7 @@ namespace DO_AN_KI_2
             InitializeComponent();
         }
 
-        private void fetchData()
+        public void fetchData()
         {
             string query = "select * from tblImportProduct as imp inner join tblSUPPLIER as sup on imp.supplierID = sup.supplierID;";
 
@@ -92,7 +92,7 @@ namespace DO_AN_KI_2
             //    return;
             //}
 
-            string query = $"select * from tblImportProduct as imp inner join tblSUPPLIER as sup on imp.supplierID = sup.supplierID where imp.name like '%{txtSearch.Text.Replace("'", "\'\'")}%';";
+            string query = $"select * from tblImportProduct as imp inner join tblSUPPLIER as sup on imp.supplierID = sup.supplierID where imp.name like N'%{txtSearch.Text.Replace("'", "\'\'")}%';";
 
             DataGridView.Rows.Clear();
 

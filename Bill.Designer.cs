@@ -39,6 +39,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Bill));
             this.guna2AnimateWindow1 = new Guna.UI2.WinForms.Guna2AnimateWindow(this.components);
             this.dataGridView = new Guna.UI2.WinForms.Guna2DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,9 +47,11 @@
             this.phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.emailC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Suplider = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pay = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.active = new System.Windows.Forms.DataGridViewImageColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.note = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.monthsWarranty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -89,9 +92,11 @@
             this.phone,
             this.emailC,
             this.Suplider,
+            this.pay,
             this.active,
             this.Column1,
-            this.note});
+            this.note,
+            this.monthsWarranty});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -173,6 +178,12 @@
             this.Suplider.Name = "Suplider";
             this.Suplider.ReadOnly = true;
             // 
+            // pay
+            // 
+            this.pay.HeaderText = "THANH TOÁN";
+            this.pay.Name = "pay";
+            this.pay.ReadOnly = true;
+            // 
             // active
             // 
             this.active.HeaderText = "HÀNH ĐỘNG";
@@ -194,6 +205,13 @@
             this.note.Name = "note";
             this.note.ReadOnly = true;
             this.note.Visible = false;
+            // 
+            // monthsWarranty
+            // 
+            this.monthsWarranty.HeaderText = "monthsWarranty";
+            this.monthsWarranty.Name = "monthsWarranty";
+            this.monthsWarranty.ReadOnly = true;
+            this.monthsWarranty.Visible = false;
             // 
             // label1
             // 
@@ -347,6 +365,7 @@
             this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.guna2Panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Bill";
             this.Text = " ";
             this.Load += new System.EventHandler(this.Bill_Load);
@@ -376,8 +395,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn phone;
         private System.Windows.Forms.DataGridViewTextBoxColumn emailC;
         private System.Windows.Forms.DataGridViewTextBoxColumn Suplider;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pay;
         private System.Windows.Forms.DataGridViewImageColumn active;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn note;
+        private System.Windows.Forms.DataGridViewTextBoxColumn monthsWarranty;
     }
 }

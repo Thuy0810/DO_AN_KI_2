@@ -1,20 +1,13 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DO_AN_KI_2
 {
     public partial class TblUsers : Form
     {
-        DataServices services= new DataServices();
+        DataServices services = new DataServices();
         public TblUsers()
         {
             InitializeComponent();
@@ -22,12 +15,12 @@ namespace DO_AN_KI_2
 
         private void TblUsers_Load(object sender, EventArgs e)
         {
-            //this.ControlBox = false;
-         
+            this.ControlBox = false;
+
             DisplayUser();
 
         }
-        private void DisplayUser()
+        public void DisplayUser()
         {
             services.OpenDB();
             string query = @"select tblUSER.userID,tblROLE.roleName, fullName, userName, password, phone from tblUSER inner join tblUSERROLE on tblUSER.userID  = tblUSERROLE.userID inner join tblROLE on tblROLE.roleID= tblUSERROLE.roleID";
@@ -49,26 +42,26 @@ namespace DO_AN_KI_2
                         string userName = row["userName"].ToString();
                         string password = row["password"].ToString();
                         string phone = row["phone"].ToString();
-                        string role =row["roleName"].ToString();
-                       
-                        foreach(DataGridViewColumn column in GnDtUser.Columns)
+                        string role = row["roleName"].ToString();
+
+                        foreach (DataGridViewColumn column in GnDtUser.Columns)
                         {
-                            column.HeaderCell.Style.Alignment= DataGridViewContentAlignment.MiddleCenter;
+                            column.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
                         }
                         GnDtUser.Rows.Add(id, fullrName, userName, password, phone, role);
                     }
                 }
             }
-            for(int row=0; row<=GnDtUser.Rows.Count-1; row++)
+            for (int row = 0; row <= GnDtUser.Rows.Count - 1; row++)
             {
                 ((DataGridViewImageCell)GnDtUser.Rows[row].Cells[6]).Value = Properties.Resources.Delete2;
             }
             services.CloseDB();
         }
 
-       
 
-      
+
+
 
         private void GnDtUser_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
         {
@@ -125,7 +118,7 @@ namespace DO_AN_KI_2
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            User user = new User(0,false);
+            User user = new User(0, false);
             user.ShowDialog();
             DisplayUser();
         }
@@ -134,7 +127,7 @@ namespace DO_AN_KI_2
         {
             try
             {
-                if(string.IsNullOrEmpty(txtSearchUser.Text))
+                if (string.IsNullOrEmpty(txtSearchUser.Text))
                 {
                     DisplayUser();
                     return;

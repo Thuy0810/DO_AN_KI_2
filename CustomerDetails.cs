@@ -1,20 +1,13 @@
 ﻿using DO_AN_KI_2.service;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DO_AN_KI_2
 {
     public partial class CustomerDetails : Form
     {
-        DataServices services=new DataServices();
+        DataServices services = new DataServices();
         private bool ModeView;
         private int id;
         private string oldPhone;
@@ -26,36 +19,36 @@ namespace DO_AN_KI_2
             this.ModeView = ModeView;
             services.OpenDB();
             btnEditCustomer.Visible = ModeView;
-            btnSaveCustomer.Visible= !ModeView;
+            btnSaveCustomer.Visible = !ModeView;
             setControl(ModeView);
         }
-        
+
         private void CustomerDetails_Load(object sender, EventArgs e)
         {
-           if(ModeView)
+            if (ModeView)
             {
                 services.OpenDB();
                 string queryCustomerDetail = $"select customerName, phone,email,adress from tblCUSTOMER where customerID={id}";
-               SqlDataReader reader= services.DataReader(queryCustomerDetail);
-               if(reader.Read())
+                SqlDataReader reader = services.DataReader(queryCustomerDetail);
+                if (reader.Read())
                 {
-                  
-                        string customerName = reader["customerName"].ToString();
-                        string phone = reader["phone"].ToString();
-                        string email = reader["email"].ToString();
-                        string adress = reader["adress"].ToString();
 
-                        txtNameCustomer.Text = customerName;
-                        txtPhoneCustomer.Text = phone;
-                        txtEmailCustomer.Text = email;
-                        txtAddressCustomer.Text = adress;
-                        
+                    string customerName = reader["customerName"].ToString();
+                    string phone = reader["phone"].ToString();
+                    string email = reader["email"].ToString();
+                    string adress = reader["adress"].ToString();
+
+                    txtNameCustomer.Text = customerName;
+                    txtPhoneCustomer.Text = phone;
+                    txtEmailCustomer.Text = email;
+                    txtAddressCustomer.Text = adress;
+
                     //
-                        oldEmail =txtEmailCustomer.Text;
-                       oldPhone=txtPhoneCustomer.Text;
+                    oldEmail = txtEmailCustomer.Text;
+                    oldPhone = txtPhoneCustomer.Text;
                     services.CloseDB();
                 }
-                
+
             }
         }
         private void setControl(bool status)
@@ -96,7 +89,7 @@ namespace DO_AN_KI_2
                     }
                 }
 
-                bool emailCustomerChange= !string.IsNullOrEmpty(txtEmailCustomer.Text.Trim())&& txtEmailCustomer.Text.Trim() != oldEmail;   
+                bool emailCustomerChange = !string.IsNullOrEmpty(txtEmailCustomer.Text.Trim()) && txtEmailCustomer.Text.Trim() != oldEmail;
                 if (emailCustomerChange)
                 {
                     string queryEmailCustomer = "Select 1 from tblCUSTOMER where email= @email";
@@ -106,7 +99,7 @@ namespace DO_AN_KI_2
                     {
                         if (reader.HasRows)
                         {
-                           message.showWarning("Email đã tồn tại, vui lòng kiểm tra lại");
+                            message.showWarning("Email đã tồn tại, vui lòng kiểm tra lại");
                             reader.Close();
                             return;
                         }
@@ -133,7 +126,7 @@ namespace DO_AN_KI_2
                 }
                 catch
                 {
-                   message.showError("Lỗi không thể sửa");
+                    message.showError("Lỗi không thể sửa");
                 }
             }
             else

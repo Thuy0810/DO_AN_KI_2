@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DO_AN_KI_2
@@ -17,11 +11,11 @@ namespace DO_AN_KI_2
         {
             InitializeComponent();
         }
-        
+
 
         private void Category_Load(object sender, EventArgs e)
         {
-            this.ControlBox=false;
+            this.ControlBox = false;
             string query = "SELECT * from tblCATEGORY ";
             DataTable dataTable = (DataTable)services.ShowObjectData(query);
             foreach (DataRow row in dataTable.Rows)
