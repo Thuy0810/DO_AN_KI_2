@@ -6,7 +6,7 @@ namespace DO_AN_KI_2
 {
     public class DataServices
     {
-        private string Sql = @"Data Source=ADMIN\SQLEXPRESS;Initial Catalog=DO_AN_KI2;Integrated Security=True";
+        private string Sql = @"Data Source=.;Initial Catalog=DO_AN_KI2;Integrated Security=True";
         public SqlConnection connection { get; set; }
         public DataServices()
         {
