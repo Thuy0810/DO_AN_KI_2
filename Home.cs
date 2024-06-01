@@ -16,7 +16,7 @@ namespace DO_AN_KI_2
             label1.Text = $"XIN CHÀO: {fullName.ToUpper()}";
         }
 
-        private void Home_Load_1(object sender, EventArgs e)
+        public void load()
         {
             this.ControlBox = false;
             int selectedMonth = DateTime.Now.Month;
@@ -93,8 +93,12 @@ namespace DO_AN_KI_2
                 services.CloseDB();
             }
 
+        }
 
+        private void Home_Load_1(object sender, EventArgs e)
+        {
 
+            load();
             ///
             UpdateTime();
             // Đặt interval của Timer thành 1 giây (1000ms) ban đầu
@@ -137,7 +141,7 @@ namespace DO_AN_KI_2
             }
         }
 
-       
+
     }
 }
 

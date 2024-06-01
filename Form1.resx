@@ -126,4 +126,29 @@
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>38</value>
   </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAMAQAAAAAAAAAAAAAAAAAAAAA
+        AADElnT/xJZ0/8SWdP/ElnT/xJZ0/8SWdP/ElnT/xJZ0/8SWdP/ElnT/xJZ0/8SWdP/ElnT/xJZ0/8SW
+        dP8AAAAA//Xh//fjwP//9eH/9+PA///14f/348D///Xh//fjwP//9eH/9+PA///14f/348D///Xh//fj
+        wP//9eH/AAAAAMSWdP/ElnT/xJZ0/8SWdP/ElnT/xJZ0/8SWdP/ElnT/xJZ0/8SWdP/ElnT/xJZ0/8SW
+        dP/ElnT/xJZ0/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAj3xoQI95ZqCPeWbgj3pqMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AACPemowj3lm4I95ZqCPemowAAAAAI95Zv+PeWb/j3lm/495Zv+PemhgAAAAAAAAAAAAAAAAAAAAAAAA
+        AACPemhgj3lm/495Zv+PeWb/j3lm/wAAAAAAAAAAAAAAAI96aGCPeWb/j3lm/0ibuv9Im7r/j3lm/0ib
+        uv9Im7r/j3lm/495Zv+PemefAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAj3lm/495Zv+j7v//hc71/495
+        Zv+FzvX/o+7//495Zv+PeWb/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI95Zv+PeWb/o+7//4XO
+        9f+PeWb/hc71/6Pu//+PeWb/j3lm/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI96aGCPeWb/j3lm/0ib
+        uv9Im7r/j3lm/0ibuv9Im7r/j3lm/495Zv+PeWagAAAAAAAAAAAAAAAAj3lm/495Zv+PeWb/j3lm/496
+        aGAAAAAAAAAAAAAAAAAAAAAAAAAAAI96aGCPeWb/j3lm/495Zv+PeWb/AAAAAI96ajCPemefj3lm3496
+        ajAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAj3pqMI95Zt+Pemefj3pqMAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAxJZ0/8SW
+        dP/ElnT/xJZ0/8SWdP/ElnT/xJZ0/8SWdP/ElnT/xJZ0/8SWdP/ElnT/xJZ0/8SWdP/ElnT/AAAAAP/1
+        4f/348D///Xh//fjwP//9eH/9+PA///14f/348D///Xh//fjwP//9eH/9+PA///14f/348D///Xh/wAA
+        AADElnT/xJZ0/8SWdP/ElnT/xJZ0/8SWdP/ElnT/xJZ0/8SWdP/ElnT/xJZ0/8SWdP/ElnT/xJZ0/8SW
+        dP8AAAAAAAEAAAABAAAAAQAA//8AAJ/zAAAP4QAA4AcAAOAPAADgDwAA4AcAAA/hAACf8wAA//8AAAAB
+        AAAAAQAAAAEAAA==
+</value>
+  </data>
 </root>

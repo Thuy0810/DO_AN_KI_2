@@ -33,6 +33,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AllProduct));
             this.GnDtP = new Guna.UI2.WinForms.Guna2DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -88,8 +89,7 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.GnDtP.DefaultCellStyle = dataGridViewCellStyle3;
             this.GnDtP.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.GnDtP.Location = new System.Drawing.Point(0, 46);
-            this.GnDtP.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.GnDtP.Location = new System.Drawing.Point(0, 37);
             this.GnDtP.Name = "GnDtP";
             this.GnDtP.ReadOnly = true;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -105,7 +105,7 @@
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.GnDtP.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.GnDtP.RowTemplate.Height = 35;
-            this.GnDtP.Size = new System.Drawing.Size(1195, 551);
+            this.GnDtP.Size = new System.Drawing.Size(896, 448);
             this.GnDtP.TabIndex = 4;
             this.GnDtP.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.GnDtP.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -203,10 +203,9 @@
             this.guna2Button1.FillColor = System.Drawing.Color.RoyalBlue;
             this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.Location = new System.Drawing.Point(1059, 5);
-            this.guna2Button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.guna2Button1.Location = new System.Drawing.Point(794, 4);
             this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(91, 34);
+            this.guna2Button1.Size = new System.Drawing.Size(68, 28);
             this.guna2Button1.TabIndex = 9;
             this.guna2Button1.Text = " Thêm";
             this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
@@ -225,13 +224,13 @@
             this.txtSearch.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtSearch.Location = new System.Drawing.Point(256, 5);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtSearch.Location = new System.Drawing.Point(192, 4);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.PasswordChar = '\0';
             this.txtSearch.PlaceholderText = "";
             this.txtSearch.SelectedText = "";
-            this.txtSearch.Size = new System.Drawing.Size(252, 37);
+            this.txtSearch.Size = new System.Drawing.Size(189, 30);
             this.txtSearch.TabIndex = 10;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
@@ -246,9 +245,8 @@
             this.guna2Panel1.CustomBorderColor = System.Drawing.Color.Red;
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
-            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(1195, 46);
+            this.guna2Panel1.Size = new System.Drawing.Size(896, 37);
             this.guna2Panel1.TabIndex = 3;
             // 
             // btnSearch
@@ -263,10 +261,9 @@
             this.btnSearch.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnSearch.ForeColor = System.Drawing.Color.White;
             this.btnSearch.Image = global::DO_AN_KI_2.Properties.Resources.SearchT;
-            this.btnSearch.Location = new System.Drawing.Point(493, 5);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSearch.Location = new System.Drawing.Point(370, 4);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(45, 37);
+            this.btnSearch.Size = new System.Drawing.Size(34, 30);
             this.btnSearch.TabIndex = 11;
             // 
             // label1
@@ -275,23 +272,22 @@
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label1.Image = global::DO_AN_KI_2.Properties.Resources.allProduct;
             this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label1.Location = new System.Drawing.Point(4, 11);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(3, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(244, 26);
+            this.label1.Size = new System.Drawing.Size(183, 21);
             this.label1.TabIndex = 1;
             this.label1.Text = "TẤT CẢ SẢN PHẨM ";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // AllProduct
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1195, 604);
+            this.ClientSize = new System.Drawing.Size(896, 491);
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.GnDtP);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AllProduct";
             this.Text = "AllProduct";
             this.Load += new System.EventHandler(this.AllProduct_Load);

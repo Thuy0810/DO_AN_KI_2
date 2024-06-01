@@ -116,6 +116,7 @@
             // 
             // imgPay
             // 
+            this.imgPay.Image = global::DO_AN_KI_2.Properties.Resources.Qr_Code;
             this.imgPay.Location = new System.Drawing.Point(270, 12);
             this.imgPay.Name = "imgPay";
             this.imgPay.Size = new System.Drawing.Size(302, 378);
