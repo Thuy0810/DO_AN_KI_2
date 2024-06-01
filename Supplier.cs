@@ -1,19 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DO_AN_KI_2
 {
     public partial class Supplier : Form
     {
-        DataServices services= new DataServices();
+        DataServices services = new DataServices();
         public Supplier()
         {
             InitializeComponent();
@@ -25,17 +19,17 @@ namespace DO_AN_KI_2
             services.OpenDB();
             DisplaySupplier();
         }
-        private void DisplaySupplier()
+        public void DisplaySupplier()
         {
             try
             {
                 string QueryShowsSupplier = "select * from tblSUPPLIER";
-                using (SqlCommand command= new SqlCommand(QueryShowsSupplier,services.connection))
-                { 
-                    using (SqlDataAdapter adapter= new SqlDataAdapter(command))
+                using (SqlCommand command = new SqlCommand(QueryShowsSupplier, services.connection))
+                {
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(command))
                     {
                         DataSet dataSet = new DataSet();
-                        adapter.Fill(dataSet,"Supplier");
+                        adapter.Fill(dataSet, "Supplier");
                         DataTable dataTable = dataSet.Tables["Supplier"];
                         GnDtSupplier.Rows.Clear();
 
@@ -74,7 +68,7 @@ namespace DO_AN_KI_2
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            SupplierDetails supplierDetails = new SupplierDetails(0,false);
+            SupplierDetails supplierDetails = new SupplierDetails(0, false);
             supplierDetails.ShowDialog();
             DisplaySupplier();
         }
@@ -87,7 +81,7 @@ namespace DO_AN_KI_2
             }
             try
             {
-                if(string.IsNullOrEmpty(txtSearcSupplier.Text))
+                if (string.IsNullOrEmpty(txtSearcSupplier.Text))
                 {
                     DisplaySupplier();
                     return;
@@ -96,27 +90,27 @@ namespace DO_AN_KI_2
                 {
                     services.OpenDB();
                     string querySearchSupplier = "select * from tblSUPPLIER where supplierName like @supplierName";
-                    SqlCommand command= new SqlCommand(querySearchSupplier, services.connection);
+                    SqlCommand command = new SqlCommand(querySearchSupplier, services.connection);
                     command.Parameters.AddWithValue("@supplierName", "%" + txtSearcSupplier.Text.Trim('\'') + "%");
-                    using(SqlDataAdapter adapter = new SqlDataAdapter(command))
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(command))
                     {
                         DataSet dataSet = new DataSet();
-                        adapter.Fill(dataSet,"Supplier");
+                        adapter.Fill(dataSet, "Supplier");
                         DataTable dataTable = dataSet.Tables["Supplier"];
                         GnDtSupplier.Rows.Clear();
-                        foreach(DataRow row in dataTable.Rows)
+                        foreach (DataRow row in dataTable.Rows)
                         {
-                            int id= Convert.ToInt32(row["supplierID"]);
-                            string suplierName= row["supplierName"].ToString();
+                            int id = Convert.ToInt32(row["supplierID"]);
+                            string suplierName = row["supplierName"].ToString();
                             string phone = row["phone"].ToString();
-                            string email= row["email"].ToString() ;
-                            string adress= row["adress"].ToString() ;
+                            string email = row["email"].ToString();
+                            string adress = row["adress"].ToString();
                             GnDtSupplier.Rows.Add(id, suplierName, phone, email, adress);
-                        }   
+                        }
                     }
                 }
             }
-            catch 
+            catch
             {
                 services.ShowErrorMessageBox("Có lỗi xảy ra");
             }
@@ -131,11 +125,11 @@ namespace DO_AN_KI_2
                 dialogResult = MessageBox.Show("Chắc chắn xóa nhà cung cấp đã chọn không ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dialogResult == DialogResult.No) return;
 
-              int r=GnDtSupplier.CurrentRow.Index;
-              string supplierID= GnDtSupplier.Rows[r].Cells[0].Value.ToString();
-              string quyery2 = "delete from tblSUPPLIER where supplierID=" + supplierID;
-               SqlCommand command1 = new SqlCommand(quyery2, services.connection);
-               command1.ExecuteNonQuery();
+                int r = GnDtSupplier.CurrentRow.Index;
+                string supplierID = GnDtSupplier.Rows[r].Cells[0].Value.ToString();
+                string quyery2 = "delete from tblSUPPLIER where supplierID=" + supplierID;
+                SqlCommand command1 = new SqlCommand(quyery2, services.connection);
+                command1.ExecuteNonQuery();
                 services.CloseDB();
 
                 GnDtSupplier.Rows.Clear();

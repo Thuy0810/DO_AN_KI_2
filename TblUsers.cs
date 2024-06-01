@@ -20,7 +20,7 @@ namespace DO_AN_KI_2
             DisplayUser();
 
         }
-        private void DisplayUser()
+        public void DisplayUser()
         {
             services.OpenDB();
             string query = @"select tblUSER.userID,tblROLE.roleName, fullName, userName, password, phone from tblUSER inner join tblUSERROLE on tblUSER.userID  = tblUSERROLE.userID inner join tblROLE on tblROLE.roleID= tblUSERROLE.roleID";
