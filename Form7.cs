@@ -66,5 +66,10 @@ namespace DO_AN_KI_2
         {
 
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
