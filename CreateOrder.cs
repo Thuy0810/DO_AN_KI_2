@@ -29,7 +29,7 @@ namespace DO_AN_KI_2
 
         }
 
-        void fillCustomer()
+        public void fillCustomer()
         {
             string query = "select * from tblCUSTOMER";
             customerSelect.DataSource = services.ShowObjectData(query);
