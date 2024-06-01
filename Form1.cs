@@ -12,7 +12,7 @@ namespace DO_AN_KI_2
         AllProduct allProduct;
         Supplier supplier;
         Import import;
-        WareHouse wareHouse;
+        
         Category category;
         Customer customer;
         Guarantee revenue;
@@ -50,7 +50,7 @@ namespace DO_AN_KI_2
             if (MenuEx == false)
             {
                 MenuContainer.Height += 10;
-                if (MenuContainer.Height >= 230)
+                if (MenuContainer.Height >= 186)
                 {
                     Menu_Transiton.Stop();
                     MenuEx = true;
@@ -224,26 +224,7 @@ namespace DO_AN_KI_2
             import = null;
         }
 
-        private void guna2Button5_Click(object sender, EventArgs e)
-        {
-            if (wareHouse == null)
-            {
-                wareHouse = new WareHouse();
-                wareHouse.FormClosed += Warehouse_FormClosed;
-                wareHouse.MdiParent = this;
-                wareHouse.Dock = DockStyle.Fill;
-                wareHouse.Show();
-            }
-            else
-            {
-                wareHouse.Activate();
-            }
-        }
-        private void Warehouse_FormClosed(Object sender, EventArgs e)
-        {
-            wareHouse = null;
-        }
-
+      
         private void PNCategpry_Click(object sender, EventArgs e)
         {
             if (category == null)
