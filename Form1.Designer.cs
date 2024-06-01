@@ -44,7 +44,6 @@
             this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button5 = new Guna.UI2.WinForms.Guna2Button();
             this.btnBill = new Guna.UI2.WinForms.Guna2Button();
             this.PNCategpry = new Guna.UI2.WinForms.Guna2Button();
             this.pnCustomer = new Guna.UI2.WinForms.Guna2Button();
@@ -236,11 +235,10 @@
             this.MenuContainer.Controls.Add(this.guna2Button3);
             this.MenuContainer.Controls.Add(this.guna2Button4);
             this.MenuContainer.Controls.Add(this.guna2Button2);
-            this.MenuContainer.Controls.Add(this.guna2Button5);
             this.MenuContainer.ForeColor = System.Drawing.Color.Black;
             this.MenuContainer.Location = new System.Drawing.Point(9, 66);
             this.MenuContainer.Name = "MenuContainer";
-            this.MenuContainer.Size = new System.Drawing.Size(169, 42);
+            this.MenuContainer.Size = new System.Drawing.Size(169, 47);
             this.MenuContainer.TabIndex = 5;
             // 
             // Menu1
@@ -341,30 +339,6 @@
             this.guna2Button2.Text = "   Nhập Hàng";
             this.guna2Button2.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.guna2Button2.Click += new System.EventHandler(this.guna2Button2_Click);
-            // 
-            // guna2Button5
-            // 
-            this.guna2Button5.BackColor = System.Drawing.Color.White;
-            this.guna2Button5.BorderRadius = 5;
-            this.guna2Button5.CustomBorderColor = System.Drawing.Color.Silver;
-            this.guna2Button5.CustomBorderThickness = new System.Windows.Forms.Padding(1);
-            this.guna2Button5.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button5.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button5.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button5.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button5.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.guna2Button5.Font = new System.Drawing.Font("HoloLens MDL2 Assets", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button5.ForeColor = System.Drawing.Color.Black;
-            this.guna2Button5.Image = global::DO_AN_KI_2.Properties.Resources.w2;
-            this.guna2Button5.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.guna2Button5.ImageOffset = new System.Drawing.Point(15, 0);
-            this.guna2Button5.Location = new System.Drawing.Point(3, 182);
-            this.guna2Button5.Name = "guna2Button5";
-            this.guna2Button5.Size = new System.Drawing.Size(166, 39);
-            this.guna2Button5.TabIndex = 4;
-            this.guna2Button5.Text = "   Kho Hàng";
-            this.guna2Button5.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.guna2Button5.Click += new System.EventHandler(this.guna2Button5_Click);
             // 
             // btnBill
             // 
@@ -573,7 +547,6 @@
         private Guna.UI2.WinForms.Guna2Button PnHome;
         private Guna.UI2.WinForms.Guna2Button pnCustomer;
         private Guna.UI2.WinForms.Guna2Button btnBill;
-        private Guna.UI2.WinForms.Guna2Button guna2Button5;
         private Guna.UI2.WinForms.Guna2Button btnRevenue;
         private Guna.UI2.WinForms.Guna2Button btnUser;
         private Guna.UI2.WinForms.Guna2Button btnTrademark;
