@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DO_AN_KI_2.service;
+using System;
 using System.Data;
 using System.Windows.Forms;
 
@@ -12,16 +13,19 @@ namespace DO_AN_KI_2
             InitializeComponent();
         }
 
-
-        private void Category_Load(object sender, EventArgs e)
+        public void load()
         {
-            this.ControlBox = false;
             string query = "SELECT * from tblCATEGORY ";
             DataTable dataTable = (DataTable)services.ShowObjectData(query);
             foreach (DataRow row in dataTable.Rows)
             {
                 dataGridView.Rows.Add((string)row["categoryID"].ToString(), (string)row["Name"], (string)row["description"], Properties.Resources.Delete2);
             }
+        }
+        private void Category_Load(object sender, EventArgs e)
+        {
+            this.ControlBox = false;
+            load();
         }
 
         private void dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -62,7 +66,9 @@ namespace DO_AN_KI_2
         private void guna2Button1_Click_1(object sender, EventArgs e)
         {
             Form7 frm7 = new Form7();
-            frm7.Show();
+            frm7.ShowDialog();
+            message.showSucess("Thêm thành công");
+            load();
         }
     }
 }
