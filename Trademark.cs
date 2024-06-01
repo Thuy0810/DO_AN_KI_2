@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DO_AN_KI_2.service;
+using System;
 using System.Data;
 using System.Windows.Forms;
 
@@ -27,22 +28,29 @@ namespace DO_AN_KI_2
         {
 
         }
-
-        private void Trademark_Load(object sender, EventArgs e)
+        
+    void load()
+    {
+        string query = "Select * from tblTRADEMARK";
+        DataTable dataTable = (DataTable)services.ShowObjectData(query);
+        foreach (DataRow row in dataTable.Rows)
+        {
+            dataGridView.Rows.Add((string)row["trademarkID"].ToString(), (string)row["nameT"], (string)row["description"], Properties.Resources.Delete2);
+        }
+    }
+    private void Trademark_Load(object sender, EventArgs e)
         {
             this.ControlBox = false;
-            string query = "Select * from tblTRADEMARK";
-            DataTable dataTable = (DataTable)services.ShowObjectData(query);
-            foreach (DataRow row in dataTable.Rows)
-            {
-                dataGridView.Rows.Add((string)row["trademarkID"].ToString(), (string)row["nameT"], (string)row["description"], Properties.Resources.Delete2);
-            }
+           load();  
+
         }
 
         private void guna2Button1_Click_1(object sender, EventArgs e)
         {
             Form8 frm8 = new Form8();
-            frm8.Show();
+            frm8.ShowDialog();
+            message.showSucess("Thêm thành công");
+            load();
         }
     }
 }
