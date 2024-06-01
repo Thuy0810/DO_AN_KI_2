@@ -108,7 +108,10 @@ namespace DO_AN_KI_2
                             break;
                         }
                     }
-                    DataGridView.Rows[rowIndex].Cells[3].Value = listProductModel[index].quantity.ToString();
+                    if (rowIndex != 1)
+                    {
+                        DataGridView.Rows[rowIndex].Cells[3].Value = listProductModel[index].quantity.ToString();
+                    }
                 }
                 else
                 {
