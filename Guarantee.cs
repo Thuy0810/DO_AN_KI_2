@@ -25,6 +25,7 @@ namespace DO_AN_KI_2
 
         private void Guarantee_Load(object sender, EventArgs e)
         {
+            this.ControlBox = false;
             fetchData();
         }
 
