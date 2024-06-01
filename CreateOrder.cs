@@ -47,9 +47,11 @@ namespace DO_AN_KI_2
                 employ.Text = employName;
                 dateOrder.Text = DateTime.Now.ToString();
                 this.ControlBox = false;
+                label1.Text = "XEM ĐƠN HÀNG";
             }
             else
             {
+                AddCustomer.Visible = false;
                 employ.Text = model.employName;
                 dateOrder.Text = model.date;
                 customerSelect.SelectedValue = model.customer;
@@ -108,7 +110,10 @@ namespace DO_AN_KI_2
                             break;
                         }
                     }
-                    DataGridView.Rows[rowIndex].Cells[3].Value = listProductModel[index].quantity.ToString();
+                    if (rowIndex != 1)
+                    {
+                        DataGridView.Rows[rowIndex].Cells[3].Value = listProductModel[index].quantity.ToString();
+                    }
                 }
                 else
                 {

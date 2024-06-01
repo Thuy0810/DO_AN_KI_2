@@ -147,6 +147,7 @@ namespace DO_AN_KI_2
             }
             else
             {
+                home.load();
                 home.Activate();
             }
         }

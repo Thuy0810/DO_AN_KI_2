@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SupplierDetails));
             this.btnSaveCustomer = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -272,6 +273,7 @@
             this.Controls.Add(this.btnSaveCustomer);
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.guna2Panel3);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SupplierDetails";
             this.Text = "SupplierDetails";
             this.Load += new System.EventHandler(this.SupplierDetails_Load);
