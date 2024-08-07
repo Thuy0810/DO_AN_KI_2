@@ -26,10 +26,12 @@ namespace DO_AN_KI_2
             if (txtUserName.Text.Length == 0)
             {
                 message.showWarning("Tên người dùng không được để trống");
+                return;
             }
             if (txtPass.Text.Length == 0)
             {
                 message.showWarning("Mật khẩu không được để trống");
+                return;
             }
 
             string querySignUp = "select fullName ,userID from tblUSER where userName= @userName and password= @password";

@@ -12,7 +12,7 @@ namespace DO_AN_KI_2
         AllProduct allProduct;
         Supplier supplier;
         Import import;
-        
+
         Category category;
         Customer customer;
         Guarantee revenue;
@@ -224,7 +224,7 @@ namespace DO_AN_KI_2
             import = null;
         }
 
-      
+
         private void PNCategpry_Click(object sender, EventArgs e)
         {
             if (category == null)
@@ -394,6 +394,7 @@ namespace DO_AN_KI_2
             }
             else
             {
+                createOrder.fillCustomer();
                 createOrder.Activate();
             }
         }
